@@ -24,32 +24,6 @@ public class ArrayRotation
 
      */
 
-    public static void main(String[] args)
-    {
-        int[][] array = createArray(10, 10);
-        printArrayRotation(array);
-
-        int[][] array2 = createArray(12, 10);
-        printArrayRotation(array2);
-    }
-
-    private static void printArrayRotation(int[][] array)
-    {
-        printArray(array);
-
-        array = rotate90Degrees(array);
-        printArray(array);
-
-        array = rotate90Degrees(array);
-        printArray(array);
-
-        array = rotate90Degrees(array);
-        printArray(array);
-
-        array = rotate90Degrees(array);
-        printArray(array);
-    }
-
     public static int[][] rotate90Degrees(int[][] array)
     {
         int width = array[0].length;
@@ -64,35 +38,5 @@ public class ArrayRotation
             }
         }
         return rotatedArray;
-    }
-
-    private static int[][] createArray(int width, int height)
-    {
-        int[][] array = new int[height][width];
-
-        for (int i = 0; i < height; i++)
-        {
-            for (int j = 0; j < width; j++)
-            {
-                array[i][j] = j + (i*height);
-            }
-        }
-        return array;
-    }
-
-    private static void printArray(int[][] array)
-    {
-        int width = array.length;
-        int height = array[0].length;
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                System.out.print("[" + String.format("%03d", array[i][j]) + "]");
-            }
-            System.out.print("\n");
-        }
-        System.out.println();
-        System.out.println();
     }
 }
