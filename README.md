@@ -1,12 +1,15 @@
 # Puzzlers
 
-This is a collection of various algorithms that I have come across over the years that are interesting/useful enough to keep note of. 
+This is a collection of various algorithms that I have come across over the years that are interesting/useful enough to keep note of.
+They have been implemented in Java.
 
 Note: The implementations here are by no means the best or most elegant solutions, just what I have come up with.
 
 ## Algorithms
 
 * Strings
+  1. Determine if a string has all unique characters
+  1. Determine if a string has all unique characters (without using additional data structures)
 * Arrays
   1. Rotate an NxN 2D array by 90 degrees
   1. Rotate an NxM 2D array by 90 degrees

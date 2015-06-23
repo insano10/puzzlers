@@ -1,4 +1,4 @@
-package com.insano10.puzzlers;
+package com.insano10.puzzlers.arrays;
 
 public class SpiralArrayTraversalNN
 {
