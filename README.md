@@ -10,6 +10,8 @@ Note: The implementations here are by no means the best or most elegant solution
 * Strings
   1. Determine if a string has all unique characters
   1. Determine if a string has all unique characters (without using additional data structures)
+  1. Reverse a string
+  1. Reverse a C-style string
 * Arrays
   1. Rotate an NxN 2D array by 90 degrees
   1. Rotate an NxM 2D array by 90 degrees
