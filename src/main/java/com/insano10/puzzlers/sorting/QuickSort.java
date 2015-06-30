@@ -1,5 +1,8 @@
 package com.insano10.puzzlers.sorting;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class QuickSort {
 
     public static void sortWithExtraDataStructures(char[] array) {
@@ -63,9 +66,55 @@ public class QuickSort {
         }
     }
 
+    public static List<Character> sortWithArrayLists(List<Character> characterList) {
+
+        if(characterList == null) {
+            throw new IllegalArgumentException("Array is null");
+        }
+
+        //base case
+        if (characterList.size() <= 1) {
+            return characterList;
+        }
+
+        //choose a pivot point
+        int pivotIndex = choosePivotIndex(characterList);
+
+        //ensure all chars left of pivot are smaller, and right are larger
+        List<Character> smaller = new ArrayList<>(characterList.size());
+        List<Character>  equal = new ArrayList<>(characterList.size());
+        List<Character>  greater = new ArrayList<>(characterList.size());
+
+        for (int i = 0; i < characterList.size(); i++) {
+
+            if (characterList.get(i) < characterList.get(pivotIndex)) {
+                smaller.add(characterList.get(i));
+            } else if (characterList.get(i) == characterList.get(pivotIndex)) {
+                equal.add(characterList.get(i));
+            } else {
+                greater.add(characterList.get(i));
+            }
+        }
+
+        //run quicksort on both sides of the pivot
+        smaller = sortWithArrayLists(smaller);
+        greater = sortWithArrayLists(greater);
+
+        //recombine the arrays
+        smaller.addAll(equal);
+        smaller.addAll(greater);
+
+        return smaller;
+    }
+
     private static int choosePivotIndex(char[] array) {
 
         return array.length / 2;
+    }
+
+    private static int choosePivotIndex(List<Character> characterList) {
+
+        return characterList.size() / 2;
     }
 
     private static char[] resize(char[] array, int newSize) {
