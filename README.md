@@ -20,5 +20,6 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Traverse an NxM 2D array in a spiral pattern
 * Sorting
   1. QuickSort (using additional data structures)
+  1. QuickSort (using ArrayLists instead of arrays)
   1. QuickSort (in place, without additional data structures)
 * Linked Lists
