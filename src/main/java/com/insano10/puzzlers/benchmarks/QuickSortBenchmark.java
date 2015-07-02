@@ -18,4 +18,10 @@ public class QuickSortBenchmark {
 
         QuickSort.sortWithArrayLists(Arrays.asList('g', 's', 't', 'a', 'b', 'w', 'e'));
     }
+
+    @Benchmark
+    public void benchmarkQuickSortInPlace() {
+
+        QuickSort.sortInPlace(new char[]{'g', 's', 't', 'a', 'b', 'w', 'e'});
+    }
 }

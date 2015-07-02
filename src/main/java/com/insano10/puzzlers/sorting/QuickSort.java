@@ -7,7 +7,7 @@ public class QuickSort {
 
     public static void sortWithExtraDataStructures(char[] array) {
 
-        if(array == null) {
+        if (array == null) {
             throw new IllegalArgumentException("Array is null");
         }
 
@@ -68,7 +68,7 @@ public class QuickSort {
 
     public static List<Character> sortWithArrayLists(List<Character> characterList) {
 
-        if(characterList == null) {
+        if (characterList == null) {
             throw new IllegalArgumentException("Array is null");
         }
 
@@ -82,8 +82,8 @@ public class QuickSort {
 
         //ensure all chars left of pivot are smaller, and right are larger
         List<Character> smaller = new ArrayList<>(characterList.size());
-        List<Character>  equal = new ArrayList<>(characterList.size());
-        List<Character>  greater = new ArrayList<>(characterList.size());
+        List<Character> equal = new ArrayList<>(characterList.size());
+        List<Character> greater = new ArrayList<>(characterList.size());
 
         for (int i = 0; i < characterList.size(); i++) {
 
@@ -107,9 +107,63 @@ public class QuickSort {
         return smaller;
     }
 
+    public static void sortInPlace(char[] array) {
+
+        if (array == null) {
+            throw new IllegalArgumentException("Array is null");
+        }
+
+        //sort the whole length of the array
+        quickSortInner(array, 0, array.length - 1);
+    }
+
+    private static void quickSortInner(char[] array, int startIndex, int endIndex) {
+
+        //as long as there is more than a single element to sort...
+        if(endIndex - startIndex >= 1) {
+
+            int pivotIndex = choosePivotIndex(array, startIndex, endIndex);
+            int left = startIndex;
+            int right = endIndex;
+
+            //walk the 'left' and 'right' pointers inwards towards the pivot keeping elements less than 'left' to the left
+            //and elements greater than 'right' to the right
+            while(left <= right) {
+
+                while(array[left] < array[pivotIndex]) {
+                    left += 1;
+                }
+                while(array[right] > array[pivotIndex]) {
+                    right -= 1;
+                }
+
+                //if you cannot walk the pointers in any further then swap those elements
+                // - the 'right' element must be less than the pivot otherwise you could walk further
+                // - the 'left' element must be greater than the pivot for the same reason
+                if(left <= right) {
+                    char tmp = array[left];
+                    array[left] = array[right];
+                    array[right] = tmp;
+                    left += 1;
+                    right -= 1;
+                }
+            }
+
+            //continue sorting the 2 halves of the array ('left' is now higher than 'right')
+            //this will continue until the 2 halves only have a single element each
+            quickSortInner(array, startIndex, right);
+            quickSortInner(array, left, endIndex);
+        }
+    }
+
     private static int choosePivotIndex(char[] array) {
 
         return array.length / 2;
+    }
+
+    private static int choosePivotIndex(char[] array, int startIndex, int endIndex) {
+
+        return startIndex + (endIndex - startIndex)/2;
     }
 
     private static int choosePivotIndex(List<Character> characterList) {
