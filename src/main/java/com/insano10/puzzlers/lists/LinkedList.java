@@ -1,5 +1,8 @@
 package com.insano10.puzzlers.lists;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class LinkedList<T>
 {
     private Node<T> head;
@@ -108,6 +111,65 @@ public class LinkedList<T>
         {
             throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
         }
+    }
+
+    public boolean removeDuplicates()
+    {
+        if(head == null)
+        {
+            return false;
+        }
+
+        Set<T> elementsSeen = new HashSet<>();
+        boolean removedElements = false;
+        Node<T> currentNode = head;
+
+        while(currentNode != null)
+        {
+            if(elementsSeen.contains(currentNode.data))
+            {
+                removeNode(currentNode);
+                removedElements = true;
+            }
+            else
+            {
+                elementsSeen.add(currentNode.data);
+            }
+
+            currentNode = currentNode.next;
+        }
+
+        return removedElements;
+    }
+
+    public boolean removeDuplicatesNoExtraDataStructure()
+    {
+        if(head == null)
+        {
+            return false;
+        }
+
+        boolean removedElements = false;
+        Node<T> currentNode = head;
+
+        while(currentNode != null)
+        {
+            //remove occurrences of this element from later on in the list
+            Node<T> possibleDuplicate = currentNode.next;
+            while(possibleDuplicate != null)
+            {
+                if(possibleDuplicate.data.equals(currentNode.data))
+                {
+                    removeNode(possibleDuplicate);
+                    removedElements = true;
+                }
+                possibleDuplicate = possibleDuplicate.next;
+            }
+
+            currentNode = currentNode.next;
+        }
+
+        return removedElements;
     }
 
     private static class Node<T>
