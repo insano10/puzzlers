@@ -1,7 +1,8 @@
 package com.insano10.puzzlers.lists;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LinkedListTest
 {
@@ -18,12 +19,60 @@ public class LinkedListTest
         list.add("a");
         list.add("list");
 
-        Assertions.assertThat(list.get(0)).isEqualTo("hello");
-        Assertions.assertThat(list.get(1)).isEqualTo("world");
-        Assertions.assertThat(list.get(2)).isEqualTo("this");
-        Assertions.assertThat(list.get(3)).isEqualTo("is");
-        Assertions.assertThat(list.get(4)).isEqualTo("a");
-        Assertions.assertThat(list.get(5)).isEqualTo("list");
+        assertThat(list.get(0)).isEqualTo("hello");
+        assertThat(list.get(1)).isEqualTo("world");
+        assertThat(list.get(2)).isEqualTo("this");
+        assertThat(list.get(3)).isEqualTo("is");
+        assertThat(list.get(4)).isEqualTo("a");
+        assertThat(list.get(5)).isEqualTo("list");
+    }
+
+    @Test
+    public void shouldRemoveElementsFromList() throws Exception
+    {
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("hello");
+        list.add("world");
+
+        assertThat(list.remove("notThere")).isFalse();
+
+        assertThat(list.remove("world")).isTrue();
+        assertThat(list.get(0)).isEqualTo("hello");
+        assertThat(list.size()).isEqualTo(1);
+
+        assertThat(list.remove("hello")).isTrue();
+        assertThat(list.size()).isEqualTo(0);
+
+        assertThat(list.remove("stillNotThere")).isFalse();
+    }
+
+    @Test
+    public void shouldRemoveHeadOfTheList() throws Exception
+    {
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("hello");
+        list.add("world");
+
+        assertThat(list.remove("hello")).isTrue();
+        assertThat(list.get(0)).isEqualTo("world");
+        assertThat(list.size()).isEqualTo(1);
+    }
+
+    @Test
+    public void shouldRemoveThenAddElementToList() throws Exception
+    {
+        LinkedList<String> list = new LinkedList<>();
+
+        list.add("hello");
+
+        assertThat(list.remove("hello")).isTrue();
+        assertThat(list.size()).isEqualTo(0);
+
+        list.add("world");
+        assertThat(list.get(0)).isEqualTo("world");
+        assertThat(list.size()).isEqualTo(1);
     }
 
     @Test(expected = IndexOutOfBoundsException.class)

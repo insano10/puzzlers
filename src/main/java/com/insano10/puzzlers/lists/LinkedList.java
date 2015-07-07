@@ -22,6 +22,7 @@ public class LinkedList<T>
         }
         else
         {
+            newNode.setPrev(tail);
             tail.setNext(newNode);
             tail = newNode;
         }
@@ -41,6 +42,62 @@ public class LinkedList<T>
         return node.data;
     }
 
+    public boolean remove(T data)
+    {
+        if(head == null)
+        {
+            return false;
+        }
+        else
+        {
+            Node<T> currentNode = head;
+
+            while(currentNode != null)
+            {
+                if(currentNode.data.equals(data))
+                {
+                    removeNode(currentNode);
+                    return true;
+                }
+                currentNode = currentNode.next;
+            }
+        }
+        return false;
+    }
+
+    private void removeNode(Node<T> currentNode)
+    {
+        if(currentNode.prev == null)
+        {
+            //head is being removed
+            if(currentNode.next == null)
+            {
+                head = null;
+            }
+            else
+            {
+                head = currentNode.next;
+            }
+        }
+        else
+        {
+            //zip the 2 surrounding nodes together
+            currentNode.prev.next = currentNode.next;
+
+            if(currentNode.next == null)
+            {
+                tail = currentNode.prev;
+            }
+        }
+
+        size--;
+    }
+
+    public long size()
+    {
+        return size;
+    }
+
     private void checkIndex(int index)
     {
         if(index < 0)
@@ -55,6 +112,7 @@ public class LinkedList<T>
 
     private static class Node<T>
     {
+        private Node<T> prev;
         private Node<T> next;
         private T data;
 
@@ -66,6 +124,10 @@ public class LinkedList<T>
         public void setNext(Node<T> node)
         {
             this.next = node;
+        }
+        public void setPrev(Node<T> node)
+        {
+            this.prev = node;
         }
     }
 
