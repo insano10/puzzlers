@@ -1,5 +1,8 @@
 package com.insano10.puzzlers.lists;
 
+import com.insano10.puzzlers.sorting.QuickSort;
+
+import java.lang.reflect.Array;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,7 +10,7 @@ public class LinkedList<T>
 {
     private Node<T> head;
     private Node<T> tail;
-    private long size;
+    private int size;
 
     public LinkedList()
     {
@@ -68,49 +71,15 @@ public class LinkedList<T>
         return false;
     }
 
-    private void removeNode(Node<T> currentNode)
+    public void clear()
     {
-        if(currentNode.prev == null)
-        {
-            //head is being removed
-            if(currentNode.next == null)
-            {
-                head = null;
-            }
-            else
-            {
-                head = currentNode.next;
-            }
-        }
-        else
-        {
-            //zip the 2 surrounding nodes together
-            currentNode.prev.next = currentNode.next;
-
-            if(currentNode.next == null)
-            {
-                tail = currentNode.prev;
-            }
-        }
-
-        size--;
+        head = null;
+        size = 0;
     }
 
-    public long size()
+    public int size()
     {
         return size;
-    }
-
-    private void checkIndex(int index)
-    {
-        if(index < 0)
-        {
-            throw new IllegalArgumentException("Index is negative: " + index);
-        }
-        if(index >= size)
-        {
-            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
-        }
     }
 
     public boolean removeDuplicates()
@@ -170,6 +139,66 @@ public class LinkedList<T>
         }
 
         return removedElements;
+    }
+
+    private void checkIndex(int index)
+    {
+        if(index < 0)
+        {
+            throw new IllegalArgumentException("Index is negative: " + index);
+        }
+        if(index >= size)
+        {
+            throw new IndexOutOfBoundsException("Index: " + index + ", Size: " + size);
+        }
+    }
+
+    private void removeNode(Node<T> currentNode)
+    {
+        if(size == 1)
+        {
+            clear();
+        }
+        else
+        {
+            if(currentNode.prev == null)
+            {
+                //head is being removed
+                head = currentNode.next;
+            }
+            else
+            {
+                //zip the 2 surrounding nodes together
+                currentNode.prev.next = currentNode.next;
+
+                if(currentNode.next == null)
+                {
+                    tail = currentNode.prev;
+                }
+            }
+            size--;
+        }
+    }
+
+    public static <T extends Comparable<T>> void sortAscending(LinkedList<T> list, Class<T> listClass)
+    {
+        if(list.size() > 0)
+        {
+            T[] array = (T[])Array.newInstance(listClass, list.size());
+
+            for (int i = 0; i < list.size(); i++)
+            {
+                array[i] = list.get(i);
+            }
+
+            QuickSort.sortInPlace(array);
+
+            list.clear();
+            for (int i = 0; i < array.length; i++)
+            {
+                list.add(array[i]);
+            }
+        }
     }
 
     private static class Node<T>

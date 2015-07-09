@@ -12,12 +12,17 @@ public class StringAnagrams {
             throw new IllegalArgumentException("Cannot process null string");
         }
 
-        char[] str1CharArray = str1.toCharArray();
-        char[] str2CharArray = str2.toCharArray();
+        Character[] str1CharArray = getCharacterArray(str1);
+        Character[] str2CharArray = getCharacterArray(str2);
 
         QuickSort.sortWithExtraDataStructures(str1CharArray);
         QuickSort.sortWithExtraDataStructures(str2CharArray);
 
         return Arrays.equals(str1CharArray, str2CharArray);
+    }
+
+    private static Character[] getCharacterArray(String str)
+    {
+        return str.chars().mapToObj(c -> (char)c).toArray(Character[]::new);
     }
 }

@@ -10,8 +10,8 @@ public class QuickSortWithExtraDataStructuresTest {
     @Test
     public void shouldSortUnsortedArray() throws Exception {
 
-        char[] unsortedArray = {'b', 'e', 'a', 'h', 'c'};
-        char[] sortedArray = {'a', 'b', 'c', 'e', 'h'};
+        Character[] unsortedArray = {'b', 'e', 'a', 'h', 'c'};
+        Character[] sortedArray = {'a', 'b', 'c', 'e', 'h'};
 
         QuickSort.sortWithExtraDataStructures(unsortedArray);
 
@@ -21,8 +21,8 @@ public class QuickSortWithExtraDataStructuresTest {
     @Test
     public void shouldSortAlreadySortedArray() throws Exception {
 
-        char[] sortedArray = {'a', 'b', 'c', 'e', 'h'};
-        char[] expectedSortedArray = {'a', 'b', 'c', 'e', 'h'};
+        Character[] sortedArray = {'a', 'b', 'c', 'e', 'h'};
+        Character[] expectedSortedArray = {'a', 'b', 'c', 'e', 'h'};
 
         QuickSort.sortWithExtraDataStructures(sortedArray);
 
@@ -32,8 +32,8 @@ public class QuickSortWithExtraDataStructuresTest {
     @Test
     public void shouldSortArrayWithAllSameValues() throws Exception {
 
-        char[] sortedArray = {'a', 'a', 'a', 'a', 'a', 'a'};
-        char[] expectedSortedArray = {'a', 'a', 'a', 'a', 'a', 'a'};
+        Character[] sortedArray = {'a', 'a', 'a', 'a', 'a', 'a'};
+        Character[] expectedSortedArray = {'a', 'a', 'a', 'a', 'a', 'a'};
 
         QuickSort.sortWithExtraDataStructures(sortedArray);
 
@@ -43,7 +43,7 @@ public class QuickSortWithExtraDataStructuresTest {
     @Test
     public void shouldSortEmptyArray() throws Exception {
 
-        char[] emptyArray = new char[0];
+        Character[] emptyArray = new Character[0];
 
         QuickSort.sortWithExtraDataStructures(emptyArray);
 

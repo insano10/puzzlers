@@ -195,6 +195,23 @@ public class LinkedListTest
         assertThat(list.size()).isEqualTo(0);
     }
 
+    @Test
+    public void shouldSortInAscendingOrder() throws Exception
+    {
+        LinkedList<String> list = new LinkedList<>();
+        list.add("d");
+        list.add("c");
+        list.add("a");
+        list.add("b");
+
+        LinkedList.sortAscending(list, String.class);
+
+        assertThat(list.get(0)).isEqualTo("a");
+        assertThat(list.get(1)).isEqualTo("b");
+        assertThat(list.get(2)).isEqualTo("c");
+        assertThat(list.get(3)).isEqualTo("d");
+    }
+
     @Test(expected = IndexOutOfBoundsException.class)
     public void shouldThrowIndexOutOfBoundsExceptionWhenAskingForTheZerothElementInAnEmptyList() throws Exception
     {

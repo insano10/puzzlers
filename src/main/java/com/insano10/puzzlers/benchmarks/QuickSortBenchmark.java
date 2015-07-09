@@ -10,7 +10,7 @@ public class QuickSortBenchmark {
     @Benchmark
     public void benchmarkQuickSortWithExtraDataStructures() {
 
-        QuickSort.sortWithExtraDataStructures(new char[]{'g', 's', 't', 'a', 'b', 'w', 'e'});
+        QuickSort.sortWithExtraDataStructures(new Character[]{'g', 's', 't', 'a', 'b', 'w', 'e'});
     }
 
     @Benchmark
@@ -22,6 +22,6 @@ public class QuickSortBenchmark {
     @Benchmark
     public void benchmarkQuickSortInPlace() {
 
-        QuickSort.sortInPlace(new char[]{'g', 's', 't', 'a', 'b', 'w', 'e'});
+        QuickSort.sortInPlace(new Character[]{'g', 's', 't', 'a', 'b', 'w', 'e'});
     }
 }
