@@ -27,3 +27,9 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Remove duplicate elements
   1. Remove duplicate elements (without using additional data structures)
   1. Sort
+
+## Puzzles
+
+* Solutions to the excellent puzzles posted by Wouter Coekaerts at http://wouter.coekaerts.be/puzzles
+  1. Fit 20 clowns into a 5 seat Volkswagen
+  1. Am I still dreaming?
