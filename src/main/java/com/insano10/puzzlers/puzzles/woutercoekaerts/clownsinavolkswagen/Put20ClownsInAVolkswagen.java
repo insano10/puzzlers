@@ -4,6 +4,13 @@ import com.insano10.puzzlers.puzzles.woutercoekaerts.PuzzlerRunner;
 
 public class Put20ClownsInAVolkswagen implements Runnable
 {
+    /*
+        Call done() on Volkswagen and expect there to be 20 Clowns in the car
+
+        You are not allowed to touch Clown or Volkswagen
+
+     */
+
     @Override
     public void run()
     {
