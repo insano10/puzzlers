@@ -1,8 +1,8 @@
 package com.insano10.puzzlers.puzzles;
 
+import java.time.Period;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 import static java.time.format.DateTimeFormatter.ISO_DATE_TIME;
 
@@ -74,8 +74,43 @@ public class OverlappingMeetings
 
         public int conflictingMeetingMinutes(Person... otherPeople)
         {
+            //get all the meetings sorted by start time
+            List<Meeting> allMeetings = getAllMeetings(otherPeople);
+            Collections.sort(allMeetings, (m1, m2) -> m1.start.compareTo(m2.start));
+
+            //get the time other meetings overlap with this meeting
+            for (Meeting meeting : allMeetings)
+            {
+                for (Meeting otherMeeting : allMeetings)
+                {
+                    if (!otherMeeting.equals(meeting))
+                    {
+                        if(otherMeeting.start.isBefore(meeting.end))
+                        {
+                            //this meeting must overlap
+                            ZonedDateTime overlapStart = otherMeeting.start;
+                            ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
+
+                            //represent this period as a set of minutes?
+                        }
+
+                    }
+                }
+            }
 
             return 0;
+        }
+
+        private List<Meeting> getAllMeetings(Person[] otherPeople)
+        {
+            Set<Meeting> allMeetings = new HashSet<>();
+            allMeetings.addAll(meetings);
+
+            for (Person person : otherPeople)
+            {
+                allMeetings.addAll(person.meetings);
+            }
+            return new ArrayList<>(allMeetings);
         }
     }
 }
