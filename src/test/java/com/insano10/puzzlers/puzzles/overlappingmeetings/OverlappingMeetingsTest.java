@@ -1,9 +1,6 @@
-package com.insano10.puzzlers.puzzles;
+package com.insano10.puzzlers.puzzles.overlappingmeetings;
 
-import com.insano10.puzzlers.puzzles.OverlappingMeetings.Meeting;
-import com.insano10.puzzlers.puzzles.OverlappingMeetings.Person;
 import org.assertj.core.api.Assertions;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.time.ZonedDateTime;
@@ -15,7 +12,6 @@ public class OverlappingMeetingsTest
 {
 
     @Test
-    @Ignore("not finished")
     public void shouldFindOverlappingMeetingMinutesBetweenTwoPeople() throws Exception
     {
         //given
@@ -33,11 +29,11 @@ public class OverlappingMeetingsTest
 
         //then
 
-        Set<OverlappingMeetings.ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
+        Set<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
 
         System.out.println(conflictingTimeIntervals);
 
-        OverlappingMeetings.ZonedInterval expectedConflictingInterval = new OverlappingMeetings.ZonedInterval(
+        ZonedInterval expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T09:00:00+01:00", ISO_DATE_TIME),
                 ZonedDateTime.parse("2015-07-10T09:30:00+01:00", ISO_DATE_TIME));
 

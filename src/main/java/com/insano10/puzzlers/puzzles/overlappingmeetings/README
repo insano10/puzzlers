@@ -1,0 +1,13 @@
+Given a set of meetings find the amount of time someone spends in a meeting that conflicts with others
+
+Questions:
+
+- How granular do we want the time to be?
+
+    - Realistically no one schedules a meeting to more than minute level accuracy so let's measure our conflicting time in minutes
+
+- What does it mean to conflict with others?
+
+    - The easiest interpretation of this is to include all time that 2 people are both in a meeting, regardless of whether it is the
+      same meeting or not. However this would look stupid in a meeting planner so I will exclude time where the people are both
+      in the same meeting
