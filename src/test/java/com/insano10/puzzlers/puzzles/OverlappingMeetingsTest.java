@@ -6,6 +6,11 @@ import org.assertj.core.api.Assertions;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import java.time.ZonedDateTime;
+import java.util.Set;
+
+import static java.time.format.DateTimeFormatter.ISO_DATE_TIME;
+
 public class OverlappingMeetingsTest
 {
 
@@ -18,18 +23,25 @@ public class OverlappingMeetingsTest
         Person alice = new Person();
         Person bob = new Person();
 
-        Meeting meeting1 = Meeting.create(0L, "2015-07-10T08:00:00+01:00", "2015-07-10T09:00:00+01:00");
-        Meeting meeting2 = Meeting.create(1L, "2015-07-10T12:00:00+01:00", "2015-07-10T12:30:00+01:00");
+        Meeting meeting1 = Meeting.create(0L, "2015-07-10T08:00:00+01:00", "2015-07-10T10:00:00+01:00");
+        Meeting meeting2 = Meeting.create(1L, "2015-07-10T09:00:00+01:00", "2015-07-10T09:30:00+01:00");
 
         //when
 
         alice.inviteToMeeting(meeting1);
-        alice.inviteToMeeting(meeting2);
         bob.inviteToMeeting(meeting2);
 
         //then
 
-        Assertions.assertThat(alice.conflictingMeetingMinutes(bob)).isEqualTo(30);
+        Set<OverlappingMeetings.ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
+
+        System.out.println(conflictingTimeIntervals);
+
+        OverlappingMeetings.ZonedInterval expectedConflictingInterval = new OverlappingMeetings.ZonedInterval(
+                ZonedDateTime.parse("2015-07-10T09:00:00+01:00", ISO_DATE_TIME),
+                ZonedDateTime.parse("2015-07-10T09:30:00+01:00", ISO_DATE_TIME));
+
+        Assertions.assertThat(conflictingTimeIntervals).containsExactly(expectedConflictingInterval);
 
     }
 }

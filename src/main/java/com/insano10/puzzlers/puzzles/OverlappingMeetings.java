@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.puzzles;
 
-import java.time.Period;
 import java.time.ZonedDateTime;
 import java.util.*;
 
@@ -72,8 +71,10 @@ public class OverlappingMeetings
             this.meetings.add(meeting);
         }
 
-        public int conflictingMeetingMinutes(Person... otherPeople)
+        public Set<ZonedInterval> conflictingTimeIntervals(Person... otherPeople)
         {
+            Set<ZonedInterval> conflictingTimeIntervals = new HashSet<>();
+
             //get all the meetings sorted by start time
             List<Meeting> allMeetings = getAllMeetings(otherPeople);
             Collections.sort(allMeetings, (m1, m2) -> m1.start.compareTo(m2.start));
@@ -91,14 +92,14 @@ public class OverlappingMeetings
                             ZonedDateTime overlapStart = otherMeeting.start;
                             ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
 
-                            //represent this period as a set of minutes?
+                            conflictingTimeIntervals.add(new ZonedInterval(overlapStart, overlapEnd));
                         }
 
                     }
                 }
             }
 
-            return 0;
+            return conflictingTimeIntervals;
         }
 
         private List<Meeting> getAllMeetings(Person[] otherPeople)
@@ -111,6 +112,48 @@ public class OverlappingMeetings
                 allMeetings.addAll(person.meetings);
             }
             return new ArrayList<>(allMeetings);
+        }
+    }
+
+    public static class ZonedInterval
+    {
+        private final ZonedDateTime start;
+        private final ZonedDateTime end;
+
+        public ZonedInterval(ZonedDateTime start, ZonedDateTime end)
+        {
+            this.start = start;
+            this.end = end;
+        }
+
+        @Override
+        public boolean equals(Object o)
+        {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+
+            ZonedInterval that = (ZonedInterval) o;
+
+            if (!start.equals(that.start)) return false;
+            return end.equals(that.end);
+
+        }
+
+        @Override
+        public int hashCode()
+        {
+            int result = start.hashCode();
+            result = 31 * result + end.hashCode();
+            return result;
+        }
+
+        @Override
+        public String toString()
+        {
+            return "ZonedInterval{" +
+                    "start=" + start +
+                    ", end=" + end +
+                    '}';
         }
     }
 }
