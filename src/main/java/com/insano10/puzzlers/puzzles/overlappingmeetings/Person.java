@@ -12,9 +12,10 @@ public class Person
         this.meetings.add(meeting);
     }
 
-    public Set<ZonedInterval> conflictingTimeIntervals(Person... otherPeople)
+    //todo: this should not be inside Person
+    public List<ZonedInterval> conflictingTimeIntervals(Person... otherPeople)
     {
-        Set<ZonedInterval> conflictingTimeIntervals = new HashSet<>();
+        List<ZonedInterval> conflictingTimeIntervals = new ArrayList<>();
 
         //get all the meetings sorted by start time
         List<Meeting> allMeetings = getAllMeetings(otherPeople);

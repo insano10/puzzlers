@@ -1,5 +1,6 @@
 package com.insano10.puzzlers.puzzles.overlappingmeetings;
 
+import java.time.Duration;
 import java.time.ZonedDateTime;
 
 public class ZonedInterval
@@ -11,6 +12,12 @@ public class ZonedInterval
     {
         this.start = start;
         this.end = end;
+    }
+
+    public long getDurationMins()
+    {
+        Duration duration = Duration.between(start, end);
+        return duration.toMinutes();
     }
 
     @Override

@@ -1,12 +1,12 @@
 package com.insano10.puzzlers.puzzles.overlappingmeetings;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 
 import java.time.ZonedDateTime;
-import java.util.Set;
+import java.util.List;
 
 import static java.time.format.DateTimeFormatter.ISO_DATE_TIME;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class OverlappingMeetingsTest
 {
@@ -29,15 +29,14 @@ public class OverlappingMeetingsTest
 
         //then
 
-        Set<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
-
-        System.out.println(conflictingTimeIntervals);
+        List<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
 
         ZonedInterval expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T09:00:00+01:00", ISO_DATE_TIME),
                 ZonedDateTime.parse("2015-07-10T09:30:00+01:00", ISO_DATE_TIME));
 
-        Assertions.assertThat(conflictingTimeIntervals).containsExactly(expectedConflictingInterval);
+        assertThat(conflictingTimeIntervals).containsExactly(expectedConflictingInterval);
+        assertThat(conflictingTimeIntervals.get(0).getDurationMins()).isEqualTo(30);
 
     }
 }
