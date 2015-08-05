@@ -6,7 +6,13 @@ import java.util.*;
 
 public class Person
 {
-    final Collection<Meeting> meetings = new ArrayList<>();
+    private final ZoneId timeZone;
+    private final Collection<Meeting> meetings = new ArrayList<>();
+
+    public Person(ZoneId timeZone)
+    {
+        this.timeZone = timeZone;
+    }
 
     public void inviteToMeeting(Meeting meeting)
     {
@@ -37,8 +43,7 @@ public class Person
                     ZonedDateTime overlapStart = otherMeeting.start;
                     ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
 
-                    ZonedDateTime overLapEndInSameTimeZoneAsStart = overlapEnd.withZoneSameInstant(ZoneId.ofOffset("", overlapStart.getOffset()));
-                    conflictingTimeIntervals.add(new ZonedInterval(overlapStart, overLapEndInSameTimeZoneAsStart));
+                    conflictingTimeIntervals.add(new ZonedInterval(overlapStart.withZoneSameInstant(timeZone), overlapEnd.withZoneSameInstant(timeZone)));
                 }
             }
         }
