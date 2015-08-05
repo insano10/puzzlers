@@ -1,5 +1,6 @@
 package com.insano10.puzzlers.puzzles.overlappingmeetings;
 
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.*;
 
@@ -36,7 +37,8 @@ public class Person
                     ZonedDateTime overlapStart = otherMeeting.start;
                     ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
 
-                    conflictingTimeIntervals.add(new ZonedInterval(overlapStart, overlapEnd));
+                    ZonedDateTime overLapEndInSameTimeZoneAsStart = overlapEnd.withZoneSameInstant(ZoneId.ofOffset("", overlapStart.getOffset()));
+                    conflictingTimeIntervals.add(new ZonedInterval(overlapStart, overLapEndInSameTimeZoneAsStart));
                 }
             }
         }
