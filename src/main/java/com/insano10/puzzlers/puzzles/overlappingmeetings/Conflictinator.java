@@ -27,8 +27,12 @@ public class Conflictinator
                     //this meeting must overlap
                     ZonedDateTime overlapStart = otherMeeting.start;
                     ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
+                    ZonedInterval overlapInterval = new ZonedInterval(overlapStart.withZoneSameInstant(subject.getTimeZone()), overlapEnd.withZoneSameInstant(subject.getTimeZone()));
 
-                    conflictingTimeIntervals.add(new ZonedInterval(overlapStart.withZoneSameInstant(subject.getTimeZone()), overlapEnd.withZoneSameInstant(subject.getTimeZone())));
+                    if(!conflictingTimeIntervals.contains(overlapInterval))
+                    {
+                        conflictingTimeIntervals.add(overlapInterval);
+                    }
                 }
             }
         }
