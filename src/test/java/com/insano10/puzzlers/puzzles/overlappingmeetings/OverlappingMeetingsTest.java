@@ -29,7 +29,7 @@ public class OverlappingMeetingsTest
         bob.inviteToMeeting(meeting2);
 
         //then
-        List<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
+        List<ZonedInterval> conflictingTimeIntervals =  Conflictinator.getConflictingMeetingTimeIntervals(alice, bob);
 
         ZonedInterval expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T08:00:00+01:00[Europe/London]", ISO_DATE_TIME),
@@ -54,7 +54,7 @@ public class OverlappingMeetingsTest
         bob.inviteToMeeting(meeting2);
 
         //then
-        List<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
+        List<ZonedInterval> conflictingTimeIntervals = Conflictinator.getConflictingMeetingTimeIntervals(alice, bob);
 
         ZonedInterval expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T09:00:00+01:00[Europe/London]", ISO_DATE_TIME),
@@ -78,7 +78,7 @@ public class OverlappingMeetingsTest
         bob.inviteToMeeting(theMeeting);
 
         //then
-        assertThat(alice.conflictingTimeIntervals(bob)).isEmpty();
+        assertThat(Conflictinator.getConflictingMeetingTimeIntervals(alice, bob)).isEmpty();
     }
 
     @Test
@@ -90,7 +90,7 @@ public class OverlappingMeetingsTest
         Person charlie = new Person(LONDON_TZ);
 
         //then
-        assertThat(alice.conflictingTimeIntervals(bob, charlie)).isEmpty();
+        assertThat(Conflictinator.getConflictingMeetingTimeIntervals(alice, bob, charlie)).isEmpty();
     }
 
     @Test
@@ -105,7 +105,7 @@ public class OverlappingMeetingsTest
         alice.inviteToMeeting(theMeeting);
 
         //then
-        assertThat(alice.conflictingTimeIntervals()).isEmpty();
+        assertThat(Conflictinator.getConflictingMeetingTimeIntervals(alice)).isEmpty();
     }
 
     @Test
@@ -123,7 +123,7 @@ public class OverlappingMeetingsTest
         bob.inviteToMeeting(newYorkMeeting);
 
         //then
-        List<ZonedInterval> conflictingTimeIntervals = alice.conflictingTimeIntervals(bob);
+        List<ZonedInterval> conflictingTimeIntervals = Conflictinator.getConflictingMeetingTimeIntervals(alice, bob);
 
         ZonedInterval expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T08:00:00+01:00[Europe/London]", ISO_DATE_TIME),
@@ -133,7 +133,7 @@ public class OverlappingMeetingsTest
         assertThat(conflictingTimeIntervals.get(0).getDurationMins()).isEqualTo(30);
 
         //then (from bob's perspective)
-        conflictingTimeIntervals = bob.conflictingTimeIntervals(alice);
+        conflictingTimeIntervals = Conflictinator.getConflictingMeetingTimeIntervals(bob, alice);
 
         expectedConflictingInterval = new ZonedInterval(
                 ZonedDateTime.parse("2015-07-10T03:00:00-04:00[America/New_York]", ISO_DATE_TIME),
