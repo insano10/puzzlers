@@ -1,6 +1,6 @@
 # Puzzlers
 
-This is a collection of various algorithms that I have come across over the years that are interesting/useful enough to keep note of.
+This is a collection of various algorithms and puzzles that I have come across over the years that are interesting/useful enough to keep note of.
 They have been implemented in Java.
 
 Note: The implementations here are by no means the best or most elegant solutions, just what I have come up with.
