@@ -33,3 +33,4 @@ Note: The implementations here are by no means the best or most elegant solution
 * Solutions to the excellent puzzles posted by Wouter Coekaerts at http://wouter.coekaerts.be/puzzles
   1. Fit 20 clowns into a 5 seat Volkswagen
   1. Am I still dreaming?
+* Given a set of meetings find the amount of time someone spends in a meeting that conflicts with others
