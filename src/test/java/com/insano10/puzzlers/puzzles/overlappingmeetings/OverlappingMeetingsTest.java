@@ -199,11 +199,4 @@ public class OverlappingMeetingsTest
         assertThat(conflictingTimeIntervals.get(0).getDurationMins()).isEqualTo(120);
     }
 
-    /*
-    todo:
-
-    - meetings across different time zones
-    - multiple meetings overlapping at the same time (do not have duplicated ZonedIntervals)
-
-     */
 }
