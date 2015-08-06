@@ -171,6 +171,34 @@ public class OverlappingMeetingsTest
         assertThat(conflictingTimeIntervals.get(0).getDurationMins()).isEqualTo(120);
     }
 
+    @Test
+    public void shouldNotReportTheSameTimePeriodInMultipleOverlapIntervals() throws Exception
+    {
+        //given
+        Person alice = new Person(LONDON_TZ);
+        Person bob = new Person(LONDON_TZ);
+        Person charlie = new Person(LONDON_TZ);
+
+        Meeting meeting1 = Meeting.create(0L, "2015-07-10T08:00:00+01:00", "2015-07-10T10:00:00+01:00");
+        Meeting meeting2 = Meeting.create(1L, "2015-07-10T08:00:00+01:00", "2015-07-10T10:00:00+01:00");
+        Meeting meeting3 = Meeting.create(2L, "2015-07-10T09:00:00+01:00", "2015-07-10T10:00:00+01:00");
+
+        //when
+        alice.inviteToMeeting(meeting1);
+        bob.inviteToMeeting(meeting2);
+        charlie.inviteToMeeting(meeting3);
+
+        //then
+        List<ZonedInterval> conflictingTimeIntervals =  Conflictinator.getConflictingMeetingTimeIntervals(alice, bob, charlie);
+
+        ZonedInterval expectedConflictingInterval = new ZonedInterval(
+                ZonedDateTime.parse("2015-07-10T08:00:00+01:00[Europe/London]", ISO_DATE_TIME),
+                ZonedDateTime.parse("2015-07-10T10:00:00+01:00[Europe/London]", ISO_DATE_TIME));
+
+        assertThat(conflictingTimeIntervals).containsExactly(expectedConflictingInterval);
+        assertThat(conflictingTimeIntervals.get(0).getDurationMins()).isEqualTo(120);
+    }
+
     /*
     todo:
 

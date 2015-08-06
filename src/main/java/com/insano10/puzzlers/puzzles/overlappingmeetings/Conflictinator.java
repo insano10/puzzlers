@@ -29,7 +29,7 @@ public class Conflictinator
                     ZonedDateTime overlapEnd = meeting.end.isAfter(otherMeeting.end) ? otherMeeting.end : meeting.end;
                     ZonedInterval overlapInterval = new ZonedInterval(overlapStart.withZoneSameInstant(subject.getTimeZone()), overlapEnd.withZoneSameInstant(subject.getTimeZone()));
 
-                    if(!conflictingTimeIntervals.contains(overlapInterval))
+                    if(!isIntervalAlreadyCoveredByExistingIntervals(overlapInterval, conflictingTimeIntervals))
                     {
                         conflictingTimeIntervals.add(overlapInterval);
                     }
@@ -56,5 +56,17 @@ public class Conflictinator
             allMeetings.addAll(person.getMeetings());
         }
         return new ArrayList<>(allMeetings);
+    }
+
+    private static boolean isIntervalAlreadyCoveredByExistingIntervals(ZonedInterval interval, List<ZonedInterval> existingIntervals)
+    {
+        for (ZonedInterval existingInterval : existingIntervals)
+        {
+            if(existingInterval.containsInterval(interval))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

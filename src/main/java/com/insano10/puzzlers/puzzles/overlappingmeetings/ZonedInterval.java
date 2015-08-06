@@ -20,6 +20,11 @@ public class ZonedInterval
         return duration.toMinutes();
     }
 
+    public boolean containsInterval(ZonedInterval interval)
+    {
+        return (interval.start.compareTo(this.start) >= 0) && (interval.end.compareTo(this.end) <= 0);
+    }
+
     @Override
     public boolean equals(Object o)
     {
