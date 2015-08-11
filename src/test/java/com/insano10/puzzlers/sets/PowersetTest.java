@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.sets;
 
-import com.google.common.collect.Sets;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -12,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PowersetTest
 {
-    @Ignore
     @Test
     public void shouldGeneratePowersetOfASetContainingMoreThan1Element() throws Exception
     {
@@ -36,10 +34,9 @@ public class PowersetTest
                 newHashSet(1, 3, 4),
                 newHashSet(1, 2, 3, 4));
 
-        assertThat(Powerset.of(set)).containsExactlyElementsOf(powerset);
+        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
     }
 
-    @Ignore
     @Test
     public void shouldGeneratePowersetOfASetContainingSets() throws Exception
     {
@@ -55,12 +52,12 @@ public class PowersetTest
         addSetWithSingleElementToPowersetOfSets(powerset, 2);
         addSetWithSingleElementToPowersetOfSets(powerset, 3);
         powerset.add(newHashSet(newHashSet(1), newHashSet(2)));
-        powerset.add(newHashSet(newHashSet(3), newHashSet(3)));
+        powerset.add(newHashSet(newHashSet(2), newHashSet(3)));
         powerset.add(newHashSet(newHashSet(1), newHashSet(3)));
         powerset.add(newHashSet(newHashSet(1), newHashSet(2), newHashSet(3)));
 
 
-        assertThat(Powerset.of(set)).containsExactlyElementsOf(powerset);
+        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
     }
 
     @Ignore
@@ -71,7 +68,7 @@ public class PowersetTest
 
         Set<Set<Integer>> powerset = newHashSet(newHashSet()); //1
 
-        assertThat(Powerset.of(set)).containsExactlyElementsOf(powerset);
+        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
 
     }
 
@@ -85,7 +82,7 @@ public class PowersetTest
         powerset.add(newHashSet());
         powerset.add(newHashSet(newHashSet()));
 
-        assertThat(Powerset.of(set)).containsExactlyElementsOf(powerset);
+        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
     }
 
     private void addSetWithSingleElementToPowersetOfSets(Set<Set<Set<Integer>>> powersetOfSets, int setSingleElement)
