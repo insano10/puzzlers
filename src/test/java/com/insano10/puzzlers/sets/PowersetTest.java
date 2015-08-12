@@ -20,7 +20,7 @@ public class PowersetTest
     public static Collection<Object[]> data()
     {
         return Arrays.<Object[]>asList(
-                new Object[]{"Binary Group", (PowerSetProvider) Powerset::of},
+                new Object[]{"Binary Group", (PowerSetProvider) Powerset::usingBinaryString},
                 new Object[]{"Guava PowerSet", (PowerSetProvider) Sets::powerSet}
                 );
     }

@@ -22,7 +22,7 @@ public class Powerset
         0001 = set containing element 3
         1101 = set containing elements 0,2,and 3
      */
-    public static <T> Set<Set<T>> of(Set<T> set)
+    public static <T> Set<Set<T>> usingBinaryString(Set<T> set)
     {
         final Set<Set<T>> powerSet = new HashSet<>();
 
