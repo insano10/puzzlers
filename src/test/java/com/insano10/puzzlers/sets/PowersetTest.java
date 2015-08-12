@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.sets;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -72,15 +71,19 @@ public class PowersetTest
         assertThat(Powerset.of(set)).containsOnlyElementsOf(expectedPowerSet);
     }
 
-    @Ignore
     @Test
     public void shouldGeneratePowersetOfSetContainingTheEmptySet() throws Exception
     {
-        Set<Set<Integer>> set = newHashSet(newHashSet());
+        Set<Set<Integer>> set = newHashSet();
+        set.add(newHashSet());
 
-        Set<Set<Set<Integer>>> powerset = newHashSet(); //2
+        //The power set of the set which contains only the empty set, has two subsets, the empty set and the set which contains the empty set
+        Set<Set<Set<Integer>>> powerset = newHashSet();
         powerset.add(newHashSet());
-        powerset.add(newHashSet(newHashSet()));
+
+        Set<Set<Integer>> setOfEmptySet = newHashSet();
+        setOfEmptySet.add(newHashSet());
+        powerset.add(setOfEmptySet);
 
         assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
     }

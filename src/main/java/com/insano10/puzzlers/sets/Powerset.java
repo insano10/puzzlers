@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.google.common.collect.Sets.newHashSet;
+
 public class Powerset
 {
     //todo: what happens if the set is massive? restrict input?
@@ -30,6 +32,12 @@ public class Powerset
             return powerSet;
         }
 
+        if(setContainsOnlyTheEmptySet(set))
+        {
+            powerSet.add(newHashSet());
+            powerSet.add(set);
+        }
+
         final ArrayList<T> elementList = new ArrayList<>(set);
 
         long maxSubsets = (long) Math.pow(2, set.size());
@@ -51,4 +59,19 @@ public class Powerset
 
         return powerSet;
     }
+
+    private static <T> boolean setContainsOnlyTheEmptySet(Set<T> set)
+    {
+        if(set.size() == 1)
+        {
+            T element = set.iterator().next();
+            if(element instanceof Set)
+            {
+                return ((Set)element).isEmpty();
+            }
+        }
+        return false;
+    }
+
+
 }
