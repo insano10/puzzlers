@@ -24,6 +24,12 @@ public class Powerset
     {
         final Set<Set<T>> powerSet = new HashSet<>();
 
+        if(set.isEmpty())
+        {
+            powerSet.add(set);
+            return powerSet;
+        }
+
         final ArrayList<T> elementList = new ArrayList<>(set);
 
         long maxSubsets = (long) Math.pow(2, set.size());

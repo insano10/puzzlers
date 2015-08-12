@@ -60,16 +60,16 @@ public class PowersetTest
         assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
     }
 
-    @Ignore
     @Test
     public void shouldGeneratePowersetOfAnEmptySet() throws Exception
     {
         Set<Integer> set = newHashSet();
 
-        Set<Set<Integer>> powerset = newHashSet(newHashSet()); //1
+        //The power set of the empty set is the set which contains itself
+        Set<Set<Integer>> expectedPowerSet = newHashSet();
+        expectedPowerSet.add(newHashSet());
 
-        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
-
+        assertThat(Powerset.of(set)).containsOnlyElementsOf(expectedPowerSet);
     }
 
     @Ignore
