@@ -1,15 +1,33 @@
 package com.insano10.puzzlers.sets;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 import static com.google.common.collect.Sets.newHashSet;
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(Parameterized.class)
 public class PowersetTest
 {
+    @Parameterized.Parameters(name = "Implementation: {0}")
+    public static Collection<Object[]> data()
+    {
+        return Arrays.<Object[]>asList(new Object[] {"Binary Group", (PowerSetProvider) Powerset::of});
+    }
+
+    private final PowerSetProvider powerSetProvider;
+
+    public PowersetTest(String name, PowerSetProvider powerSetProvider)
+    {
+        this.powerSetProvider = powerSetProvider;
+    }
+
     @Test
     public void shouldGeneratePowersetOfASetContainingMoreThan1Element() throws Exception
     {
@@ -33,7 +51,7 @@ public class PowersetTest
                 newHashSet(1, 3, 4),
                 newHashSet(1, 2, 3, 4));
 
-        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
+        assertThat(powerSetProvider.getPowerSet(set)).containsOnlyElementsOf(powerset);
     }
 
     @Test
@@ -56,7 +74,7 @@ public class PowersetTest
         powerset.add(newHashSet(newHashSet(1), newHashSet(2), newHashSet(3)));
 
 
-        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
+        assertThat(powerSetProvider.getPowerSet(set)).containsOnlyElementsOf(powerset);
     }
 
     @Test
@@ -68,7 +86,7 @@ public class PowersetTest
         Set<Set<Integer>> expectedPowerSet = newHashSet();
         expectedPowerSet.add(newHashSet());
 
-        assertThat(Powerset.of(set)).containsOnlyElementsOf(expectedPowerSet);
+        assertThat(powerSetProvider.getPowerSet(set)).containsOnlyElementsOf(expectedPowerSet);
     }
 
     @Test
@@ -85,7 +103,7 @@ public class PowersetTest
         setOfEmptySet.add(newHashSet());
         powerset.add(setOfEmptySet);
 
-        assertThat(Powerset.of(set)).containsOnlyElementsOf(powerset);
+        assertThat(powerSetProvider.getPowerSet(set)).containsOnlyElementsOf(powerset);
     }
 
     private void addSetWithSingleElementToPowersetOfSets(Set<Set<Set<Integer>>> powersetOfSets, int setSingleElement)
@@ -97,5 +115,10 @@ public class PowersetTest
         HashSet<Set<Integer>> subset = new HashSet<>();
         subset.add(newHashSet(setSingleElement));
         powersetOfSets.add(subset);
+    }
+
+    interface PowerSetProvider
+    {
+        <T> Set<Set<T>> getPowerSet(Set<T> set);
     }
 }
