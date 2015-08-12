@@ -34,12 +34,6 @@ public class Powerset
             return powerSet;
         }
 
-        if (setContainsOnlyTheEmptySet(set))
-        {
-            powerSet.add(newHashSet());
-            powerSet.add(set);
-        }
-
         final ArrayList<T> elementList = new ArrayList<>(set);
 
         long maxSubsets = (long) Math.pow(2, set.size());
@@ -72,7 +66,7 @@ public class Powerset
        => 2         : { { 1 }, {}, { 1, 2 }, { 2 } }
        => 3         : { { 1 }, {}, { 1, 2 }, { 2 }, { 1, 3 }, { 3 }, { 1, 2, 3 }, { 2, 3 } }
 
-       Complexity: O(2^n) ? (as there are 2^n sets)
+       Complexity: O(n2^n)
     */
     public static Set<Set> usingRecursiveCopyAndMerge(Set set)
     {
@@ -83,7 +77,7 @@ public class Powerset
     {
         Set<Set> powerSet = new HashSet<>();
 
-        if(elements.length == 0)
+        if (elements.length == 0)
         {
             //base case: empty set
             powerSet.add(newHashSet());
@@ -97,11 +91,11 @@ public class Powerset
         else
         {
             //get the powerset of the tail
-            Set<Set> tailPowerSet = powersetOf(Arrays.copyOfRange(elements, 0, Math.max(0, elements.length - 1)));
+            Set<Set> tailPowerSet = powersetOf(Arrays.copyOfRange(elements, 0, Math.max(0, elements.length - 1))); //O(n)
             powerSet.addAll(tailPowerSet);
 
             //now add the head element to a copy of each existing set
-            for (Set set : tailPowerSet)
+            for (Set set : tailPowerSet) //O(2^n)
             {
                 Set setCopy = new HashSet(set);
                 setCopy.add(elements[elements.length - 1]);
@@ -112,18 +106,44 @@ public class Powerset
         return powerSet;
     }
 
-    private static <T> boolean setContainsOnlyTheEmptySet(Set<T> set)
-    {
-        if (set.size() == 1)
-        {
-            T element = set.iterator().next();
-            if (element instanceof Set)
-            {
-                return ((Set) element).isEmpty();
-            }
-        }
-        return false;
-    }
+    /*
 
+    Add the empty set to the power set
+
+    For each element in the input set:
+    1. duplicate all sets currently in the powerset
+    2. add the element to each of the duplicated sets
+    3. add these duplicated sets to the powerset
+
+    Complexity: O(n2^n)
+
+     */
+    public static <T> Set<Set<T>> usingIterativeCopyAndMerge(Set<T> set)
+    {
+        Set<Set<T>> powerSet = new HashSet<>();
+
+        //add the empty set
+        powerSet.add(newHashSet());
+
+        ArrayList<T> elements = new ArrayList<>(set);
+
+        while (!elements.isEmpty()) //O(n)
+        {
+            T element = elements.remove(elements.size() - 1);
+
+            //duplicate all the current sets and add the new element
+            Set<Set<T>> additionalSets = new HashSet<>();
+            for (Set<T> existingSet : powerSet) //O(2^n)
+            {
+                Set<T> setCopy = new HashSet<>(existingSet);
+                setCopy.add(element);
+
+                additionalSets.add(setCopy);
+            }
+            powerSet.addAll(additionalSets);
+        }
+
+        return powerSet;
+    }
 
 }

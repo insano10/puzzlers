@@ -29,6 +29,9 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Sort
 * Sets
   1. Write an algorithm to to generate the powerset of any given set
+    * implement recursively
+    * implement iteratively
+    * implement using a binary string
 
 ## Puzzles
 

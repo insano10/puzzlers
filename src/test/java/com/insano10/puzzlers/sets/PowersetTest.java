@@ -22,6 +22,7 @@ public class PowersetTest
         return Arrays.<Object[]>asList(
                 new Object[]{"Binary Group", (PowerSetProvider) Powerset::usingBinaryString},
                 new Object[]{"Recursive Copy and Merge", (PowerSetProvider) Powerset::usingRecursiveCopyAndMerge},
+                new Object[]{"Iterative Copy and Merge", (PowerSetProvider) Powerset::usingIterativeCopyAndMerge},
                 new Object[]{"Guava PowerSet", (PowerSetProvider) Sets::powerSet}
                 );
     }
