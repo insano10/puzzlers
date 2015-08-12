@@ -21,6 +21,7 @@ public class PowersetTest
     {
         return Arrays.<Object[]>asList(
                 new Object[]{"Binary Group", (PowerSetProvider) Powerset::usingBinaryString},
+                new Object[]{"Recursive Copy and Merge", (PowerSetProvider) Powerset::usingRecursiveCopyAndMerge},
                 new Object[]{"Guava PowerSet", (PowerSetProvider) Sets::powerSet}
                 );
     }
@@ -123,6 +124,6 @@ public class PowersetTest
 
     interface PowerSetProvider
     {
-        <T> Set<Set<T>> getPowerSet(Set<T> set);
+        Set<Set> getPowerSet(Set set);
     }
 }
