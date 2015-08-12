@@ -1,5 +1,6 @@
 package com.insano10.puzzlers.sets;
 
+import com.google.common.collect.Sets;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -18,7 +19,10 @@ public class PowersetTest
     @Parameterized.Parameters(name = "Implementation: {0}")
     public static Collection<Object[]> data()
     {
-        return Arrays.<Object[]>asList(new Object[] {"Binary Group", (PowerSetProvider) Powerset::of});
+        return Arrays.<Object[]>asList(
+                new Object[]{"Binary Group", (PowerSetProvider) Powerset::of},
+                new Object[]{"Guava PowerSet", (PowerSetProvider) Sets::powerSet}
+                );
     }
 
     private final PowerSetProvider powerSetProvider;
