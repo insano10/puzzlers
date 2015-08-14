@@ -7,7 +7,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class MinHeapTest
 {
-    @Ignore
     @Test
     public void shouldExtractElementFromNonEmptyHeap() throws Exception
     {
@@ -17,6 +16,7 @@ public class MinHeapTest
         extractAndVerify(heap, 1);
     }
 
+    @Ignore
     @Test
     public void shouldGetNullWhenExtractingFromEmptyHeap() throws Exception
     {
