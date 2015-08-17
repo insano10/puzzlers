@@ -26,6 +26,19 @@ public class MinHeapTest
         assertThat(element).isNull();
     }
 
+
+    /*
+
+              1
+          6      3
+        9  10  6   4
+
+        = [1,6,3,9,10,6,4]
+
+    note: inserting these elements don't actually require any re-ordering during heapify
+          write a more interesting insertion order
+
+     */
     @Ignore
     @Test
     public void shouldExtractElementsInMinOrder() throws Exception

@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.heaps;
 
-import java.lang.reflect.Array;
 import java.util.Optional;
 
 //todo: make a generic heap class and give it a predicate to tell it what flavour of heap it is (e.g. min/max)
@@ -17,6 +16,7 @@ public class MinHeap<T extends Comparable<T>>
 
         While its parent (if any) is found at index floor(i/2) (assuming the root has index zero)
      */
+    private static final int ROOT_INDEX = 1;
 
     private Comparable<T>[] tree;
     private int currentNodeCount = 0;
@@ -28,20 +28,21 @@ public class MinHeap<T extends Comparable<T>>
 
     public MinHeap(int initialSize)
     {
-        tree = new Comparable[initialSize];
+        //+1 as the array index starts at 1
+        tree = new Comparable[initialSize + 1];
     }
 
     public void add(T element)
     {
+        currentNodeCount++;
+
         tree[currentNodeCount] = element;
 
-        if(currentNodeCount > 0)
+        if(currentNodeCount > 1)
         {
             int parentIdx = (int)Math.floor(currentNodeCount/2);
             heapify(parentIdx);
         }
-
-        currentNodeCount++;
     }
 
     /*
@@ -50,15 +51,15 @@ public class MinHeap<T extends Comparable<T>>
      */
     public T extract()
     {
-        T root = elementAt(0);
+        T root = elementAt(ROOT_INDEX);
 
         if(currentNodeCount > 0)
         {
-            tree[0] = elementAt(currentNodeCount - 1);
+            tree[ROOT_INDEX] = elementAt(currentNodeCount - 1);
             tree[currentNodeCount - 1] = null;
             currentNodeCount--;
 
-            heapify(0);
+            heapify(ROOT_INDEX);
         }
         return root;
     }
@@ -70,34 +71,38 @@ public class MinHeap<T extends Comparable<T>>
 
     private void heapify(int heapRootIdx)
     {
-        //find the largest of the root and it's 2 children
-        int leftIdx = (2 * heapRootIdx) + 1;
-        int rightIdx = (2 * heapRootIdx) + 2;
+        //find the smallest of the root and it's 2 children
+        int leftIdx = (2 * heapRootIdx);
+        int rightIdx = (2 * heapRootIdx) + 1;
 
-        Optional<Integer> largestIndex = whichIndexContainsTheLargestElement(leftIdx, rightIdx);
-        largestIndex = largestIndex.flatMap((leftRightLargest) -> whichIndexContainsTheLargestElement(leftRightLargest, heapRootIdx));
+        Optional<Integer> smallestIndex = whichIndexContainsTheSmallestElement(leftIdx, rightIdx);
+        smallestIndex = smallestIndex.flatMap((leftRightSmallest) -> whichIndexContainsTheSmallestElement(leftRightSmallest, heapRootIdx));
 
-        int largestIdx = largestIndex.orElse(heapRootIdx);
+        int smallestIdx = smallestIndex.orElse(heapRootIdx);
 
 
-        //if the largest is not the root, swap that element with the root and heapify again from the largest
+        //if the smallest is not the root, swap that element with the root and heapify again from the smallest
         //to bubble down the element
-        if(largestIdx != heapRootIdx)
+        if(smallestIdx != heapRootIdx)
         {
-            T tmp = elementAt(largestIdx);
-            tree[largestIdx] = elementAt(heapRootIdx);
+            T tmp = elementAt(smallestIdx);
+            tree[smallestIdx] = elementAt(heapRootIdx);
             tree[heapRootIdx] = tmp;
 
-            heapify(largestIdx);
+            heapify(smallestIdx);
         }
     }
 
     private T elementAt(int idx)
     {
+        if(idx > currentNodeCount)
+        {
+            return null;
+        }
         return (T)tree[idx];
     }
 
-    private Optional<Integer> whichIndexContainsTheLargestElement(int idxA, int idxB)
+    private Optional<Integer> whichIndexContainsTheSmallestElement(int idxA, int idxB)
     {
         T a = elementAt(idxA);
         T b = elementAt(idxB);
@@ -115,6 +120,6 @@ public class MinHeap<T extends Comparable<T>>
         {
             return Optional.of(idxA);
         }
-        return a.compareTo(b) >= 0 ? Optional.of(idxA) : Optional.of(idxB);
+        return a.compareTo(b) <= 0 ? Optional.of(idxA) : Optional.of(idxB);
     }
 }
