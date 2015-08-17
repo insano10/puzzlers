@@ -45,19 +45,21 @@ public class MinHeap<T extends Comparable<T>>
     }
 
     /*
-    put the last element inserted in the root
+    move the last element inserted into the root position, removing the current root element
     heapify from the root
      */
     public T extract()
     {
         T root = elementAt(0);
 
-        tree[0] = elementAt(currentNodeCount-1);
-        tree[currentNodeCount-1] = null;
-        currentNodeCount--;
+        if(currentNodeCount > 0)
+        {
+            tree[0] = elementAt(currentNodeCount - 1);
+            tree[currentNodeCount - 1] = null;
+            currentNodeCount--;
 
-        heapify(0);
-
+            heapify(0);
+        }
         return root;
     }
 

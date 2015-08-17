@@ -16,7 +16,6 @@ public class MinHeapTest
         extractAndVerify(heap, 1);
     }
 
-    @Ignore
     @Test
     public void shouldGetNullWhenExtractingFromEmptyHeap() throws Exception
     {
