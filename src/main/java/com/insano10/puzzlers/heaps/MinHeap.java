@@ -36,6 +36,11 @@ public class MinHeap<T extends Comparable<T>>
     {
         currentNodeCount++;
 
+        if(currentNodeCount >= tree.length)
+        {
+            tree = resizeHeap(currentNodeCount);
+        }
+
         tree[currentNodeCount] = element;
 
         if(currentNodeCount > 1)
@@ -43,6 +48,18 @@ public class MinHeap<T extends Comparable<T>>
             int parentIdx = getParentIndex(currentNodeCount);
             heapify(parentIdx);
         }
+    }
+
+    private Comparable[] resizeHeap(int currentNodeCount)
+    {
+        Comparable[] resizedArray = new Comparable[currentNodeCount + 1];
+
+        for (int i = 0; i < tree.length; i++)
+        {
+            resizedArray[i] = tree[i];
+        }
+
+        return resizedArray;
     }
 
     /*
@@ -66,7 +83,7 @@ public class MinHeap<T extends Comparable<T>>
 
     public T peekRoot()
     {
-        return null;
+        return elementAt(ROOT_INDEX);
     }
 
     private void heapify(int heapRootIdx)

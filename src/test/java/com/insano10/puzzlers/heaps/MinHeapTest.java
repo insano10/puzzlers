@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.heaps;
 
-import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -87,7 +86,6 @@ public class MinHeapTest
         extractAndVerify(heap, 10);
     }
 
-    @Ignore
     @Test
     public void shouldSeeTheMinimumElementWhenPeekingTheRoot() throws Exception
     {
@@ -103,7 +101,6 @@ public class MinHeapTest
         assertThat(element).isEqualTo(1);
     }
 
-    @Ignore
     @Test
     public void shouldMaintainOrderingAfterExtractingAndReInserting() throws Exception
     {
@@ -126,7 +123,6 @@ public class MinHeapTest
         extractAndVerify(heap, 9);
     }
 
-    @Ignore
     @Test
     public void shouldBeAbleToInsertMoreElementsThanTheInitialSizeOfTheHeap() throws Exception
     {
