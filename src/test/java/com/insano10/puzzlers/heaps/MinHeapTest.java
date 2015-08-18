@@ -1,11 +1,16 @@
 package com.insano10.puzzlers.heaps;
 
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MinHeapTest
 {
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
     @Test
     public void shouldExtractElementFromNonEmptyHeap() throws Exception
     {
@@ -143,7 +148,22 @@ public class MinHeapTest
         extractAndVerify(heap, 9);
     }
 
-    //todo: max size of heap? shouldn't let it grow unbounded
+    @Test
+    public void shouldNotAllowHeapToGrowBeyondMaxSize() throws Exception
+    {
+        expectedException.expect(IllegalStateException.class);
+        expectedException.expectMessage("Heap is full [5]. Cannot add more elements");
+
+        MinHeap<Integer> heap = new MinHeap<>(2, 5);
+
+        heap.add(6);
+        heap.add(1);
+        heap.add(3);
+        heap.add(9);
+        heap.add(9);
+        heap.add(2);
+
+    }
 
     private void extractAndVerify(MinHeap<Integer> heap, final Integer expected)
     {

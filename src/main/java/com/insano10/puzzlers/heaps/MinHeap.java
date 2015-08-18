@@ -17,6 +17,7 @@ public class MinHeap<T extends Comparable<T>>
         While its parent (if any) is found at index floor(i/2) (assuming the root has index zero)
      */
     private static final int ROOT_INDEX = 1;
+    private final int maxSize;
 
     private Comparable<T>[] tree;
     private int currentNodeCount = 0;
@@ -28,12 +29,23 @@ public class MinHeap<T extends Comparable<T>>
 
     public MinHeap(int initialSize)
     {
+        this(initialSize, 1024);
+    }
+
+    public MinHeap(int initialSize, int maxSize)
+    {
         //+1 as the array index starts at 1
-        tree = new Comparable[initialSize + 1];
+        this.tree = new Comparable[initialSize + 1];
+        this.maxSize = maxSize;
     }
 
     public void add(T element)
     {
+        if(currentNodeCount == maxSize)
+        {
+            throw new IllegalStateException("Heap is full [" + currentNodeCount + "]. Cannot add more elements");
+        }
+
         currentNodeCount++;
 
         if(currentNodeCount >= tree.length)
