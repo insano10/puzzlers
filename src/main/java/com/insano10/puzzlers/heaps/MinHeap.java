@@ -40,7 +40,7 @@ public class MinHeap<T extends Comparable<T>>
 
         if(currentNodeCount > 1)
         {
-            int parentIdx = (int)Math.floor(currentNodeCount/2);
+            int parentIdx = getParentIndex(currentNodeCount);
             heapify(parentIdx);
         }
     }
@@ -55,8 +55,8 @@ public class MinHeap<T extends Comparable<T>>
 
         if(currentNodeCount > 0)
         {
-            tree[ROOT_INDEX] = elementAt(currentNodeCount - 1);
-            tree[currentNodeCount - 1] = null;
+            tree[ROOT_INDEX] = elementAt(currentNodeCount);
+            tree[currentNodeCount] = null;
             currentNodeCount--;
 
             heapify(ROOT_INDEX);
@@ -81,15 +81,19 @@ public class MinHeap<T extends Comparable<T>>
         int smallestIdx = smallestIndex.orElse(heapRootIdx);
 
 
-        //if the smallest is not the root, swap that element with the root and heapify again from the smallest
-        //to bubble down the element
+        //if the smallest is not the root, swap that element with the root and heapify again from the next parent
+        //to bubble up the element
         if(smallestIdx != heapRootIdx)
         {
             T tmp = elementAt(smallestIdx);
             tree[smallestIdx] = elementAt(heapRootIdx);
             tree[heapRootIdx] = tmp;
 
-            heapify(smallestIdx);
+            int parentIndex = getParentIndex(heapRootIdx);
+            if(parentIndex > 0)
+            {
+                heapify(parentIndex);
+            }
         }
     }
 
@@ -100,6 +104,11 @@ public class MinHeap<T extends Comparable<T>>
             return null;
         }
         return (T)tree[idx];
+    }
+
+    private int getParentIndex(final int childIndex)
+    {
+        return (int)Math.floor(childIndex /2);
     }
 
     private Optional<Integer> whichIndexContainsTheSmallestElement(int idxA, int idxB)

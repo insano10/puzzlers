@@ -28,20 +28,15 @@ public class MinHeapTest
 
 
     /*
-
               1
           6      3
         9  10  6   4
 
         = [1,6,3,9,10,6,4]
 
-    note: inserting these elements don't actually require any re-ordering during heapify
-          write a more interesting insertion order
-
      */
-    @Ignore
     @Test
-    public void shouldExtractElementsInMinOrder() throws Exception
+    public void shouldExtractElementsInMinOrderFromHeapThatWasCreatedWithoutTheNeedToReorderElementsOnInsertion() throws Exception
     {
         MinHeap<Integer> heap = new MinHeap<>(10);
 
@@ -52,6 +47,36 @@ public class MinHeapTest
         heap.add(10);
         heap.add(6);
         heap.add(4);
+
+        extractAndVerify(heap, 1);
+        extractAndVerify(heap, 3);
+        extractAndVerify(heap, 4);
+        extractAndVerify(heap, 6);
+        extractAndVerify(heap, 6);
+        extractAndVerify(heap, 9);
+        extractAndVerify(heap, 10);
+    }
+
+    /*
+            1
+        6      3
+      9  10  6   4
+
+      = [1,6,3,9,10,6,4]
+
+   */
+    @Test
+    public void shouldExtractElementsInMinOrderFromHeapThatWasCreatedByReOrdingInsertedElements() throws Exception
+    {
+        MinHeap<Integer> heap = new MinHeap<>(10);
+
+        heap.add(10);
+        heap.add(9);
+        heap.add(6);
+        heap.add(6);
+        heap.add(4);
+        heap.add(3);
+        heap.add(1);
 
         extractAndVerify(heap, 1);
         extractAndVerify(heap, 3);
