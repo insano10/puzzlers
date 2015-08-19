@@ -66,14 +66,6 @@ public class MinHeapTest
         extractAndVerify(heap, 10);
     }
 
-    /*
-            1
-        6      3
-      9  10  6   4
-
-      = [1,6,3,9,10,6,4]
-
-   */
     @Test
     public void shouldExtractElementsInMinOrderFromHeapThatWasCreatedByReOrdingInsertedElements() throws Exception
     {
