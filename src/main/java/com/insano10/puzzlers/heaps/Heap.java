@@ -96,6 +96,11 @@ public class Heap<T extends Comparable<T>>
         return root;
     }
 
+    public int size()
+    {
+        return currentNodeCount;
+    }
+
     public Optional<T> peekRoot()
     {
         return elementAt(ROOT_INDEX);
