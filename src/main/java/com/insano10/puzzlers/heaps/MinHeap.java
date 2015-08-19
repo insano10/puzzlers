@@ -41,21 +41,21 @@ public class MinHeap<T extends Comparable<T>>
 
     public void add(T element)
     {
-        if(currentNodeCount == maxSize)
+        if (currentNodeCount == maxSize)
         {
             throw new IllegalStateException("Heap is full [" + currentNodeCount + "]. Cannot add more elements");
         }
 
         currentNodeCount++;
 
-        if(currentNodeCount >= tree.length)
+        if (currentNodeCount >= tree.length)
         {
             tree = resizeHeap(currentNodeCount);
         }
 
         tree[currentNodeCount] = element;
 
-        if(currentNodeCount > 1)
+        if (currentNodeCount > 1)
         {
             int parentIdx = getParentIndex(currentNodeCount);
             heapify(parentIdx);
@@ -78,13 +78,13 @@ public class MinHeap<T extends Comparable<T>>
     move the last element inserted into the root position, removing the current root element
     heapify from the root
      */
-    public T extract()
+    public Optional<T> extract()
     {
-        T root = elementAt(ROOT_INDEX);
+        Optional<T> root = elementAt(ROOT_INDEX);
 
-        if(currentNodeCount > 0)
+        if (root.isPresent())
         {
-            tree[ROOT_INDEX] = elementAt(currentNodeCount);
+            tree[ROOT_INDEX] = elementAt(currentNodeCount).get();
             tree[currentNodeCount] = null;
             currentNodeCount--;
 
@@ -93,7 +93,7 @@ public class MinHeap<T extends Comparable<T>>
         return root;
     }
 
-    public T peekRoot()
+    public Optional<T> peekRoot()
     {
         return elementAt(ROOT_INDEX);
     }
@@ -109,55 +109,53 @@ public class MinHeap<T extends Comparable<T>>
 
         int smallestIdx = smallestIndex.orElse(heapRootIdx);
 
-
         //if the smallest is not the root, swap that element with the root and heapify again from the next parent
         //to bubble up the element
-        if(smallestIdx != heapRootIdx)
+        if (smallestIdx != heapRootIdx)
         {
-            T tmp = elementAt(smallestIdx);
-            tree[smallestIdx] = elementAt(heapRootIdx);
+            T tmp = elementAt(smallestIdx).get();
+            tree[smallestIdx] = elementAt(heapRootIdx).get();
             tree[heapRootIdx] = tmp;
 
             int parentIndex = getParentIndex(heapRootIdx);
-            if(parentIndex > 0)
+            if (parentIndex > 0)
             {
                 heapify(parentIndex);
             }
         }
     }
 
-    private T elementAt(int idx)
+    private Optional<T> elementAt(int idx)
     {
-        if(idx > currentNodeCount)
+        if (idx > currentNodeCount)
         {
-            return null;
+            return Optional.empty();
         }
-        return (T)tree[idx];
+        return Optional.of((T) tree[idx]);
     }
 
     private int getParentIndex(final int childIndex)
     {
-        return (int)Math.floor(childIndex /2);
+        return (int) Math.floor(childIndex / 2);
     }
 
     private Optional<Integer> whichIndexContainsTheSmallestElement(int idxA, int idxB)
     {
-        T a = elementAt(idxA);
-        T b = elementAt(idxB);
+        Optional<T> a = elementAt(idxA);
+        Optional<T> b = elementAt(idxB);
 
-        //todo: replace with something more functional?
-        if(a == null && b == null)
+        if(!a.isPresent() && !b.isPresent())
         {
             return Optional.empty();
         }
-        if(a == null)
+        if(!a.isPresent())
         {
             return Optional.of(idxB);
         }
-        if(b == null)
+        if(!b.isPresent())
         {
             return Optional.of(idxA);
         }
-        return a.compareTo(b) <= 0 ? Optional.of(idxA) : Optional.of(idxB);
+        return a.get().compareTo(b.get()) <= 0 ? Optional.of(idxA) : Optional.of(idxB);
     }
 }

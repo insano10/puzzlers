@@ -4,6 +4,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class MinHeapTest
@@ -21,13 +23,13 @@ public class MinHeapTest
     }
 
     @Test
-    public void shouldGetNullWhenExtractingFromEmptyHeap() throws Exception
+    public void shouldGetEmptyOptionalWhenExtractingFromEmptyHeap() throws Exception
     {
         MinHeap<Integer> heap = new MinHeap<>(10);
 
-        Integer element = heap.extract();
+        Optional<Integer> element = heap.extract();
 
-        assertThat(element).isNull();
+        assertThat(element.isPresent()).isFalse();
     }
 
 
@@ -101,9 +103,9 @@ public class MinHeapTest
         heap.add(3);
         heap.add(9);
 
-        Integer element = heap.peekRoot();
+        Optional<Integer> element = heap.peekRoot();
 
-        assertThat(element).isEqualTo(1);
+        assertThat(element.get()).isEqualTo(1);
     }
 
     @Test
@@ -167,7 +169,7 @@ public class MinHeapTest
 
     private void extractAndVerify(MinHeap<Integer> heap, final Integer expected)
     {
-        int element = heap.extract();
-        assertThat(element).isEqualTo(expected);
+        Optional<Integer> element = heap.extract();
+        assertThat(element.get()).isEqualTo(expected);
     }
 }
