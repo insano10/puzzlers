@@ -4,6 +4,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.Comparator;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -13,10 +14,12 @@ public class MinHeapTest
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
+    private static final Comparator<Integer> MIN_COMPARATOR = Integer::compareTo;
+
     @Test
     public void shouldExtractElementFromNonEmptyHeap() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
         heap.add(1);
 
         extractAndVerify(heap, 1);
@@ -25,7 +28,7 @@ public class MinHeapTest
     @Test
     public void shouldGetEmptyOptionalWhenExtractingFromEmptyHeap() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
 
         Optional<Integer> element = heap.extract();
 
@@ -44,7 +47,7 @@ public class MinHeapTest
     @Test
     public void shouldExtractElementsInMinOrderFromHeapThatWasCreatedWithoutTheNeedToReorderElementsOnInsertion() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
 
         heap.add(1);
         heap.add(6);
@@ -74,7 +77,7 @@ public class MinHeapTest
     @Test
     public void shouldExtractElementsInMinOrderFromHeapThatWasCreatedByReOrdingInsertedElements() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
 
         heap.add(10);
         heap.add(9);
@@ -96,7 +99,7 @@ public class MinHeapTest
     @Test
     public void shouldSeeTheMinimumElementWhenPeekingTheRoot() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
 
         heap.add(6);
         heap.add(1);
@@ -111,7 +114,7 @@ public class MinHeapTest
     @Test
     public void shouldMaintainOrderingAfterExtractingAndReInserting() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(10);
+        Heap<Integer> heap = new Heap<>(10, MIN_COMPARATOR);
 
         heap.add(6);
         heap.add(1);
@@ -133,7 +136,7 @@ public class MinHeapTest
     @Test
     public void shouldBeAbleToInsertMoreElementsThanTheInitialSizeOfTheHeap() throws Exception
     {
-        MinHeap<Integer> heap = new MinHeap<>(4);
+        Heap<Integer> heap = new Heap<>(4, MIN_COMPARATOR);
 
         heap.add(6);
         heap.add(1);
@@ -156,7 +159,7 @@ public class MinHeapTest
         expectedException.expect(IllegalStateException.class);
         expectedException.expectMessage("Heap is full [5]. Cannot add more elements");
 
-        MinHeap<Integer> heap = new MinHeap<>(2, 5);
+        Heap<Integer> heap = new Heap<>(2, MIN_COMPARATOR, 5);
 
         heap.add(6);
         heap.add(1);
@@ -167,7 +170,7 @@ public class MinHeapTest
 
     }
 
-    private void extractAndVerify(MinHeap<Integer> heap, final Integer expected)
+    private void extractAndVerify(Heap<Integer> heap, final Integer expected)
     {
         Optional<Integer> element = heap.extract();
         assertThat(element.get()).isEqualTo(expected);

@@ -1,10 +1,11 @@
 package com.insano10.puzzlers.heaps;
 
+import java.util.Comparator;
 import java.util.Optional;
 
 //todo: make a generic heap class and give it a predicate to tell it what flavour of heap it is (e.g. min/max)
 //Not threadsafe
-public class MinHeap<T extends Comparable<T>>
+public class Heap<T extends Comparable<T>>
 {
     /*
         Storing a binary tree in an array is fast but wastes space in sparse trees and is expensive to grow.
@@ -18,24 +19,26 @@ public class MinHeap<T extends Comparable<T>>
      */
     private static final int ROOT_INDEX = 1;
     private final int maxSize;
+    private final Comparator<T> comparator;
 
     private Comparable<T>[] tree;
     private int currentNodeCount = 0;
 
-    public MinHeap()
+    public Heap(Comparator<T> comparator)
     {
-        this(100);
+        this(100, comparator);
     }
 
-    public MinHeap(int initialSize)
+    public Heap(int initialSize, Comparator<T> comparator)
     {
-        this(initialSize, 1024);
+        this(initialSize, comparator, 1024);
     }
 
-    public MinHeap(int initialSize, int maxSize)
+    public Heap(int initialSize, Comparator<T> comparator, int maxSize)
     {
         //+1 as the array index starts at 1
         this.tree = new Comparable[initialSize + 1];
+        this.comparator = comparator;
         this.maxSize = maxSize;
     }
 
@@ -104,8 +107,8 @@ public class MinHeap<T extends Comparable<T>>
         int leftIdx = (2 * heapRootIdx);
         int rightIdx = (2 * heapRootIdx) + 1;
 
-        Optional<Integer> smallestIndex = whichIndexContainsTheSmallestElement(leftIdx, rightIdx);
-        smallestIndex = smallestIndex.flatMap((leftRightSmallest) -> whichIndexContainsTheSmallestElement(leftRightSmallest, heapRootIdx));
+        Optional<Integer> smallestIndex = whichIndexContainsTheElementThatComesFirstInTheHeap(leftIdx, rightIdx);
+        smallestIndex = smallestIndex.flatMap((leftRightSmallest) -> whichIndexContainsTheElementThatComesFirstInTheHeap(leftRightSmallest, heapRootIdx));
 
         int smallestIdx = smallestIndex.orElse(heapRootIdx);
 
@@ -139,7 +142,7 @@ public class MinHeap<T extends Comparable<T>>
         return (int) Math.floor(childIndex / 2);
     }
 
-    private Optional<Integer> whichIndexContainsTheSmallestElement(int idxA, int idxB)
+    private Optional<Integer> whichIndexContainsTheElementThatComesFirstInTheHeap(int idxA, int idxB)
     {
         Optional<T> a = elementAt(idxA);
         Optional<T> b = elementAt(idxB);
@@ -156,6 +159,6 @@ public class MinHeap<T extends Comparable<T>>
         {
             return Optional.of(idxA);
         }
-        return a.get().compareTo(b.get()) <= 0 ? Optional.of(idxA) : Optional.of(idxB);
+        return comparator.compare(a.get(), b.get()) <= 0 ? Optional.of(idxA) : Optional.of(idxB);
     }
 }
