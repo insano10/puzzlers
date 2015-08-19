@@ -61,7 +61,7 @@ public class Heap<T extends Comparable<T>>
         if (currentNodeCount > 1)
         {
             int parentIdx = getParentIndex(currentNodeCount);
-            heapify(parentIdx);
+            heapifyUp(parentIdx);
         }
     }
 
@@ -91,7 +91,7 @@ public class Heap<T extends Comparable<T>>
             tree[currentNodeCount] = null;
             currentNodeCount--;
 
-            heapify(ROOT_INDEX);
+            heapifyDown(ROOT_INDEX);
         }
         return root;
     }
@@ -101,31 +101,55 @@ public class Heap<T extends Comparable<T>>
         return elementAt(ROOT_INDEX);
     }
 
-    private void heapify(int heapRootIdx)
+    private void heapifyUp(int heapRootIdx)
     {
-        //find the smallest of the root and it's 2 children
+        int firstIdx = getIndexOfElementThatComesFirstInSubTree(heapRootIdx);
+
+        //if the first element is not the root, swap that element with the root and heapify again from the next parent
+        //to bubble up the values
+        if (firstIdx != heapRootIdx)
+        {
+            swapElements(firstIdx, heapRootIdx);
+
+            int parentIdx = getParentIndex(heapRootIdx);
+            if(parentIdx > 0)
+            {
+                heapifyUp(parentIdx);
+            }
+        }
+    }
+
+    private void heapifyDown(int heapRootIdx)
+    {
+        int firstIdx = getIndexOfElementThatComesFirstInSubTree(heapRootIdx);
+
+        //if the first element is not the root, swap that element with the root and heapify again from the element
+        //to bubble down the values
+        if (firstIdx != heapRootIdx)
+        {
+            swapElements(firstIdx, heapRootIdx);
+
+            heapifyDown(firstIdx);
+        }
+    }
+
+    private int getIndexOfElementThatComesFirstInSubTree(int heapRootIdx)
+    {
+        //find the element that should be at the top amongst the root and it's 2 children
         int leftIdx = (2 * heapRootIdx);
         int rightIdx = (2 * heapRootIdx) + 1;
 
-        Optional<Integer> smallestIndex = whichIndexContainsTheElementThatComesFirstInTheHeap(leftIdx, rightIdx);
-        smallestIndex = smallestIndex.flatMap((leftRightSmallest) -> whichIndexContainsTheElementThatComesFirstInTheHeap(leftRightSmallest, heapRootIdx));
+        Optional<Integer> firstIndex = whichIndexContainsTheElementThatComesFirstInTheHeap(leftIdx, rightIdx);
+        firstIndex = firstIndex.flatMap((leftRightFirst) -> whichIndexContainsTheElementThatComesFirstInTheHeap(leftRightFirst, heapRootIdx));
 
-        int smallestIdx = smallestIndex.orElse(heapRootIdx);
+        return firstIndex.orElse(heapRootIdx);
+    }
 
-        //if the smallest is not the root, swap that element with the root and heapify again from the next parent
-        //to bubble up the element
-        if (smallestIdx != heapRootIdx)
-        {
-            T tmp = elementAt(smallestIdx).get();
-            tree[smallestIdx] = elementAt(heapRootIdx).get();
-            tree[heapRootIdx] = tmp;
-
-            int parentIndex = getParentIndex(heapRootIdx);
-            if (parentIndex > 0)
-            {
-                heapify(parentIndex);
-            }
-        }
+    private void swapElements(int idx1, int idx2)
+    {
+        T tmp = elementAt(idx1).get();
+        tree[idx1] = elementAt(idx2).get();
+        tree[idx2] = tmp;
     }
 
     private Optional<T> elementAt(int idx)

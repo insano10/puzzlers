@@ -1,6 +1,5 @@
 package com.insano10.puzzlers.heaps;
 
-import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -26,7 +25,6 @@ public class MaxHeapTest
         = [23,21,23,17,2,9,20,1]
 
      */
-    @Ignore
     @Test
     public void shouldExtractElementsInMaxOrderFromHeapThatWasCreatedWithoutTheNeedToReorderElementsOnInsertion() throws Exception
     {
@@ -51,7 +49,6 @@ public class MaxHeapTest
         extractAndVerify(heap, 1);
     }
 
-    @Ignore
     @Test
     public void shouldExtractElementsInMaxOrderFromHeapThatWasCreatedByReOrdingInsertedElements() throws Exception
     {
