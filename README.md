@@ -22,6 +22,7 @@ Note: The implementations here are by no means the best or most elegant solution
   1. QuickSort (using additional data structures)
   1. QuickSort (using ArrayLists instead of arrays)
   1. QuickSort (in place, without additional data structures)
+  1. HeapSort
 * Linked Lists
   1. Add/Remove/Get
   1. Remove duplicate elements
@@ -32,6 +33,9 @@ Note: The implementations here are by no means the best or most elegant solution
     * implement recursively
     * implement iteratively
     * implement using a binary string
+* Heaps
+  1. Implement a min-heap
+  2. Implement a max-heap
 
 ## Puzzles
 
@@ -39,3 +43,4 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Fit 20 clowns into a 5 seat Volkswagen
   1. Am I still dreaming?
 * Given a set of meetings find the amount of time someone spends in a meeting that conflicts with others
+* Find the running median of a stream of Integers
