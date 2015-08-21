@@ -6,9 +6,12 @@ import org.junit.Test;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExternalSortTest
 {
@@ -16,13 +19,20 @@ public class ExternalSortTest
     @Test
     public void shouldSortFile() throws Exception
     {
-        Path sortedFile = ExternalSort.sort(Paths.get("src/test/resources/ExternalSort/fileToSort.txt"));
+        Path filePath = Paths.get("src/test/resources/ExternalSort/fileToSort.txt");
 
-        assertFileSorted(sortedFile);
+        Path sortedFile = ExternalSort.sort(filePath);
+
+        assertFileSorted(filePath, sortedFile);
     }
 
-    private void assertFileSorted(Path sortedFile) throws IOException
+    private void assertFileSorted(Path originalFilePath, Path sortedFile) throws IOException
     {
+        long originalLineCount = getLineCount(originalFilePath);
+        long sortedLineCount = getLineCount(sortedFile);
+
+        assertThat(sortedLineCount).isEqualTo(originalLineCount);
+
         String lastLine;
         String currentLine;
         try(BufferedReader bufferedReader = Files.newBufferedReader(sortedFile))
@@ -39,5 +49,18 @@ public class ExternalSortTest
                 currentLine = bufferedReader.readLine();
             }
         }
+    }
+
+    private long getLineCount(Path filePath) throws IOException
+    {
+        long lineCount = 0;
+        try(BufferedReader reader = Files.newBufferedReader(filePath, Charset.forName("UTF-8")))
+        {
+            while(reader.readLine() != null)
+            {
+                lineCount++;
+            }
+        }
+        return lineCount;
     }
 }
