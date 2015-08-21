@@ -1,0 +1,1902 @@
+commit 71c0eaeab515c35fa641c693eae833f522426ae2
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 20 09:02:56 2015 +0100
+    start ExternalSort
+commit 238cfbd7ae313eb06b0bc388f527925bffaf308a
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 20 08:43:09 2015 +0100
+    update readme
+commit 26fe2b18870568b485fd3cd79bb781cf811b3db3
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 20 08:39:49 2015 +0100
+    implement heap sort
+commit 80d35ee73281b433e41dbfe214a02ac0cdfacaf3
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 19 19:27:33 2015 +0100
+    use a min heap and max heap to find the median of a list of numbers
+commit 08879c5a8aa05733598caaa9135d56a13e6078ad
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 19 18:38:59 2015 +0100
+    complete MaxHeap. Turns out you need to heapify up on insert and heapify down on extract. One heapify does not fit all!
+commit fa7ab221219c36a8570f6390da7e1bc225eea9bb
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 19 13:36:27 2015 +0100
+    start tests for MaxHeap
+commit 9c87dadcaf12a564a5849572b45241b1559e99be
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 19 13:28:44 2015 +0100
+    give MinHeap a comparator instead of harcoding its min-ness into it. Rename it to Heap and now it can be used for a max heap
+commit f458ee06d2802ceca32cc2351a98d93e3d88cf59
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 19 12:55:55 2015 +0100
+    use optional instead of null when not element is found at an index
+commit 4096eb8a9c83cd40e6f4145c0e91dd6e9bdfba4c
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 18 08:54:52 2015 +0100
+    add bounds check to MinHeap
+commit 0664a6f9e0f0e9113ac5a7015fa5d3002e4ff538
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 18 08:49:01 2015 +0100
+    finished MinHeap tests
+commit f2a6ab3e4315434a31a4d4c05c7c6aab5eeeb08a
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 18 08:40:18 2015 +0100
+    get more MinHeap tests passing
+commit 080b1ea34dd637d3198eceb5586ff72823c10904
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Aug 17 09:04:43 2015 +0100
+    check for smallest element when heapifying, not largest. Also start root index at 1 rather than zero to avoid special casing the root index in the parent calculation
+commit 0b3a5f712421a8774fb16abea57851cb4422acd1
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Aug 17 08:37:52 2015 +0100
+    another test working for MinHeap
+commit 4292c22ece34ecedaee3ddd05a6de8f84c2ef890
+Author: insano10 <someEmail@Foo.com>
+Date:   Fri Aug 14 09:01:50 2015 +0100
+    get a simple insert/extract test working for MinHeap
+commit 166af2c935bca5d01a1cafd46f73498fc91cad11
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 13 09:13:48 2015 +0100
+    start implementing MinHeap with a complete binary tree stored as an array
+commit 6092093f415860abae30ffa71cc822106041b356
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 13 08:52:03 2015 +0100
+    tests for MinHeap
+commit b2699e3fa5fc769600cd6526eca157f7745e8f7c
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 20:44:39 2015 +0100
+    implement powersets using a iterative copy and merge
+commit 2dc9f025deec39e731e327f3453a458e09133b94
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 20:25:55 2015 +0100
+    implement powersets using a recursive copy and merge
+commit b947279e0d6676504f3b8a9e7adad7c7f5e91a5b
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 19:29:02 2015 +0100
+    rename powerset from binary string
+commit d28a5b56ecafad613a48b2adef066e7a2a74ce90
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 19:27:45 2015 +0100
+    test guava powerset implementation against the PowersetTest
+commit e49fbda97b8024d0b597f99f5b13ecc23171f210
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 19:23:20 2015 +0100
+    parameterise PowersetTest to test multiple implementations
+commit f0490465feeb9957c83db16500bceb56e57ac4c4
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 08:41:44 2015 +0100
+    get powerset of the set containing only the empty set working
+commit 434e143753751a36612709c7666c9c16170f9d99
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 12 08:29:04 2015 +0100
+    get powerset of the empty set working
+commit a265bbca444af132b5d58c0616beec2f31347188
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 11 09:01:39 2015 +0100
+    get half the tests passing for powersets
+commit c8414cb0632707d17fb1a6aabb4e711294d0d2b8
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 11 08:36:03 2015 +0100
+    add tests for powersets
+commit 3d9bcd7515e2ad27f6b905f34ae6bab551e88fa1
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:59:35 2015 +0100
+    update main readme
+commit fcef362a42aa31c9358263a4f3e738074418f6fc
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:55:05 2015 +0100
+    update main readme
+commit d120cfab97fda97037da02a055a4b2f748d26066
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:54:01 2015 +0100
+    update overlapping meetings readme
+commit e15cb0ae2274bcd97ada08389f6440c9cda90fcd
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:50:43 2015 +0100
+    don't report the same time period inside multiple overlap intervals
+commit 6fd5315e404eb850e8d37960857e220c367c3180
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:41:37 2015 +0100
+    don't report multiple copies of the same overlap interval if more than 2 people attend conflicting meetings over the same period
+commit 695ba17ae460f9b3c228496bc7a300b19a4fb80d
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Aug 6 08:34:24 2015 +0100
+    pull conflicting time logic out of Person into a separate class. This is not the job of the Person.
+commit e4f1ce878a9d8a70647a6a2cae505e54197759ac
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 5 09:03:42 2015 +0100
+    give Person a timezone to provide a consistent format for the overlapping intervals. Also finish multiple timezone test
+commit 6c4c86957ef6a5cb42ac0378352af56218ee519f
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Aug 5 08:44:10 2015 +0100
+    more tests for overlapping meetings
+commit 39a7d18f0dc6f028325b344a997d34b1dff1cbfa
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 4 09:02:18 2015 +0100
+    ideas for more tests
+commit fdba304b7c75f6b667aaecaf993b8eae5abd9228
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 4 09:01:07 2015 +0100
+    add ability to get the duration of a ZonedInterval in minutes
+commit cf7a8ecf9d139560a7a1b99a52a27388eaa21cc9
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 4 08:53:12 2015 +0100
+    refactor overlapping meetings into separate classes. Also, test passes now :)
+commit a7219e5f158813528d37205841435064ce5f99c1
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Aug 4 08:44:04 2015 +0100
+    return conflicting zoned intervals, not minutes
+commit 3169b5ba8ac1eb7cb18840d50ebad630e016e5e5
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Aug 3 08:56:19 2015 +0100
+    get a bit further with OverlappingMeetings
+commit 30d9e1acf9052f7a61362aba3d5a687cf7aee9a2
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jul 11 15:28:49 2015 +0100
+    update readme
+commit 4f3cb23ab6bdbb7bbc21d4d7432b4da482f551f3
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jul 11 15:25:55 2015 +0100
+    implement solution to Wouter Coekaerts dreams puzzle
+commit 129f3d274cc634bbe2eac846c48c55c5d6eddd3d
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jul 11 14:24:43 2015 +0100
+    implement solution to Wouter Coekaerts clowns in a volkswagen puzzle
+commit 5aabe0b917b927509342fce300e4d82713ffd06a
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jul 11 13:26:59 2015 +0100
+    start implementing the overlapping meetings puzzle
+commit 4804c180b8fb0b7327928552ab78822f70579920
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Jul 9 09:01:58 2015 +0100
+    implement sort on LinkedList and make QuickSort handle generic arrays/lists
+commit b1ef03e0513a0600b9caee98d7f526777967bb2a
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jul 7 09:02:49 2015 +0100
+    implement remove duplicates (with/without extra data structure) on linkedlist
+commit deb4e381867b276dd249652b724d8fe28dda50ba
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jul 7 08:48:25 2015 +0100
+    implement remove on linkedlist
+commit de733b6f235c8e16d0c6684d557ce7ea3b341077
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Jul 6 09:03:24 2015 +0100
+    update readme
+commit ed8cbe2fe05f82a27c098e49804bd6635a4f834e
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Jul 6 09:01:41 2015 +0100
+    start adding linked list implementation
+commit a28723a193cc292d2b628cf20edca31d7db8a19d
+Author: insano10 <someEmail@Foo.com>
+Date:   Thu Jul 2 09:03:17 2015 +0100
+    implement and benchmark in-place quick sort. It is indeed 10 times faster than the one with extra data structures. Cool.
+commit b4da33e5995c6c5e74feb639e4e464a44bc89404
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jun 30 08:57:32 2015 +0100
+    update readme
+commit 421b7d156935a0cfc78c2bd24a42f3c9228b489f
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jun 30 08:50:15 2015 +0100
+    alternative version of quicksort that uses arraylists instead of arrays (to avoid manual resizing/recreation) to see if this is quicker. A new benchmark says not.
+commit c27e603156731d7466f167d23955589a5462a218
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Jun 29 20:17:41 2015 +0100
+    add jmh benchmark for QuickSort
+commit 65e6cd4ded0e5a1c01ce01a95a5ec2eb714468ae
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Jun 29 08:44:08 2015 +0100
+    implement quicksort with additional data structures and string anagrams
+commit 83d756aeb3fec245ffb5fec8cbafbb065402f480
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Jun 24 09:01:09 2015 +0100
+    add maven config files
+commit f41edd80dcd61a1ba6a98f420339ec7545d71487
+Author: insano10 <someEmail@Foo.com>
+Date:   Wed Jun 24 09:00:39 2015 +0100
+    reverse a string. Also add maven build target to run all unit tests
+commit 9e295324dfbeb8074e103e1967c661a305f2e032
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jun 23 09:04:36 2015 +0100
+    unit tests for ArrayRotation
+commit af7fd192f0d628da673f932f58a3db9220bb8141
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jun 23 08:45:32 2015 +0100
+    create a better structure and implement unique chars in a string
+commit 0189127d71e82f917c26c0d057880096e57859ad
+Author: insano10 <someEmail@Foo.com>
+Date:   Mon Jun 22 08:49:50 2015 +0100
+    updated readme
+commit 0c735e391c6d62959404c6c0abe2268648c2ad9e
+Author: Jenny Beckett <someEmail@Foo.com>
+Date:   Sun Jun 21 15:55:02 2015 +0100
+    added readme
+commit 3996b7f06cce75e4c68a59eae1563aa8c3b30ae5
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jun 21 15:53:42 2015 +0100
+    first algorithms to rotate a 2d array (any width/height) and traverse a 2d array in a spiral order
+commit 1d277dae3a9bc9a77aa95b77031fd044dd811030
+Author: Jenny Beckett <someEmail@Foo.com>
+Date:   Sun Jun 21 15:45:43 2015 +0100
+    Initial commit
+commit 3827c5ac7e02f4d499ba2bd76fa71c6d5a575851
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 16:34:03 2015 +0100
+    update readme
+commit dd1a3be88a0acbaab2d8d17f57b31bcba5776503
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 16:25:56 2015 +0100
+    crop images
+commit f4697fb435663dfc49dc221f3fa2d53fbdbd37b7
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 16:18:43 2015 +0100
+    actually remove those folders
+commit f0e557474f722ba968936fc723a6fae4cb1869e5
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 16:17:29 2015 +0100
+    remove release/debug folders and add some images
+commit de5226a35bcc19c5650de8162d121a24e5ff5882
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 14:43:51 2015 +0100
+    remove old misnamed project files
+commit 873754a771400fdd15aba6e24ea1279eed54ab95
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 14:43:26 2015 +0100
+    missed project files
+commit 6da529414c5d38c3d72a70adcf04b782259beb88
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Jul 5 14:42:44 2015 +0100
+    initial import from archive
+commit 24c47db8a1398cc5cf93a67a0a0ce67d31e9f758
+Author: Jenny Beckett <someEmail@Foo.com>
+Date:   Sun Jul 5 14:34:38 2015 +0100
+    Initial commit
+commit e0f4203ecbee719d041a085e01307ce839a32226
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 31 20:17:33 2015 +0100
+    start writing CityBuilder
+commit 33cc513ab2eeb0636832642ad46aa1a16b819efd
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 31 17:08:13 2015 +0100
+    start implementing tree traversal to help with layout packing
+commit d893de6a8f823a6f080f249dcff54853ff587322
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 31 15:29:08 2015 +0100
+    exclude files with mimetype 'image.*' and 'application/gzip' from FileInspector
+commit 5dc60a9d787fb025f98cea44697ed46602e38a57
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 30 17:41:06 2015 +0100
+    show line counts on ui
+commit 441fa814018261e5b463978c95a2859a1fa26455
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri May 29 20:29:38 2015 +0100
+    send aggregated line counts to the client
+commit fa97e7f8bbe3658ed0890204c5b25db25ef500f3
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 28 20:05:50 2015 +0100
+    collect total line counts for all the file extensions
+commit 485e15b43f9bed2b8ff7406c7468facb0a9bc3e4
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 28 19:36:50 2015 +0100
+    upgrade jetty to attempt to reduce the number of jvm bug warnings in the logs. didn't really work but new == :)
+commit 728316134ff0c9c2b9a31d87f09d159798289c7a
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 28 19:24:19 2015 +0100
+    do not update every file unit's world matrix every frame as it never changes. this improves the fps hugely!
+commit e97b71d00ea768ab713547ce8c1ee539756cb767
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 26 20:11:42 2015 +0100
+    switch raycasting to use an octree to avoid testing all objects in the scene
+commit 64359f577832c5222945047dd390fb64ac314fdf
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 26 18:00:30 2015 +0100
+    merge all neighbourhood meshes into one mega mesh for rendering
+commit 7ae6159ba0fb67650dc2240548833050dd416398
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 26 17:03:15 2015 +0100
+    remove the bottom face of the bars as it is never seen
+commit baf1947b179f58d5da9de80249bcc09ea0ab1daf
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 26 15:17:48 2015 +0100
+    reducing the js memory footprint
+commit 04b2501a10f03caaaae4331f2b973ce99b2060f1
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 26 14:15:29 2015 +0100
+    use parallel stream when transforming files into objects
+commit ba03ddaf61d180a10fc891f230491a0568579f6c
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 25 02:51:43 2015 +0100
+    make vcs file group names relative to the 'relative source directory' so the history map lines up with the file unit group names
+commit f9dc70ae8eca203c223cb809419229f5de3a6f36
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 25 02:07:05 2015 +0100
+    handle files at the root level for svn
+commit 741c7b735aa20a56aee8def824633412714a072d
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 25 01:30:23 2015 +0100
+    error handling around vcs processes
+commit 0dac9e9f793e7700691ebf1c23a08d025e9baf62
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 25 01:16:59 2015 +0100
+    regenerate vcs.log when it is not for the current project
+commit 876d6abd971597e28e170de488bead26d8aa9a6b
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 25 01:08:47 2015 +0100
+    write metadata.properties when updating vcs log
+commit f1dd5c32a0576672530ace4b05281417b8892868
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 24 22:28:14 2015 +0100
+    display vcs info on InformationPanel
+commit d48da817f8acc06341706edf751b9e01b9b44a6f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 24 22:05:55 2015 +0100
+    send the visualisation source root back in the response (to help with vcs history later)
+commit d2a96dc77edb820467bdfdcedd412c9ac9d5627d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 24 20:59:00 2015 +0100
+    dry out vcs log parsers
+commit 6c8c45d3c05fb82f7c03ea684072f62058d66ff7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 24 20:27:31 2015 +0100
+    parse git log to timeline
+commit 6c6fe2bc6eb24190ef7fa99abb2ec708fc630e78
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 24 19:09:26 2015 +0100
+    parse svn log to timeline
+commit b33c443a7aa366283f2928efbaddb8078b0d2280
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 19 20:41:02 2015 +0100
+    add some svn and git logs in preparation for writing some parsing tests
+commit 3cbd9985f8f77541d81818f08b641f14f7e732fa
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 19 20:15:44 2015 +0100
+    add wiring to get vcs time line
+commit a78cb58ce64d0a4803cb08523152ed28b18cc0ff
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 17:09:39 2015 +0100
+    implement updateVcsLog for Git
+commit 18c7666822c6ce3b82b3abba9dbb115e1425948e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 16:44:59 2015 +0100
+    implement updateVcsLog for SVN
+commit c43473f81f689f471ea6b24d61e7d29016159339
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 16:02:55 2015 +0100
+    make vcs controls stateless
+commit 080148142ec9f4abd9a415ab38546e9c743c4a29
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 15:59:46 2015 +0100
+    implement getLatestVcsLogRevision
+commit 2de77700baf0bf2f128b77f2932bef2538078c66
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 15:41:17 2015 +0100
+    get current vcs revisions entirely in bash, don't post process in java
+commit ad187a108dae6f576e29a52e7ea34a272cec9a75
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 15:36:45 2015 +0100
+    git implementation of getCurrentVcsRevision
+commit e3da701173d7afaec66fee57594cf59acce3ce11
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 17 15:31:23 2015 +0100
+    svn implementation of getCurrentVcsRevision
+commit 467c9ffbb9da4795313ba37a282edd3701545316
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 19:33:51 2015 +0100
+    git implementation of generateVcsLog
+commit 8a674eac7b0aeb8b4f40dfb4dc66dfa0ad65b3fb
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 19:29:43 2015 +0100
+    svn implementation of generateVcsLog
+commit c22208681eb7a1196d58f8b8ea53a8cf8a21f532
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 19:05:36 2015 +0100
+    config manager should be responsible for notifying interested parties when config has changed
+commit a86915d04098e5061f6cbfd4304c7d43d1d2acb4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 18:38:23 2015 +0100
+    set file and vcs configurations atomically
+commit 6702548be4961937edf728899bd7e8ea3a2e1f8e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 18:36:13 2015 +0100
+    introduce skeleton vcs controls for git and svn
+commit d2442b9864659d480ff08d361113b472f43674cd
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 16:13:02 2015 +0100
+    load configuration on app load
+commit 4ac739e79066c12848cefbcb11cf4c906db6d649
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 15:41:45 2015 +0100
+    save and load config
+commit 5d49ec41564d37893aeb9a51cf2ff4f540e42515
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 16 15:28:58 2015 +0100
+    create empty app config file in user.home/.code-sprawl/config
+commit 53530e40cefbcae4694d2a8cbfd7c68eaa95d4c8
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 14 20:54:36 2015 +0100
+    separate vcs root from visualisation directory
+commit 02aa1eb6556865202418844a168ee4d200dd09c9
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 14 20:16:23 2015 +0100
+    send vcs system to the backend
+commit 0e7e52bf34c5c5c1d8f290b2047d4fc570fb3612
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 14 20:02:23 2015 +0100
+    add vcs radio buttons to config dialog
+commit 50fb4b071782bb840ecb2025ac7099b6f2aeab50
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 13 20:34:53 2015 +0100
+    rename codeUnits to fileUnits
+commit 1623bc50e0f5cdc68146ea5caf8e74bed3d60a2e
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 13 20:23:03 2015 +0100
+    return arbitrary file types instead of just java files
+commit 0f67fcb5312986bd0bcb9a4fbc5a8f6ac5d3f33a
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 13 19:46:55 2015 +0100
+    choose file extensions to include in the visualisation
+commit 1fac53fee89faa3c24bcd63fcc964727937f1a03
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 12 19:43:48 2015 +0100
+    centre the navigation button
+commit 25905f1c3f4d074f770e2493f372072798f224a4
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 12 19:41:41 2015 +0100
+    change search from Ctrl to Space
+commit 542d6b879461ea0f21abefb31377825fa233e661
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 12 19:32:13 2015 +0100
+    tidy up the search bar
+commit 6494a58058db807dcd0c4076aef586c744aed809
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 12 19:08:23 2015 +0100
+    move project configuration into a modal in preparation for adding more stuff
+commit f61898696ef5ddf2d2040c389725b3f38037b252
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue May 12 18:35:12 2015 +0100
+    rename inspection button
+commit ca13fc9b79c495bcaf8f0b275375a68f57d98aed
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 19:43:43 2015 +0100
+    clear anything selected by the crosshair when loading a new scene
+commit 35f28b55cbf48113a8882ddfb13064b387b20e48
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 19:39:55 2015 +0100
+    don't forget to remove the merged mesh from the scene between loads
+commit 2e4fd5cf173f1913f1240ffdd65be9509ccfc5cc
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 19:18:12 2015 +0100
+    rename source code shaped things to be file shaped things to handle arbitrary files
+commit 06dab4f7c08f09e4ec8fc5cee38a5109da59aae0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 19:05:40 2015 +0100
+    remove the classloader inspection code. Stop treating the bars as code and start treating them as files with arbitrary content
+commit 55aa9dfa75a70d3f4df0a5efdf4c69e2aa45efa5
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 18:55:25 2015 +0100
+    improve rendering performance by drawing all the bars as a single geometry object and picking against the individual units
+commit 161a9225d09a1ac18bb8cf2b3a89bbb48e1bcb47
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 11:44:44 2015 +0100
+    add scrollbar to autocomplete results
+commit 6667aa6bd93bdd82af7d86761a9c8f28b2742e21
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 10 11:42:18 2015 +0100
+    search based on fully qualified names with autocomplete to help
+commit 27ba8776aa1edfd12773d01bfeb76eddb64b77f2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 23:47:38 2015 +0100
+    make the lighting a bit better
+commit 24f46dcfa698f5c05cc89b833ce351ef36946b44
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 19:55:23 2015 +0100
+    remove event handler from CameraMover
+commit 1f2ae77bbf4ccec02868b41fb838da3e1b3cf395
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 19:41:36 2015 +0100
+    'Ctrl' to activate search, enter unit name, press 'Return' and camera looks at it.
+commit 8390f2bc668bd82be25a87ebbd8d6213090e1ea9
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 19:33:07 2015 +0100
+    add search box to enter a unit name in
+commit 4da17d4b8617ef12bffbb4b8a4031862feb919ff
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 19:15:14 2015 +0100
+    look at a unit by name, not coordinate
+commit c161cace4b908a936bf848053343f5b75b37414c
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 9 17:02:05 2015 +0100
+    press 'l' to interpolate the camera to look at an arbitrary position on the plane from a given height
+commit ed9183713ff408fcaff584895cdd273a749f040b
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 18:27:09 2015 +0100
+    add new multimodule test project class
+commit 0a3874f12e1956c1e0bfb3c1b45fa616f2a656a7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 18:23:05 2015 +0100
+    support multiple language source roots under the main project root
+commit 3a6d60122a0e174b4c3ac6948ffdf431afb35a7f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 18:08:16 2015 +0100
+    separated public method count from total method count
+commit c7373c3e1bf4dc4e2d617a9f46951c832d1b2928
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 17:37:37 2015 +0100
+    give CodeUnit a builder and add test project class files
+commit 2b905dd8b1ef964d4268025a9b80dac0cc11f04c
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 16:35:30 2015 +0100
+    gather method count for java classes
+commit c65d41f5711557ec9f5174cd4fcfcc007525b853
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 15:46:35 2015 +0100
+    give JavaFileInspector a class directory
+commit a9cdc9c011bb7a0aa74afae41f4559ed3f1ee0d4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 14:48:09 2015 +0100
+    move test project into source tree to get it to generate classes. Also add stub to get method count
+commit eb880af7d757dec25dc55b9d81598421cabb86af
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 26 13:45:20 2015 +0100
+    give CodeUnit a line count
+commit e97f1b783c7528d968ece163bd9ab41d518cf7f5
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Apr 6 00:06:42 2015 +0100
+    move one off rendering out of CityPlanner. It's got enough to do without worrying about rendering
+commit 7a321dcd966c75da29fcb8fdaabc4b2d75f036c4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 23:59:54 2015 +0100
+    render the scene once after loading in the CityPlanner
+commit d3e9a1c8c6239c67d309fa56e149ffaef5c60485
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 21:09:23 2015 +0100
+    hide loading icon once city has loaded in js too
+commit fb9343bd2f37a40c4fa5b95b0833898a27b47ebc
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 21:07:58 2015 +0100
+    display loaded city
+commit 5a7d385010972bbd2069bcc5258761689765f187
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 20:35:33 2015 +0100
+    give CityPlanner control of the top level scene objects so it can swap them out when loading a new city
+commit 84b2e8c45d53930511d3ea81b211f09a5e451cdc
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 19:43:44 2015 +0100
+    pull CityPlanner outside of app and separate the TestBlueprint from any real data
+commit 588d1a245f8874e7a4200fff4528b267d55f2717
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 19:21:41 2015 +0100
+    allow SourceInspector to use a collection of FileInspectors
+commit 9291fa2b3a7d066f435e7ca7a1f553bd428eca57
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 18:51:07 2015 +0100
+    enable SourceInspector to find return codeUnits
+commit 80bfac400c19ec098db8fa4b36b5917c9deef318
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 17:21:54 2015 +0100
+    enable SourceInspector to find a standard java source directory within the project root
+commit bcd04eb215453bc34645a42cc5f20b692baca3a9
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 16:04:07 2015 +0100
+    add inspect button with a loading gif
+commit e7663a29084ad350b41f176a4e1e6baccf9953fd
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 5 15:38:52 2015 +0100
+    add source directory selector to UI, test project to point it to and skeleton server side inspector
+commit 399ead77b1eac03b97703a08b8d65d74d612661e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 20:39:34 2015 +0100
+    fix some bugs. City with 200 neighbourhoods works fine! :)
+commit 239226f5b5b3888360700d5862cf494330f3644d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 20:21:51 2015 +0100
+    unit data now comes from a CityBlueprint. Model construction now comes from a CityPlanner.
+commit 3c04408f992c9e4d59727f23dab49361a435e050
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 18:45:46 2015 +0100
+    show the neighbourhood on the information panel. Also clear the panel when no units are intersected.
+commit d8c63b084c89447da30ae8f14fc172b4167710f4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 15:16:39 2015 +0100
+    create multiple codeGroups. Do not share the data between them
+commit 62a56d3ac10c47ac1db7d1fb7db59599d6ff2ada
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 14:31:07 2015 +0100
+    create codeGroup to hold a set of CUBs
+commit 451c80f3c2c85eddb43808f4a03e21d9e093c02f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 13:36:20 2015 +0100
+    pull out pointer grabbing into separate function
+commit 59c2766512858508aa03e6f24190ac2c92707cc1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 13:33:51 2015 +0100
+    change encapsulation style of app to use prototypes
+commit af684d9245d12f2ad04b415480c4d57db0a159c6
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 12:55:29 2015 +0100
+    create a CUB mesh on construction not when adding to scene so the ID is always available
+commit 373a9516dbd522579110ea65dce05b72b43954a5
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 12:51:16 2015 +0100
+    encapsulate object array and map into sceneObjects
+commit e415858e161942064845d3536809728fcf1fb9c1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Apr 4 12:39:00 2015 +0100
+    start click handler should be attached to the button, not the div. Also handle when there is no picking target in the information panel
+commit 84c2d9d5f74192625c643d593d060bf3fd690364
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Apr 3 21:02:19 2015 +0100
+    display name of currently focused bar on an information panel
+commit 7d91d5fb075621e7d75f1c4a5b53e02ee5da44ce
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Apr 3 19:52:32 2015 +0100
+    tidying
+commit 9abb3674845fc6596521065afd7b7360eaa2f424
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Apr 3 19:42:24 2015 +0100
+    improve the page display to remove rendering artifacts and relinquish controls when pointerlock is released
+commit f4cb4d2db64e34331eae3ab55fe136b4cff66aad
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Apr 3 18:41:21 2015 +0100
+    start the camera at a more sensible position on start
+commit 988ed0b021e209d648c0d0463d07d2c7f79ecca2
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 30 16:51:54 2015 +0100
+    log the name of a bar when it is highlighted
+commit ea6eed25550ee08b6f9a1fcd03d40216b00c6d70
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 30 16:33:39 2015 +0100
+    create CodeUnitBar and tidy up crosshair
+commit ece2a1d0650cd30f6d39e2dd777d0f8ef1f325a3
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 30 14:55:35 2015 +0100
+    get picking working with pointer lock controls
+commit 97189f0e26cca8fc680576b31a4a9ee1957b552e
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 30 14:31:30 2015 +0100
+    tidying and put back pointer lock controls as that is what I want to get working (although picking does not yet work)
+commit 952a1bdeff6b5ef7cd581b356cc756aaf9071c04
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Mar 15 04:00:54 2015 +0000
+    fix raycasting by removing pointer lock and keeping camera at origin 0,0,0. Camera needs to start at a sensible position though.
+commit e0697eea93711caeb19f91c0876aea86f21ba739
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Mar 15 03:25:52 2015 +0000
+    add raycasting that doesn't work very well
+commit 0fac2625c015f034c5f886b5ab4402692cb7138e
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Mar 13 21:17:56 2015 +0000
+    add keyboard controls by creating new FPSControls which also combines the pointer lock
+commit b00e81d26f0a38f1a84cb8d64981d043ddb7deed
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Mar 12 21:00:02 2015 +0000
+    starting to get mouse/keyboard control working. mouse *works* but keyboard listeners not added yet.
+commit 4ba28f016a07b13c10c7ea3dc0151096b0e49503
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 9 20:31:17 2015 +0000
+    set of cubes with random height on a plane
+commit 19df80bec2cd58f6c91faad5dcb21edf0a44a528
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Mar 9 17:58:03 2015 +0000
+    couple of cubes with shadows and lighting above a plane
+commit 4464a6a9805f7850d65a06787c09a3755ab6f95e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Mar 7 01:08:15 2015 +0000
+    removing untracked files from remote
+commit ebceb273ec2f15156f8321dbce204e06f80581b3
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Mar 7 01:04:25 2015 +0000
+    exclude node_modules from intellij
+commit 0d682ece2bbc0acfb3547c9c96c7635d20bf2153
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Mar 7 01:02:31 2015 +0000
+    remove node_modules from VCS
+commit 96458b04059590f2c76066183bc1d71249166f35
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Mar 7 00:51:13 2015 +0000
+    initial version with spinning cubes
+commit 887d07497b06038da3178b54da341cc4a59baa51
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Mar 6 22:22:18 2015 +0000
+    update readme
+commit a14cece40ca0e9f36e81594fd9d35243bee0e76c
+Author: Jenny Beckett <someEmail@Foo.com>
+Date:   Fri Mar 6 22:20:00 2015 +0000
+    Initial commit
+commit ace3bd1bcad97d48305794372f26874a62f61c70
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 17 15:56:56 2015 +0100
+    add chain index to stitches
+commit f35d6a54e7acd440adc5be933935a3efee6da6f1
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Jan 8 19:30:02 2015 +0100
+    better bending on even rows
+commit 9aeb3f3d701d6367a1d30cb784927c332e1d0064
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jan 7 22:18:12 2015 +0100
+    fix switching between odd and even transforms at the ends of a row
+commit 76a2798b1755c8244077a77030ff6331eeef7d5a
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jan 6 20:20:44 2015 +0100
+    create odd and even transforms (both are the same atm) and switch between them based on row number
+commit e84bd99b8194af8a65624901847d6942f5c403c9
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jan 6 19:18:23 2015 +0100
+    extract transforms out of renderTransforms into oddRowTransforms
+commit c4a4841ca84349fdfa363dd00ee7412a1d983729
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jan 6 19:12:21 2015 +0100
+    initial set of render transforms for left->right rendering
+commit c28a93c1947d2bccde5c0498f7df4426d918e10b
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 3 18:38:00 2015 +0000
+    use new render method (which now doesn't kill the browser), add more logging and leave extra space for stitches in wide spaces
+commit 71a0566be605b57ffab82b000604ca27cdabfe97
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 28 18:28:55 2014 +0000
+    chainRenderer successfully renders stitches with no rotations
+commit 05eec38ce5a54ae945d35e8bdc7ca772d449d292
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 28 17:43:55 2014 +0000
+    getting a bit further with chainRenderer
+commit 388081440c7278ca1987b187cc18979e1595e1e7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 28 17:06:06 2014 +0000
+    split chain rendering out of chart model
+commit 1e7c902656347448d81ee1456b4114b1b6eb0461
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Dec 15 19:59:00 2014 +0000
+    make rename title modal the same style as the delete pattern one
+commit 926d1de020753a2ae1f609a9bc2c2d3e44658493
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Dec 15 19:40:09 2014 +0000
+    colour delete pattern confirmation button appropriately
+commit 20f1471bd3086b626c69e1d71a4f52368f865d5d
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Dec 15 19:38:02 2014 +0000
+    reorganise css
+commit 7dc7c9fe6ef2727ace4bc046a574c23b94a7bace
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Dec 15 19:27:40 2014 +0000
+    fancy delete pattern modal
+commit 2f6bc84ca84d2c8be84ea85fd2b538d080848b14
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 14 19:42:32 2014 +0000
+    turn 'delete pattern' action into a modal confirmation popup instead of an instant delete. Needs more style!
+commit 0fea526c1dc04942d70059c5cf3aebfaf3baee72
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 14 19:04:26 2014 +0000
+    delete pattern by id (by clicking the trash can)
+commit e0ae73c7423e81c9907b574af8de8918b23b7db3
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 16:21:17 2014 +0000
+    trash icon next to each pattern in preparation to implement delete
+commit 8dc474784b965a1f8e40421d8194842af552b893
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 16:12:02 2014 +0000
+    display patterns in order of last modified time descending
+commit 22053c7afe6a104f5c22c1201a4bc1cb4d8ffb66
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 15:52:54 2014 +0000
+    display pattern last modified time
+commit 07ac663aefdae7c25c650aa5df22fa9b596af042
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 15:29:33 2014 +0000
+    menu padding
+commit 3d104cb1f8b857c81b0a4454ecbde796cad3d83f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 15:23:27 2014 +0000
+    change fat 'create pattern' button to a wizzy new icon
+commit 291bfe34f6a2a3bf75dd54c1c89f7fe7cfd0ee66
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Dec 13 14:54:58 2014 +0000
+    replace 'My Patterns' button with menu and pretty up said menu
+commit 43dfe5a413e42f4a8da42983970eb49b09925a2e
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 20:47:33 2014 +0000
+    attach click handler to my patterns to trigger them loading in the chart editor
+commit 3f48684a6103b142be7ef0a92020b76e8d7a4ba2
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 20:21:08 2014 +0000
+    truncate existing pattern when saving, do not just partially overwrite it
+commit 5513f82ad8704640fdf8dc6d7a9e7e313dc3c947
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 20:18:43 2014 +0000
+    trim whitespace from pattern files
+commit e03560774d8d9d7eaa62668e60fb7307f092a7d1
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 20:05:03 2014 +0000
+    load user patterns on save/create
+commit f41d30aacaf5d41052bf2018c550e9a66ec467aa
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 19:50:47 2014 +0000
+    api call to return all patterns for a user and display in slide out menu
+commit 2123fc8cd76821027862aeda30bdbd29bce9530d
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Dec 10 19:27:37 2014 +0000
+    change new pattern hover behaviour
+commit 70fa362cc47fec55e3d0e00f86bdc226673625eb
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Dec 9 21:09:59 2014 +0000
+    show fake 'my patterns' in slide out panel
+commit 1f744ac22cabf0b0a3f778982fac048db2e020b5
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Dec 9 20:52:30 2014 +0000
+    put gross save button back
+commit cce6bd41b950d9475500f7aa5983ff37acabda78
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Dec 9 20:51:12 2014 +0000
+    improve 'create' button
+commit 0524e9c634ae20767a4c75d793e1c029e32f7ed0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 21:04:15 2014 +0000
+    add 'new' button to slide out menu
+commit e76472d9ec88e5187eedcfcc1c8fb4961a0e8bea
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 16:28:13 2014 +0000
+    make the menu slide over the content rather than pushing it out the way
+commit bf96700a7a15a7f4b954139a50e3c5140895ea39
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 16:23:57 2014 +0000
+    add unstylish slide out menu for 'my patterns'
+commit e1989cd6c151cb8c45fbd18e03f1a749211fa97b
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 15:05:01 2014 +0000
+    add 'My Patterns' button
+commit 6ecb40a1a7ebd6cda33946c41f52230817ed4139
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 13:53:19 2014 +0000
+    remove weird google auth things from index.html
+commit e85cd7e08e6e4fb0a626c32472102ca798240ef3
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 11:02:30 2014 +0000
+    turn login button into a shiny image instead of the button
+commit e3652a93c760dc5c61baa47ab0c172c7fe5b96c0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 10:33:25 2014 +0000
+    fix boundary of profile options
+commit 77501efa1b903eeb8fc8e93528c0516294ab4246
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 10:25:34 2014 +0000
+    move logout button under profile settings
+commit 13ab7bc11486d3cf7a44dd1310275b77f5760506
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Dec 7 00:08:28 2014 +0000
+    move profile contents out of js into html and just set attributes
+    add dropdown menu under profile link
+commit 9e6fd48a8a0ea6f845074ef0eca46f9603913fc2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 30 09:56:17 2014 +0000
+    move connection/persistenceHelpers into controller/
+commit 1faa4ca1ead99e565a8583b16d9f458f36cee3ec
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 30 09:51:23 2014 +0000
+    finish todos
+commit a866fd3357c2a7584b62e191545fe955c870d65d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 30 09:47:29 2014 +0000
+    remove circular dependency between view and controller
+commit cb0f0eb7033faa3e439d003be5a483a0431d1319
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 30 09:05:37 2014 +0000
+    move the setup of ui widget callbacks from the view to the controller
+commit 143469274d9431d555423974484f1b697becc946
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 18:47:37 2014 +0000
+    hack around double login bug
+commit 2158f63bb7ee380c93b1b27d05e72e45c5c03900
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 18:31:39 2014 +0000
+    move last of the dom poking out of connection helper
+commit ace080ca1e4dd66e345c6a6e13f31745789c538a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 18:26:27 2014 +0000
+    fix a couple of logout/in bugs
+commit 3b78917e2f0a11729883ae33e38f7ad3907174c6
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 17:39:12 2014 +0000
+    move more dom poking out of connectionHelper into view and rename some methods
+commit 66509e876d324ab71f5a3d554408264ad2aab058
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 17:23:32 2014 +0000
+    move some dom poking out of connectionHelper into view
+commit 0551cbf3fc3ab03e9e6eee5fc10e3f878d3a4d14
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 23 17:14:57 2014 +0000
+    delete unused js libraries
+commit 5a9288a90baa82ed8002b234abce805155b17f82
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 16 16:31:35 2014 +0000
+    user needs to create a pattern before the workspace is available to start writing a pattern
+commit 60dd8d3c29f1a2b1d6b03be3d070d9d06601cada
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 16 15:27:51 2014 +0000
+    pass id to server when saving and save it in client when loading
+commit ade84e101ccbe0c2e1aea54f972129519e0f0b95
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 16 15:16:31 2014 +0000
+    hack in a solution to load the latest pattern on successful authorisation
+commit e6742b1750d033769ffdf45f739eeb087b2209b4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 15 00:20:30 2014 +0000
+    get rid of login.js by calling google oauth in js rather than including the fancy button (which renders weirdly anyway).
+commit 9ce96754ee7f8590dca032c9bbf1b1b0339d7ca7
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Nov 14 23:10:57 2014 +0000
+    remove duplication
+commit f882e77fc2c8804da0e763c397cdf78e6fc9595a
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Nov 14 22:34:14 2014 +0000
+    implement 'load' to return last modified pattern to the client on successful authorisation
+commit 14db39527135b875a130f3b54e86eac75d7a115a
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Nov 14 22:13:55 2014 +0000
+    add 'New' button to create and save a new empty pattern
+commit f2e910ca9822cb87358b05ef073855b66232e62f
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Nov 13 20:41:20 2014 +0000
+    ignore patterns folder
+commit 3e991d070ca1dea1d997e2d8729fdf7f387107af
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Nov 13 20:40:23 2014 +0000
+    tidying
+commit 2be1172bbf8c6f5e4ba3c165015eee94948d69e1
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Nov 13 20:38:45 2014 +0000
+    Java7-ify the FileBackedPatternStore
+commit 4dd7feba967682adc1f2477bce907a834ac6c028
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Nov 13 20:16:14 2014 +0000
+    send Pattern from client to server rather than the individual components
+commit b54460259057296290ffee7ea702cf9341424571
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Nov 13 20:06:22 2014 +0000
+    first draft of a file backed pattern store
+commit be3038be1d5d1d02ba8009c7a4b77e6f06b2f606
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Nov 12 21:03:56 2014 +0000
+    move DOM poking stuff out of persistenceHelper into view
+commit 2ed72c9acb18267fa6e0d272549001d22c949732
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Nov 12 20:48:16 2014 +0000
+    move DOM poking stuff out of app.js and into view.js
+commit 62032f740fd7e664994fe5d6c7e1671fc0015298
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Nov 12 20:41:43 2014 +0000
+    shuffle js into mvc folders and tidy up jquery import
+commit fff6296375cceeb4701497cf5eca8964eb30e940
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Nov 12 20:31:43 2014 +0000
+    send title to server along with instructions when saving
+commit f8d15d6d9ef87cd94ccc59bf0c75e6c425966511
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 9 18:35:15 2014 +0000
+    rename title modal will now save title ready to send in a call to save. Refactored persistence code into a singular requirejs module that is included in app.js not the html header. Started doing the same for login.js and ConnectionHelper
+commit 18978c4cda566c9275d274df4cffca6c8360d19c
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 9 17:40:21 2014 +0000
+    add modal window to change title
+commit ce34f24288c95a0cc729d527594317376cd962fe
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 9 16:59:41 2014 +0000
+    make instructions title look better and remove unecessary chart label
+commit 9e20f3ca6d14906b7bf0bf681eae8fb4c095b3a0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 8 16:21:37 2014 +0000
+    strip off trailing hash from window location
+commit c77f4f10231cd89c5ee0c53c841a7c58f0750b0f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 8 16:04:15 2014 +0000
+    upgrade bootstrap from 3.1.1 to 3.3.0 and add placeholder for 'title' on the construction page
+commit 4c7695c5053539627fc1f5504254886dc691e4ce
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 8 15:02:47 2014 +0000
+    add 'save' button that will send the instructions to the server who prints them out along with the session user
+commit 36f7c1eceb815d7b90a6abfd611ae708b47bdc91
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Nov 4 22:35:53 2014 +0000
+    tidy up servlets
+commit be8e8f87ee5bbdece3133a6d0aedd0053f33fd87
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Nov 4 22:27:57 2014 +0000
+    tidy up login.js
+commit 849da87c296e6271348f07dc30e4610a039dd8a7
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Nov 4 22:04:13 2014 +0000
+    move login javascript out of index.html
+commit c3f80de2f2a503483956da277dcd51ebf0b3be69
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Nov 3 20:25:34 2014 +0000
+    make header bar look better
+commit ad2504887d08a5d2e98391309a90f3b26a643a2b
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Nov 2 18:22:41 2014 +0000
+    add ability to log in using google plus oauth (looks crap atm)
+commit c02d00e1f67b9b2190ea1c62522f6b07d5cf85f1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 1 16:26:50 2014 +0000
+    improve comment
+commit 394f6db33ce1574eac5e7484c92b527b5d431846
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 1 16:14:58 2014 +0000
+    tidy up the keyListener
+commit 0f880b7c2a5226b99e9b7e91259cc5f2d5395f45
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 1 16:09:15 2014 +0000
+    fix instruction line number synchronisation to handle copy/cut/paste events and not display an extra empty row
+commit 829dcd849fc3db4a2d0117164f85bb584593eb78
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 1 15:42:50 2014 +0000
+    formatting
+commit af25d6661dc36d2a5edb26fa9351001e192b8547
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Nov 1 15:42:18 2014 +0000
+    display row numbers on chart.
+    add ability to turn on/off console logging (as it seriously slows down the rendering of large charts)
+commit f699f2f0fc37365ccba11fa6d36338c97ecc0201
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 26 14:31:32 2014 +0000
+    do not parse 'row X:' from instruction lines any more as it is provided automatically
+commit c01de4d7b618f84e25108c4327a1122f41dce0e0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 26 14:18:02 2014 +0000
+    automatically display row numbers next to instructions
+commit 44d9506862eb24a24e1110cfcf414d2356738818
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Oct 25 17:46:47 2014 +0100
+    add jquery highlighttextarea but do not use it yet. I don't know how I want it to look
+commit 262101e2c8a210794507a01c0b597de1d29be6c3
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Oct 20 20:52:05 2014 +0100
+    add jquery-textcomplete (turned off until bug is fixed)
+    fixed a few errors when no stitches are present in instructions
+commit eaabbb346c6b39bccb0b8ec138147e50561fa6d1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 19 18:26:47 2014 +0100
+    encapsulate stitch image, width and height inside individual constructors
+commit bccc410e43a36deca01809c0c9e25b3f2d18ae5a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 19 18:13:31 2014 +0100
+    render chain up stitches
+commit d7f88a932e8fcd6080588e237a126b888bd32dca
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 19 17:09:14 2014 +0100
+    improve parseChainFactory tests and add test for chain up
+commit acbddab1a90e857f4b8b69729058b5c5361e4140
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 19 16:55:41 2014 +0100
+    fix ChainUpStitch unit tests
+commit 8c08961bd293dc755835f509238daecebcc6d68f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Oct 12 14:15:16 2014 +0100
+    implement more of chain up
+    add chain up image
+    rename connectToChain to connectToRowBelow
+commit 76340e707cb695f67692e7bde1ed66304c7aeb90
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Oct 11 18:41:45 2014 +0100
+    start implementing chain up
+    simplify parse chain factory and context
+commit a5a4c3d82947b017227bb89faca307d8e662952a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Oct 11 18:10:26 2014 +0100
+    fix unit tests
+commit 2ab42e8197ac95ed1a8a5968e2bd3ec71575e674
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Oct 6 20:19:20 2014 +0100
+    actually no, don't do that
+commit 888e4c0b557406f0a6fd5cebb4a5e0a2b4ce1c27
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Oct 6 20:19:20 2014 +0100
+    move lower row bending into baseStitch from chainStitch
+commit 561aa26fd8a2bb899bce1d214f82880ddf217f60
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Oct 6 20:02:39 2014 +0100
+    increase render y offset
+commit 454b41d10209af8d3467c11e5ed0a4fc112e76ea
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Aug 25 15:25:38 2014 +0100
+    log starting pixel ratio
+commit 8c7ab2968e2297e0679bf85c5aa84f8011498a85
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Aug 25 15:17:35 2014 +0100
+    bend chain stitches according to stitches above. Connection lines are broken and icons overlap a bit
+commit 711baf008a1cbcb2b0d8d98252cac526c9be54e7
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Aug 25 14:15:53 2014 +0100
+    add transparency to end arrow image
+commit 0e9302d3a214bf3ceac5217b3e5ff77eb7c1d23c
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Aug 25 13:54:56 2014 +0100
+    specialise singleStitch into chainStitch to hold the behaviour of bending according to stitches above (no op atm)
+commit b46dd72bc4d04c9671ff9eb2d7bea69e7fcd851a
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Aug 25 13:43:43 2014 +0100
+    split rendering into 2 passes. One to create the rendering data, the other to actually render. This will allow the position/angle of stitches to affect ones that came before it in the chain
+commit cd824c0b6ad0974f314b7a551ef527f5b3c930e7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Aug 23 18:07:09 2014 +0100
+    makes decreases bend correctly
+commit 2edf424a0022cc6b4be0b7d6fa14d1fce142d44c
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Aug 23 17:56:17 2014 +0100
+    even numbered rows now bend correctly (for increases)
+commit 826e23ecd84c8c8e9f6b64b11151a2b4323712a0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Aug 23 17:31:04 2014 +0100
+    odd numbers rows bend correctly, even numbered ones do not
+commit b5dcd42f25109f0b05e582ffb5501adc34a00a5c
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 18:34:42 2014 +0100
+    make chain 13px wide again to fit with sc. First attempt at rotation logic. Does not work yet.
+commit 5a1877f09134b763e2343aee479e699863fd78a1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 18:09:42 2014 +0100
+    compensate for the previous stitch's angle of rotation the x/y pos of the current stitch. This ensures the stitches are joined together even when rotated.
+commit 92d96a488ea7fd09db22a1f50314ea133b07ec5f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 17:16:59 2014 +0100
+    new chain.png with transparency and introduce a separate imgHeight field in baseStitch as stitches aren't square
+commit 6e95dac246f9faca8658daf7a8d3f1f2b3ef8bea
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 15:32:52 2014 +0100
+    extract renderIcon
+commit 6bcc502c9604371852a205942319573f1c499c8e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 15:27:32 2014 +0100
+    make renderConnectionLines private and add 'angle' to renderedStitch
+commit ca4b34f7872efdd450fd6719dddd54021aa70824
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 15:13:30 2014 +0100
+    make renderContext a first class citizen
+commit b3edfc0a2aaa49ec9ce22eec2527f08486140ae9
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Aug 17 14:57:57 2014 +0100
+    remove all the logic to do with shuffling stitches around to make space. this is not needed as the mesh will bend to make room
+commit 7023232bd098640f58b74c0d6d7d5e92539e47ff
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Aug 16 21:28:26 2014 +0100
+    render stitches relative to the ones below it. Works for most situations, just not ones where you decrease then increase several rows above
+commit 8ed5c795eb29e895978a289aa783153cb0a37c08
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 21:28:53 2014 +0100
+    render stitches relative to the ones below it. Almost there, reliance on position stored in context has been removed but spaces are not being left for increases so they overlap
+commit 56bee0bffaf8455313604efb134555bbe3946638
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 20:18:15 2014 +0100
+    render stitches relative to the ones below it. This patch breaks the rendering due to a race condition because the x/y pos in renderContext may get updated before it is actually drawn. Removing reliance on these values next...
+commit 61494841b3d7c9d15f5c2a65d8840ace01232b68
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 16:11:46 2014 +0100
+    give stitches an id and store RenderedStitches in the renderContext as the chain is rendered, render, render, render...
+commit 183b8d18ac0dd65a720056dd11c793394cfcfc17
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 15:04:10 2014 +0100
+    fix keylistener tests
+commit b060d527e31106d5179968f3e0a2b46f5799affe
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 14:49:06 2014 +0100
+    refresh mesh when detecting cut, paste, backspace, undo, redo in the instruction panel
+commit 61734689d3c4ef9ab1a5ef7cf31745f3538fb649
+Author: Jenny <someEmail@Foo.com>
+Date:   Fri Aug 15 14:28:31 2014 +0100
+    render connections between stitches
+commit 6e85a10761a4062b0289d651d2109c600ddeaa48
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 27 18:38:16 2014 +0100
+    render start and end arrows
+commit d4bb12124625204c5f4829ba704b81c5db028754
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 27 17:35:31 2014 +0100
+    render increase stitches above the centre of the stitches they are connected to (by leaving enough space around the stitches below)
+commit 9e99b4f6d76f0eca70793a03345528f73cc9b88e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 27 17:14:03 2014 +0100
+    render decrease stitches above the centre of the stitches they are connected to
+commit 3aee357173de0281920b966fc987f6d1faedb953
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 27 16:13:02 2014 +0100
+    new tests for stitch implementations
+commit dd4bb9407c340c194486e7769f42a3af27410b44
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 27 15:37:08 2014 +0100
+    get existing tests working again with refactored code
+commit 282367ba904ea4c2618967a4dc203dc8fd850016
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 20:03:32 2014 +0100
+    remove unneccessary error logs
+commit 075dcc46b30f3315e9f936b6568c09433549d57e
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 19:58:32 2014 +0100
+    squash mesh and chartModel together as mesh doesn't really do anything any more
+commit f6d86f1c3cf960d7df05abab1c1edbb9310a3026
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 19:51:59 2014 +0100
+    push firstOfAGroup into increase stitch
+commit 6607d1b91ace033b61e5e43bdf5dbd64fc644842
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 19:44:26 2014 +0100
+    push width into decrease stitch
+commit ffaa5145d301c8fea42a7933c217c22cab19a2d9
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 19:40:58 2014 +0100
+    push name into stitch implementations
+commit 7f76707d0f339570e71ab5498a26049b4700252e
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 19:25:37 2014 +0100
+    create base stitch with common functionality with specialisations of single/decrease/increase to implement own connect methods
+commit 7bc1cf57aa87472e4a5f492cf11e31340f7f20a2
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 23 18:40:57 2014 +0100
+    hacky version of single/increase/decreases working by removing the concept of a row and giving the stitch responsibility of connecting itself to the chain
+commit 1d11d61db6b533ff6ca7558b443bd360b08a78ff
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 20 17:33:29 2014 +0100
+    reimplement decrease sc by giving a stitch a width which is used to work out how many stitches on the lower row to connect to.
+commit 7ba628143e82cd06bcafbf160b9e87c77d7f6b8f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 20 16:29:40 2014 +0100
+    consolidate chain/sc functionality into a single function Stitch that takes some parameters. They were pretty much identical.
+commit b3a1bb4b53072fc470e1a28197b0feb80bf8cd2a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 20 16:20:15 2014 +0100
+    connect stitches to the correct row index below taking into account the row direction
+commit 6a7fa25cc1148e5d67824707838c549d7dba5f49
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 20 15:39:15 2014 +0100
+    render odd rows left to right and even rows right to left
+commit 7961c5a4322265c20bcc0e1aace5934e57fa52b0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jul 19 16:33:01 2014 +0100
+    push row number parsing in to parse chain too. Now the instruction parser just coordinates the parsing process and delegates the actual parsing to the chain
+commit c0da7657099af90f98545b461547801406da4f95
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jul 19 16:12:53 2014 +0100
+    push sub phrase parsing into the parse chain and out of the instruction parser
+commit 1c1c2c1710eb3b4e8ef99a0d28c7f1e6981668c2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jul 19 16:01:14 2014 +0100
+    move phrase parsing logic into individual parse links and chain them together to form a pipeline. This replaces the method chaining in instructionParser
+commit 22c0d01785e83326c7e2946090545932b22058b2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jul 19 00:11:05 2014 +0100
+    wait for element icon to load before attempting to render it. wait for up to a second before failing
+commit bd10ca5ec87efc656040ec76c2bc69cb89576f30
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Jul 17 20:53:21 2014 +0100
+    implement chain stitch
+commit 879d6f8ada2a0b137770999ed579c7238b665c25
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Jul 17 20:20:39 2014 +0100
+    implement 'decrease' phrase
+commit f56d54c93422dfaa509c01d9688c65b322c497df
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu Jul 17 19:59:18 2014 +0100
+    implement 'increase' phrase
+commit b4ea8062acba1dc165bd37abdfab3d00a3a4e270
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 20:16:54 2014 +0100
+    also split phrases by commas
+commit 19c26b5c5e4bb3941642ee7bbce3d0a92838de7d
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 17:31:08 2014 +0100
+    add some tests for instructionParser and fix bug in phrases made up of multiple sub phrases
+commit 16f8d317f426e03c30f0bd70e73c980a1226d472
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 16:34:37 2014 +0100
+    separate concerns of parsing instructions and the triggering of parsing instructions
+commit 0a19260529f8c265e601e47dcf8b61af67464459
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 16:14:18 2014 +0100
+    refactor instructionEvaluator to separate the row number from the phrase
+commit 2201537ac368f8b9182c4fde2d28517b2d07c82e
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 11:40:55 2014 +0100
+    remove comments
+commit 01b3dabc7489c5a737039bb7668f5cac6a021e31
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 11:39:23 2014 +0100
+    connect stitches above and below each other at the same index
+commit 1fc5d5e6a165ca1fc621f03a1a2978d6399a8097
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 16 11:04:24 2014 +0100
+    introduce a mesh to hold the rows
+commit eacfe1dff0df0f9a24160f1f32996ba22b3863e5
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jul 15 20:11:32 2014 +0100
+    encapsulate stitches inside CrochetRow
+commit ecad6df1829e176269537d4e944c501175daa1c7
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Jul 14 21:09:34 2014 +0100
+    parse very simple row only containing sc
+commit 49e210d5db956afae9461e8ab6c87cf9a765f7cf
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Jul 14 19:53:03 2014 +0100
+    add modules to boot path to avoid having to specify full paths in module definitions
+commit 0c9759d8f8149ce45c105ae47a000f6604ad67ee
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 13 17:48:39 2014 +0100
+    use require.js to manage javascript imports
+commit 1677a5213682de7e393749c990d71e1c16a364f2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 13 15:13:41 2014 +0100
+    start of instructionEvaluator to start parsing the instructions. Listens on keypress and logs lines
+commit 2cb6b85542083e75982fc27bfe2ca801f9e07b9f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 13 03:10:59 2014 +0100
+    run karma tests with PhantomJS rather than Chrome
+commit 2cf54f4adabcd83b43f0addd2a996e3d333ed36b
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jul 13 03:09:25 2014 +0100
+    simple ui where each keypress in the lower box causes the character to be rendered on the canvas in the top box.
+    add the running of javascript tests to the default build target
+commit 0ffe5633fbf5af4870847addeea996f707a50b73
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 9 21:17:18 2014 +0100
+    removed workspace.xml
+commit 984a4a0a3f4f9ad3402462adb9eae6b370cce4a0
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 9 21:10:03 2014 +0100
+    exclude node modules and .idea from project manager
+commit ecf159959c7766e91d082a4be08c0741a2ec01b8
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed Jul 9 21:08:17 2014 +0100
+    karma javascript test support
+commit c1a7af0128c9a8e50183fbe96f5f4a47e8ce7c78
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jul 8 20:59:32 2014 +0100
+    java 1.8 - woo!
+commit bcebf9f2a680582485a4f7a8cc4ce41244069d19
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jul 8 20:52:48 2014 +0100
+    git config
+commit f35093fca3cb8e075145a11e33c2b52f8b2a1082
+Merge: fe4b569 bec1f52
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jul 8 20:40:24 2014 +0100
+    Merge branch 'master' of github.com:insano10/craftwork
+commit fe4b569eb9a15b6302b8d1380838340ad86f54bc
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Jul 8 20:35:34 2014 +0100
+    initial skeleton
+commit bec1f5292af82b102ce18e9c3572d7a419ba1143
+Author: insano10 <someEmail@Foo.com>
+Date:   Tue Jul 8 20:31:19 2014 +0100
+    Initial commit
+commit 6355564617f94c9c6ae84c898472f3824cd88ccb
+Author: insano10 <someEmail@Foo.com>
+Date:   Fri Jul 31 08:54:52 2015 +0100
+    update readme
+commit 27baaa4fe0491fa6a0d712bb4df82f03a46daffd
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jan 25 18:32:14 2015 +0000
+    add support for multiple explorers on the same map
+commit 62c53a2a93b9a7619609cac3746c005afb9b263f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jan 25 17:10:38 2015 +0000
+    pass array of explorers into the driver (still only use one though)
+commit c9ede8854e49cf0acb3d41b59efe26b77faf01cb
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 19:51:09 2015 +0100
+    tidy up the mazes
+commit d05a03e8134d8502149121a7478611fd4fd88ae0
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 19:45:16 2015 +0100
+    remove host input from UI (only available for judges)
+commit d3555811c909f32edf256631f7540d9cb1045226
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 19:39:59 2015 +0100
+    fix intermittent unit test
+commit 0245272f56c9d8fe796c5ea00454d237e7966881
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 19:18:54 2015 +0100
+    make the speed controls easier to use
+commit 6841da8a41f5316fc6f0617ad812671e15587610
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 18:43:11 2015 +0100
+    allow for disabling the log
+commit 0071f39a5e2df11048481bfedc76e8f4d548ed01
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 18:36:45 2015 +0100
+    log in batches to speed up the move cycle
+commit 6fa64536e38cf8c66d4a4b8c18c3bbc2b754368e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 18:10:06 2015 +0100
+    shuffle exits before they get returned to prevent reliance on a predictable sort order.
+commit ace2c506a87035057f33439994bab8fc16df188d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jan 10 18:01:34 2015 +0100
+    use Files library to load mazes instead of old IO classes
+commit 7ce5538a04635eab3e45471e3cab9b5704d74af9
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jun 8 00:18:09 2014 +0100
+    remove explorer implementations so participants cant copy them (intention is to copy this branch into a new repo with no history)
+commit 49cb7857695513378c0fc3bf0dc0da259108d7a1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat Jun 7 20:07:32 2014 +0100
+    scope explorers and mazes by session so multiple connections can be made to the backend without it screwing up state
+commit bbd6c5763b4ca48198638049cb1c309dca76ea37
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jun 1 19:54:15 2014 +0100
+    add callback when explorer reaches the exit (regardless of whether he exits or not)
+commit cd8a454c6e5427e56784f639b92f1a79ad6396c7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Jun 1 19:00:19 2014 +0100
+    more mazes
+commit 55a287c53f701fcfc82220a47cbc826c8af4b059
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 25 20:01:54 2014 +0100
+    added large standard maze
+commit c3e5ed78ff6cb04ef91cc043db8026d9cc195a0f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 18:18:00 2014 +0100
+    maze showing a loop where the left hand wall explorer gets stuck forever
+commit e4610c97808f9fe88cc6f75f5b98583de0516357
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 17:37:06 2014 +0100
+    allow whitespace in maze file coordinates
+    auto scale large mazes to fit within the canvas
+    fix bug where you could not pick up a key when repeating a maze without a refresh
+commit ebb1cf851cf73c4d4c84a4e766bbde04a13286bb
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 16:06:12 2014 +0100
+    add icon to page header
+commit d586cf0f738c080b743ed2fd3fdb0514f9558e0a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 16:00:57 2014 +0100
+    tweak UI css
+commit 3ea7c02414bc14ae6b30be4bf73605deafbce3bd
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 15:56:36 2014 +0100
+    make UI a bit more pretty
+commit 7f73bb20e3359267f1799f15ad1990876b8d9c45
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 15:15:49 2014 +0100
+    reject maze files that have a malformed key or more than one key specified
+commit 950cb3beaeba3ec31a8586b96480b50bae9b5cf6
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 14:57:39 2014 +0100
+    handle explorer API returning a null name or null direction
+commit 1c81179354eb952ed780d274ad99d6ef9fd6b6fe
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 14:44:03 2014 +0100
+    end maze traversal if the explorer fails to move from the current location 5 times in a row
+commit b2fe1115e92bea3df23e24d1dd6aea70854c11d3
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 24 14:33:46 2014 +0100
+    only allow exit from a maze requiring a key when the explorer has the correct key
+commit 6c9e6fa447da71d9b1ebd5c246a0118895249853
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 18 16:03:44 2014 +0100
+    indicate on the maze when a key has been found and prevent it being picked up multiple times
+commit b03e040ac44f90bf10f1e29167f20eae3674680e
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 18 15:50:56 2014 +0100
+    wire in callback to explorer when a key is found in the maze. Add dependency on lodash
+commit 362fb2892ec1644f092d9ab5da5c0a91b11d8a8d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 18 14:55:14 2014 +0100
+    draw the key (if it exists) to the UI and store it and its location in the maze
+commit 519867fbd74132b766290614925092e222cd3544
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 18 14:31:29 2014 +0100
+    give a key a location within the maze
+commit 1ede222d02c345461d0632cd4960259cb1544fb6
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 18 14:15:35 2014 +0100
+    added optional key to a maze and ability to specify it in the .maze files
+commit 4c647a833bc213ff2443549a3b95c43673ef9add
+Author: Jenny <someEmail@Foo.com>
+Date:   Thu May 15 18:11:12 2014 +0100
+    add input field to choose explorer host and cors filter to handle cross domain requests
+commit 7d7863ad9a6e1f94855c8cf1b6ec14d404b81536
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 20:17:39 2014 +0100
+    show total moves through the maze on the UI
+commit b05face48e94cae2ef3d60ab4cfd7dd954d1127a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 19:57:38 2014 +0100
+    automatic movement on the UI with pause, speed up and slow down. Log gets cleared when maze is started
+commit c6a0423818f82d2bdd0de811be87ecbb1722c980
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 17:29:36 2014 +0100
+    flatten driver functions using promise then() chaining. Also fix memory leak by removing usage of jscrollpane.
+commit 7ea5384e2be7b0bd08e57424d072bd1422263f9a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 15:40:25 2014 +0100
+    encapsulate the logging API
+commit 67a5ada3085cc532d18bd4e19652a936b1bc938d
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 15:34:56 2014 +0100
+    further encapulate javascript functions into private and privileged functions so you cannot poke things you shouldn't be able to
+commit 62e7ed899030256954aab99ef25dac8531a92726
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 11 14:48:35 2014 +0100
+    encapsulate javascript functions into prototypes
+commit 87219f3f1dff0546c7344a9a17078d71633ac591
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 7 21:07:47 2014 +0100
+    make maze file loading more robust
+commit 788721547feeb35037a49206a19b7916d91483f8
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 7 19:12:33 2014 +0100
+    refactored servlets into methods and made maze/move a post rather than get
+commit 82a8785d599cfe89071e587ef4c34b64adbcc2cc
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 7 18:57:31 2014 +0100
+    automatically enter the maze when it loads
+commit d76b892ada7d3f5aee2ffbb5daf30585f7ecbf4c
+Author: Jenny <someEmail@Foo.com>
+Date:   Wed May 7 18:53:57 2014 +0100
+    enabled/disable move button when starting/finishing maze. Also redraw the maze on restart
+commit afa6199eb4852fcc1ff8de334770a5c836d6226e
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 5 15:39:58 2014 +0100
+    show exit gate on maze
+commit d2b31b0e947b652f957de475d7fc927926f3f067
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 5 15:29:28 2014 +0100
+    draw explorer at maze entrance on start
+commit 4b5c749094e0b621000f6f6019c266b904273270
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 5 15:27:05 2014 +0100
+    replace block colours with sprites for walls and paths
+commit 64170422e58abaa393f27c326932a4235db87356
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon May 5 15:05:44 2014 +0100
+    draw explorer icon on maze in current square
+commit 1c44f4021dc8835176af5ccab4c78fab6d3a1fd9
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 19:09:52 2014 +0100
+    implemented LeftHandWallExplorer to test maze UI. Also fixed broken simple-loop.maze
+commit e84bca6a66ba47ff5968ff8b256f37489528d9d1
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 18:43:26 2014 +0100
+    change explorer move(from, direction) to move(from, to). Also draw line on UI maze to show explorer movement
+commit 4b08cf6d5066a9150572c8c215a185ee65d37d84
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 18:18:52 2014 +0100
+    draw maze outline on UI
+commit d4382af255caeb1f3b8b7f577c2abd8c83bd371f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 15:15:11 2014 +0100
+    tidy up UI in preparation for drawing the maze
+commit dc27bebfe5216d2bb038ac8b566b8bc45b4d5713
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 14:20:04 2014 +0100
+    use the explorer's name in relevant log messages
+commit 5cd08b1dff27e0f0b0118d37946db444327cdb50
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 14:11:39 2014 +0100
+    display current loaded map and load first map in list by default when page loads
+commit 80f34e3b5fd87b926608189573856e289a3815c7
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 13:39:14 2014 +0100
+    wire in remaining explorer callbacks to move cycle
+commit 31e35344560a184f12c5953bef95eba7160313df
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 13:34:27 2014 +0100
+    get explorer name
+commit 201ab7ea4b36da6c9d975792a5b017d725d75f09
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 11:19:16 2014 +0100
+    creates some simple mazes demonstrating different maze features
+commit b965cc34f51b6a525060804a7f2e61cadd7ed4b3
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun May 4 10:56:44 2014 +0100
+    load available mazes on page load and can choose one of the maps from a dropdown
+commit 1a1cf6e3e7265767a23f47c728207302494490b4
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 3 15:42:31 2014 +0100
+    created test maze that only goes east from entrance to exit to test the stupid explorer move cycles and indicates when he reaches the exit
+commit 871c1c82900de4a76ed667d5e02db12cb3b492b2
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 3 15:34:50 2014 +0100
+    pass real data into the API calls and keep track of the explorer's current location
+commit 7fdfef4e71e8bb26a199263111d40c67f8b2e524
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Apr 29 18:09:27 2014 +0100
+    get available exits from a given location
+commit 385394e9e1f1e3a1190d3b7b788774857e5ff23c
+Author: Jenny <someEmail@Foo.com>
+Date:   Tue Apr 29 17:10:28 2014 +0100
+    output explorer and maze logs to a scrollable UI panel
+commit e0c3630b31d8373bd36e9143d7de24206cf9a39d
+Author: Jenny <someEmail@Foo.com>
+Date:   Mon Apr 28 20:57:01 2014 +0100
+    maze servlet and tweaks to explorer api
+commit 6215ba0ce10e7cf4bd13758d143aab0356a6cf63
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 19:06:01 2014 +0100
+    log4j config
+commit 6c573407b572077a479ad96b6456df6d9c9515ee
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 19:02:46 2014 +0100
+    simple explorer servlet
+commit 1db4cc9e7d8b95d49780f42d184204c80c95789f
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 17:53:40 2014 +0100
+    load grid from file
+commit 1b99e0421877f8b18d1dcf2b2fa1f81f9914eba8
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 15:14:47 2014 +0100
+    create Maze class to hold maze definition and validate movements
+commit db50e2660ff7cc0c82c4b719b307351b14915751
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 14:17:20 2014 +0100
+    ignore target folder and attempt to remove old iml again
+commit 75d565ceae37eb619002dcba828947f6f90df09a
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 14:12:40 2014 +0100
+    ignore .idea folder
+commit dc5aafbb670148bc54ec9ab816e0242c9815dc05
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 14:11:45 2014 +0100
+    renamed iml
+commit 56066a47affd1557c7ae3b7cb1dedbdb8a68f1ca
+Author: Jenny <someEmail@Foo.com>
+Date:   Sun Apr 27 14:07:15 2014 +0100
+    initial files
+commit 440aef82635ca3fdd25d5da328eca059b44834e9
+Author: insano10 <someEmail@Foo.com>
+Date:   Sun Apr 27 06:02:10 2014 -0700
+    Initial commit
+commit 8dc6b7f062443b6989e3a3fa8a7bbcac09196571
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jun 27 18:12:36 2015 +0100
+    update readme
+commit c83e4cf5f5fa55d6e7b011e8829b500859207e3b
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jun 27 18:03:44 2015 +0100
+    add dashboard image
+commit fb13e8fe19bc5d96b9813374d427ef04b8c66e90
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jun 27 17:48:24 2015 +0100
+    consolidate readme
+commit 99d60f1944531fee7aeb18afbfd0d90f2cd0cb33
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jun 27 17:01:12 2015 +0100
+    ignore workspace.xml
+commit bb3cca72a44ac7b8c8bbb8f0c6ef82b08cdc2fcd
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat Jun 27 17:00:37 2015 +0100
+    add support for git projects
+commit b6abf2eed6006045f12075f61ea592002fec25a5
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 31 18:29:48 2014 +0100
+    commit .idea folder and some tweaks
+commit f007a2b421daf5a6f3356095c705cabb603bc7f2
+Author: insano10 <someEmail@Foo.com>
+Date:   Sat May 31 18:13:46 2014 +0100
+    Create README.md
+commit 0fa27f5af600318a8e95738d226651af20804295
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 31 18:01:58 2014 +0100
+    add git ignore
+commit d5c59ebbeca7819128fa5995a687b420e0e2fa67
+Author: Jenny <someEmail@Foo.com>
+Date:   Sat May 31 18:00:03 2014 +0100
+    test
+commit d2e0cfc83787a8f1597ca5b2942f33a62cc90378
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 26 15:46:48 2014 +0000
+    [Jenny] only display most recent 500 data points for source/test line counts
+commit 03b3910f26d01dd220211a57b9dfd557b2e3cfde
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 26 15:21:21 2014 +0000
+    [Jenny] increase gather frequency from 10 secs to 5 secs and decrease JS polling frequency from 1sec to 2secs
+commit 01c7fa73c44f740af4e89bb6992753bd67f12c33
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Thu Apr 24 19:16:34 2014 +0000
+    [Jenny] only count @Ignore annotations in java test files (was counting .orig files after an hg revert)
+commit 907e9a51c5dea29b7d16ed0f785d9beea7df3b0c
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 18:34:40 2014 +0000
+    [Jenny] update miru snapshot release
+commit eb562e80068aad483688eb5ff9fcc7fff1677595
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 18:32:22 2014 +0000
+    [Jenny] fix bug in js where json element was misnamed
+commit 3466f6f624ccb4513564f58532c43b77304a10c1
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 18:16:06 2014 +0000
+    [Jenny] fix bug where sources/tests compile were getting mixed up
+commit 24b2c59683fada7ef5997c8f44846e80b5ca7cb3
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 18:10:05 2014 +0000
+    [Jenny] fix bug where if only 1 test is run, results do not show. Also don't count a test as ignored if the annotation is commented out
+commit 07317be640b53c4018a4c645a1288f4226f608b7
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 16:54:49 2014 +0000
+    [Jenny] display whether project is committable on the dash
+commit b776b5ef91089050f4109b00c59a7b99b289c16f
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 16:43:41 2014 +0000
+    [Jenny] display vcs stats on the dash
+commit 0b7e2fe9f54c43e8a224265e11c6e7bee19a617f
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 21 16:26:51 2014 +0000
+    [Jenny] gather counts of files modified/added/removed and unversioned for svn and mercurial. Choose vcs from property
+commit c25b29d1930e7d097ab174fabc956eb9ccf1e87f
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 17:14:16 2014 +0000
+    [Jenny] remove image
+commit e431bd321c11cbc880c6848366485ab4e5e09be5
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 17:13:41 2014 +0000
+    [Jenny] give scripts execute permissions and reduce sampling period from 5 seconds to 10 seconds
+commit 5fe6681265b4ecb0738c29e63293b5a9bef3d816
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 16:49:44 2014 +0000
+    [Jenny] add first release artifact, update readme and add example dash screen shot
+commit 3751ee09083f686a78b714bd1498396ec2698b71
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 16:26:25 2014 +0000
+    [Jenny] simplify the classes to construct the response from the csv stats file
+commit add809a8a6378ad95274af740b6effbe01f535fa
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 15:33:04 2014 +0000
+    [Jenny] create projectStats and lineCounts in the same loop through the csv data. Ensure the line counts get formatted in json as a 2d array.
+commit 11b113fbab66a3f8ea7acda2fc0e258ff3c2d978
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 15:06:44 2014 +0000
+    [Jenny] complete start/stop scripts
+commit a3f5fb3d05db324d44811fa548400282df8d988a
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 13 14:35:13 2014 +0000
+    [Jenny] include ignored test count in total test count when gathering data so you don't have to add them together when displayed on the dash
+commit b3e4e1091751a168d1007acc8393b38be5f85054
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 12 15:58:00 2014 +0000
+    [Jenny] remove jetty plugin context root and redirect requests from the root to /miru
+commit f44eb3543348310f15cd5c5e230e771c6ccc2229
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 12 15:56:51 2014 +0000
+    [Jenny] fix properties in start script
+commit 416ec67dd20ba3805c3ebec0d9a25dc44f5c68d8
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 12 15:14:25 2014 +0000
+    [Jenny] read project name from property file. Specify property file location as java system property
+commit f40740808759f6fb65a144f18b01f1c3db9aba82
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 12 14:50:44 2014 +0000
+    [Jenny] Put line chart in a panel and don't draw it until the first response has been received
+commit 00971dbd6197bb3527d640fea85ce118629ee93e
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 12 14:30:04 2014 +0000
+    [Jenny] Make header look a bit better
+commit 544c99b9c754d01c290ab54dde3ca10c8dbbcaf7
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Thu Apr 10 20:31:37 2014 +0000
+    [Jenny] Add icon, header and hardcoded project name
+commit 1872667b32bfa9b359cc6454bcc686ff9ffe2cca
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Wed Apr 9 20:00:52 2014 +0000
+    [Jenny] pass through real data to the line count chart
+commit 760471720e870d2ed72e2fad44bcb7f8d362408e
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Wed Apr 9 19:17:19 2014 +0000
+    [Jenny] finish migrating from chart.js to flot
+commit 97460697abc199ad60fddf4008507cfa0c582bc5
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 17:30:51 2014 +0000
+    [Jenny] start migrating from chart.js to flot
+commit 45821f2297459f8953a29455e71ac90cd2284fdd
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 16:57:03 2014 +0000
+    [Jenny] use real data in line count graph (in very inefficient way) and size dash components better for 768 high screen resolution
+commit 7319b96adec77c47dd9fb2d62c0d92388a3a581d
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 16:37:52 2014 +0000
+    [Jenny] add chart to display source/test line counts (currently displaying dummy data)
+commit 4437d3ea1bba207beece40089dbc7c8bd55fdfb5
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 15:54:32 2014 +0000
+    [Jenny] gather source and test line counts and pass through to dash
+commit fc3939179af832e7ebb70b39069643288eb438f3
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 11:22:01 2014 +0000
+    [Jenny] make everything bigger and add test progress bar
+commit b366ee18461925ee423bea653e7fa41f97267059
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 10:53:49 2014 +0000
+    [Jenny] align data on dash and split into 2 panels
+commit 3d1faf52cc17e1b40f78c292c18374d4791fc86a
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 10:26:23 2014 +0000
+    [Jenny] gather ignored test count and pass through to dash
+commit 095712af30be0f926555d154653d66a3fb09f3f2
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Tue Apr 8 10:14:48 2014 +0000
+    [Jenny] display N/A for tests pass/fail when no tests were run
+commit c76751745971659b2a93d7850d6c98e9193d0fc8
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 7 19:19:58 2014 +0000
+    [Jenny] new script to gather stats every 5 seconds
+commit ac02b0967a0445ac309af900eb8157baf0b0aecd
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 7 19:12:48 2014 +0000
+    [Jenny] display test total/pass/fail on dash
+commit 93619c3724fa916b612d66d086a2940708b93093
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Mon Apr 7 19:02:43 2014 +0000
+    [Jenny] instead of gathering whether the tests pass/fail, gather 3 values for total tests run, tests passed and tests failed
+commit 09abced5d9712452989b1bd6b18ff744a51886e9
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 18:41:05 2014 +0000
+    [Jenny] Make the dash a little more pretty
+commit f799656eae834ba9bba703002840c41f4420ef53
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 18:32:35 2014 +0000
+    [Jenny] Add timestamp to CSV stats. index.html now shows the latest set of stats
+commit 5a9f5c41184860641e4f5e2dc6f7cca6f0ddbb10
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 17:52:59 2014 +0000
+    [Jenny] create ProjectStats object to provide JSON response. Delete unused JS
+commit 5c0492510b6e72f0ed66f9af97692580b01ab480
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 02:32:32 2014 +0000
+    [Jenny] remove embedded jetty and assemble project into .tar.gz containing everything needed to run the gatherers and webapp with a script to start both
+commit 9f161f4a235f5a9ce8f36cc4871eaa9411c9403c
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 01:05:53 2014 +0000
+    [Jenny] assemble a tar with the gather script, webapp etc. and start writing a script to start them up
+commit 751487172bda9434a4fc011b196907f523e34e4f
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sun Apr 6 00:13:48 2014 +0000
+    [Jenny] tidying and start of documentation
+commit baf5adde70ca3a2ec85e13ea45863d1f1186bac4
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 23:53:16 2014 +0000
+    [Jenny] organise gather.sh into functions
+commit c6098fdc810924529615f880b4f061eb976cddd8
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 23:26:45 2014 +0000
+    [Jenny] add some error handling to gather.sh
+commit fe1801dc72d728cdabc9813c488b4ba4ba317e15
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 23:13:58 2014 +0000
+    [Jenny] gather.sh reads project properties from file specified as a parameter
+commit 00c8df92fd2f7cb06fb52aceafb4db2616d7c3ab
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 22:43:27 2014 +0000
+    [Jenny] rename Miru -> MiruServer and create package for servlets
+commit 2da1674e5e270617b5eba2f4dd28968893e8141e
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 22:40:48 2014 +0000
+    [Jenny] replace simpleframework with embedded jetty. Add static index.html to poll servlet for csv file contents
+commit b8c3efcc59a8e4cf1d5e579f5581c99e0f6733ff
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Sat Apr 5 21:13:13 2014 +0000
+    [Jenny] write stats to csv file and shuffle around build/data directories
+commit 38639739b06085c3e4fe1df7e4f745d5496a8846
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Fri Apr 4 20:44:28 2014 +0000
+    [Jenny] import gather script
+commit fce00184197bb68fce4a93d7649f3cac9316deae
+Author: someEmail@Foo.com <someEmail@Foo.com@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Fri Apr 4 20:34:56 2014 +0000
+    [Jenny] skeleton web server maven project
+commit aeb37e0e365ccbda1acf11c2f4da80576b878a82
+Author: (no author) <(no author)@3e0f000e-2220-dfdd-a6fd-f41013e3e758>
+Date:   Fri Apr 4 20:23:33 2014 +0000
+    Initial directory structure.
