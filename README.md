@@ -37,6 +37,11 @@ Note: The implementations here are by no means the best or most elegant solution
 * Heaps
   1. Implement a min-heap
   2. Implement a max-heap
+* Graphs
+  1. Implement depth first search
+    * recursively
+    * iteratively
+  1. Implement breadth first search
 
 ## Puzzles
 
