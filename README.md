@@ -23,6 +23,7 @@ Note: The implementations here are by no means the best or most elegant solution
   1. QuickSort (using ArrayLists instead of arrays)
   1. QuickSort (in place, without additional data structures)
   1. HeapSort
+  1. ExternalSort
 * Linked Lists
   1. Add/Remove/Get
   1. Remove duplicate elements
