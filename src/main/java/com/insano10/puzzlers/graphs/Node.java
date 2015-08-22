@@ -38,6 +38,11 @@ public class Node
         visited = true;
     }
 
+    public void clearVisited()
+    {
+        visited = false;
+    }
+
     public boolean isVisited()
     {
         return visited;

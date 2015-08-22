@@ -2,13 +2,12 @@ package com.insano10.puzzlers.graphs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class BreadthFirstSearch
 {
-
-    public static List<Node> bfs(Node startNode, Node endNode)
+    public static void bfs(Node startNode, Node endNode, Consumer<Node> callback)
     {
-        List<Node> visitedNodes = new ArrayList<>();
         List<Node> nodesToVisit = new ArrayList<>();
 
         nodesToVisit.add(startNode);
@@ -19,7 +18,7 @@ public class BreadthFirstSearch
 
             if(!node.isVisited())
             {
-                visitNode(node, visitedNodes);
+                visitNode(node, callback);
 
                 if(endNode.isVisited())
                 {
@@ -32,13 +31,11 @@ public class BreadthFirstSearch
                 }
             }
         }
-
-        return visitedNodes;
     }
 
-    private static void visitNode(Node node, List<Node> visitedNodes)
+    private static void visitNode(Node node, Consumer<Node> callback)
     {
         node.markVisited();
-        visitedNodes.add(node);
+        callback.accept(node);
     }
 }

@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -40,16 +41,37 @@ public class BreadthFirstSearchTest
         n6.addNeighbours(n5);
         n7.addNeighbours(n5);
 
-        List<Node> nodesInVisitOrder = BreadthFirstSearch.bfs(n1, n7);
+        List<Node> visitedNodes = new ArrayList<>();
 
-        assertThat(nodesInVisitOrder.get(0)).isEqualTo(n1);
-        assertThat(nodesInVisitOrder.get(1)).isEqualTo(n2);
-        assertThat(nodesInVisitOrder.get(2)).isEqualTo(n3);
-        assertThat(nodesInVisitOrder.get(3)).isEqualTo(n4);
-        assertThat(nodesInVisitOrder.get(4)).isEqualTo(n5);
-        assertThat(nodesInVisitOrder.get(5)).isEqualTo(n6);
-        assertThat(nodesInVisitOrder.get(6)).isEqualTo(n7);
+        //search the whole graph
+        BreadthFirstSearch.bfs(n1, n7, visitedNodes::add);
 
-        //todo: reset and test again
+        assertThat(visitedNodes.get(0)).isEqualTo(n1);
+        assertThat(visitedNodes.get(1)).isEqualTo(n2);
+        assertThat(visitedNodes.get(2)).isEqualTo(n3);
+        assertThat(visitedNodes.get(3)).isEqualTo(n4);
+        assertThat(visitedNodes.get(4)).isEqualTo(n5);
+        assertThat(visitedNodes.get(5)).isEqualTo(n6);
+        assertThat(visitedNodes.get(6)).isEqualTo(n7);
+
+        clear(visitedNodes);
+        visitedNodes.clear();
+
+        //search a smaller bit
+        BreadthFirstSearch.bfs(n4, n3, visitedNodes::add);
+
+        assertThat(visitedNodes.get(0)).isEqualTo(n4);
+        assertThat(visitedNodes.get(1)).isEqualTo(n2);
+        assertThat(visitedNodes.get(2)).isEqualTo(n5);
+        assertThat(visitedNodes.get(3)).isEqualTo(n1);
+        assertThat(visitedNodes.get(4)).isEqualTo(n3);
+    }
+
+    private void clear(List<Node> nodes)
+    {
+        for (Node node : nodes)
+        {
+            node.clearVisited();
+        }
     }
 }
