@@ -5,10 +5,12 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,14 +22,19 @@ public class DepthFirstSearchTest
     public static Collection<Object[]> data()
     {
         return Arrays.<Object[]>asList(
-                new Object[]{"Recursive", (BiFunction<Node, Node, List<Node>>)DepthFirstSearch::dfsRecursive},
-                new Object[]{"Iterative", (BiFunction<Node, Node, List<Node>>)DepthFirstSearch::dfsIterative}
+                new Object[]{"Recursive", (DFS) DepthFirstSearch::dfsRecursive},
+                new Object[]{"Iterative", (DFS) DepthFirstSearch::dfsIterative}
         );
     }
 
-    private final BiFunction<Node, Node, List<Node>> dfsAlgorithm;
+    private interface DFS
+    {
+        void dfs(Node startNode, Node endNode, Consumer<Node> onVisited, Consumer<List<Node>> onFound);
+    }
 
-    public DepthFirstSearchTest(String name, BiFunction<Node, Node, List<Node>> dfsAlgorithm)
+    private final DFS dfsAlgorithm;
+
+    public DepthFirstSearchTest(String name, DFS dfsAlgorithm)
     {
         this.dfsAlgorithm = dfsAlgorithm;
     }
@@ -59,14 +66,22 @@ public class DepthFirstSearchTest
         n6.addNeighbours(n5);
         n7.addNeighbours(n5);
 
-        List<Node> nodesInVisitOrder = dfsAlgorithm.apply(n1, n7);
+        List<Node> visitedNodes = new ArrayList<>();
+        List<Node> pathToNode = new ArrayList<>();
+        dfsAlgorithm.dfs(n1, n7, visitedNodes::add, pathToNode::addAll);
 
-        assertThat(nodesInVisitOrder.get(0)).isEqualTo(n1);
-        assertThat(nodesInVisitOrder.get(1)).isEqualTo(n2);
-        assertThat(nodesInVisitOrder.get(2)).isEqualTo(n4);
-        assertThat(nodesInVisitOrder.get(3)).isEqualTo(n5);
-        assertThat(nodesInVisitOrder.get(4)).isEqualTo(n3);
-        assertThat(nodesInVisitOrder.get(5)).isEqualTo(n6);
-        assertThat(nodesInVisitOrder.get(6)).isEqualTo(n7);
+        assertThat(visitedNodes.get(0)).isEqualTo(n1);
+        assertThat(visitedNodes.get(1)).isEqualTo(n2);
+        assertThat(visitedNodes.get(2)).isEqualTo(n4);
+        assertThat(visitedNodes.get(3)).isEqualTo(n5);
+        assertThat(visitedNodes.get(4)).isEqualTo(n3);
+        assertThat(visitedNodes.get(5)).isEqualTo(n6);
+        assertThat(visitedNodes.get(6)).isEqualTo(n7);
+
+        assertThat(pathToNode.get(0)).isEqualTo(n1);
+        assertThat(pathToNode.get(1)).isEqualTo(n2);
+        assertThat(pathToNode.get(2)).isEqualTo(n4);
+        assertThat(pathToNode.get(3)).isEqualTo(n5);
+        assertThat(pathToNode.get(4)).isEqualTo(n7);
     }
 }

@@ -28,6 +28,18 @@ public class Node
         return ImmutableList.copyOf(neighbours);
     }
 
+    public boolean hasUnvisitedNeighbours()
+    {
+        for (Node neighbour : neighbours)
+        {
+            if(!neighbour.isVisited())
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getName()
     {
         return name;
