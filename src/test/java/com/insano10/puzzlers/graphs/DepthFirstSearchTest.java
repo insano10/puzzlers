@@ -4,9 +4,11 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,14 +20,14 @@ public class DepthFirstSearchTest
     public static Collection<Object[]> data()
     {
         return Arrays.<Object[]>asList(
-                new Object[]{"Recursive", (Function<Node, List<Node>>)DepthFirstSearch::dfsRecursive},
-                new Object[]{"Iterative", (Function<Node, List<Node>>)DepthFirstSearch::dfsIterative}
+                new Object[]{"Recursive", (BiFunction<Node, Node, List<Node>>)DepthFirstSearch::dfsRecursive},
+                new Object[]{"Iterative", (BiFunction<Node, Node, List<Node>>)DepthFirstSearch::dfsIterative}
         );
     }
 
-    private final Function<Node, List<Node>> dfsAlgorithm;
+    private final BiFunction<Node, Node, List<Node>> dfsAlgorithm;
 
-    public DepthFirstSearchTest(String name, Function<Node, List<Node>> dfsAlgorithm)
+    public DepthFirstSearchTest(String name, BiFunction<Node, Node, List<Node>> dfsAlgorithm)
     {
         this.dfsAlgorithm = dfsAlgorithm;
     }
@@ -57,7 +59,7 @@ public class DepthFirstSearchTest
         n6.addNeighbours(n5);
         n7.addNeighbours(n5);
 
-        List<Node> nodesInVisitOrder = dfsAlgorithm.apply(n1);
+        List<Node> nodesInVisitOrder = dfsAlgorithm.apply(n1, n7);
 
         assertThat(nodesInVisitOrder.get(0)).isEqualTo(n1);
         assertThat(nodesInVisitOrder.get(1)).isEqualTo(n2);

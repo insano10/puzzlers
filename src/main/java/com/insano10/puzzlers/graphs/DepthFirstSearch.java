@@ -8,28 +8,32 @@ import java.util.Stack;
 
 public class DepthFirstSearch
 {
-    public static List<Node> dfsRecursive(Node startNode)
+    public static List<Node> dfsRecursive(Node startNode, Node endNode)
     {
         List<Node> visitedNodes = new ArrayList<>();
 
-        doRecursiveDfs(startNode, visitedNodes);
+        doRecursiveDfs(startNode, endNode, visitedNodes);
 
         return visitedNodes;
     }
 
-    private static void doRecursiveDfs(Node node, List<Node> visitedNodes)
+    private static void doRecursiveDfs(Node node, Node endNode, List<Node> visitedNodes)
     {
-        if(!node.isVisited())
+        if(!node.isVisited() && !endNode.isVisited())
         {
             visitNode(node, visitedNodes);
-            for (Node neighbour : node.getNeighbours())
+
+            if(!node.equals(endNode))
             {
-                doRecursiveDfs(neighbour, visitedNodes);
+                for (Node neighbour : node.getNeighbours())
+                {
+                    doRecursiveDfs(neighbour, endNode, visitedNodes);
+                }
             }
         }
     }
 
-    public static List<Node> dfsIterative(Node startNode)
+    public static List<Node> dfsIterative(Node startNode, Node endNode)
     {
         Stack<Node> nodesToVisit = new Stack<>();
         List<Node> visitedNodes = new ArrayList<>();
@@ -43,6 +47,11 @@ public class DepthFirstSearch
             if(!node.isVisited())
             {
                 visitNode(node, visitedNodes);
+
+                if(endNode.isVisited())
+                {
+                    break;
+                }
 
                 //note: the reversal is not necessary and is only there to maintain visit order with the recursive version
                 for (Node neighbour : Lists.reverse(node.getNeighbours()))
