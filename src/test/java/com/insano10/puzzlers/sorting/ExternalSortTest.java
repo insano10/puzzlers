@@ -1,7 +1,6 @@
 package com.insano10.puzzlers.sorting;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.BufferedReader;
@@ -15,7 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExternalSortTest
 {
-    @Ignore
     @Test
     public void shouldSortFile() throws Exception
     {
@@ -63,4 +61,5 @@ public class ExternalSortTest
         }
         return lineCount;
     }
+
 }

@@ -40,14 +40,15 @@ public class ExternalSort
             }
         }
 
-        //read in the first set of lines into the chunk buffers
+        //create readers for each chunk file
         List<PeekableBufferedReader> chunksReaders = new ArrayList<>();
         for (Path chunkFile : chunkFiles)
         {
             chunksReaders.add(new PeekableBufferedReader(chunkFile, MERGE_BUFFER_SIZE_BYTES));
         }
 
-        Path outputFilePath = Paths.get(filePath.getParent().toString(), filePath.getFileName().toString() + "_sorted");
+        //merge each chunk into a single output file
+        Path outputFilePath = Paths.get(filePath.getParent().toString(), filePath.getFileName().toString() + ".sorted");
         try(BufferedWriter outputBuffer = Files.newBufferedWriter(outputFilePath))
         {
             String nextLine = getNextLine(chunksReaders);
@@ -58,6 +59,11 @@ public class ExternalSort
             }
         }
 
+        //clean up
+        for (PeekableBufferedReader chunksReader : chunksReaders)
+        {
+            chunksReader.close();
+        }
         for (Path chunkFile : chunkFiles)
         {
             Files.delete(chunkFile);
@@ -70,13 +76,18 @@ public class ExternalSort
     {
         List<String> chunkLines = new ArrayList<>();
         int totalBytesRead = 0;
-        String line = reader.readLine();
 
-        while(line != null && totalBytesRead < chunkSizeBytes)
+        while(totalBytesRead < chunkSizeBytes)
         {
+            String line = reader.readLine();
+
+            if(line == null)
+            {
+                break;
+            }
+
             chunkLines.add(line);
             totalBytesRead += line.getBytes(Charset.forName("UTF-8")).length;
-            line = reader.readLine();
         }
         return chunkLines;
     }
@@ -96,11 +107,6 @@ public class ExternalSort
             }
         }
 
-        if(readerWithNextLineIdx >= 0)
-        {
-            return chunkReaders.get(readerWithNextLineIdx).pollLine();
-        }
-
-        return null;
+        return chunkReaders.get(readerWithNextLineIdx).pollLine();
     }
 }
