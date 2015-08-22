@@ -42,9 +42,10 @@ public class BreadthFirstSearchTest
         n7.addNeighbours(n5);
 
         List<Node> visitedNodes = new ArrayList<>();
+        List<Node> pathToEndNode = new ArrayList<>();
 
         //search the whole graph
-        BreadthFirstSearch.bfs(n1, n7, visitedNodes::add);
+        BreadthFirstSearch.bfs(n1, n7, visitedNodes::add, pathToEndNode::addAll);
 
         assertThat(visitedNodes.get(0)).isEqualTo(n1);
         assertThat(visitedNodes.get(1)).isEqualTo(n2);
@@ -54,17 +55,27 @@ public class BreadthFirstSearchTest
         assertThat(visitedNodes.get(5)).isEqualTo(n6);
         assertThat(visitedNodes.get(6)).isEqualTo(n7);
 
+        assertThat(pathToEndNode.get(0)).isEqualTo(n1);
+        assertThat(pathToEndNode.get(1)).isEqualTo(n3);
+        assertThat(pathToEndNode.get(2)).isEqualTo(n5);
+        assertThat(pathToEndNode.get(3)).isEqualTo(n7);
+
         clear(visitedNodes);
         visitedNodes.clear();
+        pathToEndNode.clear();
 
         //search a smaller bit
-        BreadthFirstSearch.bfs(n4, n3, visitedNodes::add);
+        BreadthFirstSearch.bfs(n4, n3, visitedNodes::add, pathToEndNode::addAll);
 
         assertThat(visitedNodes.get(0)).isEqualTo(n4);
         assertThat(visitedNodes.get(1)).isEqualTo(n2);
         assertThat(visitedNodes.get(2)).isEqualTo(n5);
         assertThat(visitedNodes.get(3)).isEqualTo(n1);
         assertThat(visitedNodes.get(4)).isEqualTo(n3);
+
+        assertThat(pathToEndNode.get(0)).isEqualTo(n4);
+        assertThat(pathToEndNode.get(1)).isEqualTo(n5);
+        assertThat(pathToEndNode.get(2)).isEqualTo(n3);
     }
 
     private void clear(List<Node> nodes)

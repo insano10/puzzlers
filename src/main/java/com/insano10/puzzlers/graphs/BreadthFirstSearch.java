@@ -1,41 +1,64 @@
 package com.insano10.puzzlers.graphs;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.function.Consumer;
 
 public class BreadthFirstSearch
 {
-    public static void bfs(Node startNode, Node endNode, Consumer<Node> callback)
+    public static void bfs(Node startNode, Node endNode, Consumer<Node> onVisited, Consumer<List<Node>> onFound)
     {
         List<Node> nodesToVisit = new ArrayList<>();
+        ConcurrentMap<Node, Node> paths = new ConcurrentHashMap<>();
 
         nodesToVisit.add(startNode);
 
-        while(!nodesToVisit.isEmpty())
+        while (!nodesToVisit.isEmpty())
         {
             Node node = nodesToVisit.remove(0);
 
-            if(!node.isVisited())
+            if (!node.isVisited())
             {
-                visitNode(node, callback);
+                visitNode(node, onVisited);
 
-                if(endNode.isVisited())
+                if (endNode.isVisited())
                 {
+                    onFound.accept(reconstructPath(startNode, endNode, paths));
                     break;
                 }
 
                 for (Node neighbour : node.getNeighbours())
                 {
-                    nodesToVisit.add(neighbour);
+                    if(!neighbour.isVisited())
+                    {
+                        paths.putIfAbsent(neighbour, node);
+                        nodesToVisit.add(neighbour);
+                    }
                 }
             }
         }
     }
 
-    private static void visitNode(Node node, Consumer<Node> callback)
+    private static void visitNode(Node node, Consumer<Node> onVisited)
     {
         node.markVisited();
-        callback.accept(node);
+        onVisited.accept(node);
+    }
+
+    private static List<Node> reconstructPath(Node startNode, Node endNode, Map<Node, Node> paths)
+    {
+        List<Node> path = new ArrayList<>();
+        path.add(endNode);
+        Node node = endNode;
+
+        while(!node.equals(startNode))
+        {
+            node = paths.get(node);
+            path.add(node);
+        }
+
+        Collections.reverse(path);
+        return path;
     }
 }
