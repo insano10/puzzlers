@@ -1,13 +1,34 @@
 package com.insano10.puzzlers.graphs;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(Parameterized.class)
 public class DepthFirstSearchTest
 {
+    @Parameterized.Parameters(name = "Implementation: {0}")
+    public static Collection<Object[]> data()
+    {
+        return Arrays.<Object[]>asList(
+                new Object[]{"Recursive", (Function<Node, List<Node>>)DepthFirstSearch::dfsRecursive},
+                new Object[]{"Iterative", (Function<Node, List<Node>>)DepthFirstSearch::dfsIterative}
+        );
+    }
+
+    private final Function<Node, List<Node>> dfsAlgorithm;
+
+    public DepthFirstSearchTest(String name, Function<Node, List<Node>> dfsAlgorithm)
+    {
+        this.dfsAlgorithm = dfsAlgorithm;
+    }
 
     @Test
     public void shouldTraverseNodesUsingDepthFirstSearch() throws Exception
@@ -36,7 +57,7 @@ public class DepthFirstSearchTest
         n6.addNeighbours(n5);
         n7.addNeighbours(n5);
 
-        List<Node> nodesInVisitOrder = DepthFirstSearch.dfsRecursive(n1);
+        List<Node> nodesInVisitOrder = dfsAlgorithm.apply(n1);
 
         assertThat(nodesInVisitOrder.get(0)).isEqualTo(n1);
         assertThat(nodesInVisitOrder.get(1)).isEqualTo(n2);
