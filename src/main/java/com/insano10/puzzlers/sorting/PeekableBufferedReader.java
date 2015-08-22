@@ -3,6 +3,7 @@ package com.insano10.puzzlers.sorting;
 import java.io.BufferedReader;
 import java.io.Closeable;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -12,9 +13,9 @@ public class PeekableBufferedReader implements Closeable
     private final BufferedReader reader;
     private String nextLine;
 
-    public PeekableBufferedReader(Path file) throws IOException
+    public PeekableBufferedReader(Path file, final int bufferSizeBytes) throws IOException
     {
-        reader = Files.newBufferedReader(file, Charset.forName("UTF-8"));
+        reader = new BufferedReader(new InputStreamReader(Files.newInputStream(file), Charset.forName("UTF-8")), bufferSizeBytes);
     }
 
     public String peekLine() throws IOException

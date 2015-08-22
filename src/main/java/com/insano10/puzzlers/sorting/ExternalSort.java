@@ -1,6 +1,8 @@
 package com.insano10.puzzlers.sorting;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,12 +13,12 @@ import java.util.List;
 public class ExternalSort
 {
     private static final int NUM_CHUNKS = 10;
-    private static final int MERGE_BUFFER_SIZE = 100;
+    private static final int MERGE_BUFFER_SIZE_BYTES = 1024 * 1024 * 10;
 
     /**
      * sort an arbitrary sized file (line by line) using a 2-pass sort and merge
      * storing the sorted file at filePath_sorted
-     * @param filePath
+     * @param filePath - the file to be sorted
      */
     public static Path sort(Path filePath) throws IOException
     {
@@ -31,7 +33,7 @@ public class ExternalSort
             {
                 List<String> chunkLines = getChunkLines(chunkSizeBytes, reader);
                 List<String> sortedChunkLines = QuickSort.sortWithArrayLists(chunkLines);
-                Path chunkFile = Files.createTempFile("externalSort-" + i, "tmp");
+                Path chunkFile = Files.createTempFile("externalSort-" + i, ".tmp");
                 Files.write(chunkFile, sortedChunkLines);
 
                 chunkFiles.add(chunkFile);
@@ -39,33 +41,20 @@ public class ExternalSort
         }
 
         //read in the first set of lines into the chunk buffers
-        List<BufferedReader> chunksReaders = new ArrayList<>();
-        List<String[]> chunkBuffers = new ArrayList<>();
+        List<PeekableBufferedReader> chunksReaders = new ArrayList<>();
         for (Path chunkFile : chunkFiles)
         {
-            BufferedReader chunkReader = new BufferedReader(new InputStreamReader(Files.newInputStream(chunkFile), Charset.forName("UTF-8")));
-
-            String[] chunkBuffer = new String[MERGE_BUFFER_SIZE];
-            String line = chunkReader.readLine();
-            for (int i = 0; i < MERGE_BUFFER_SIZE; i++)
-            {
-                if(line == null) break;
-                chunkBuffer[i] = line;
-
-                line = chunkReader.readLine();
-            }
-            chunkBuffers.add(chunkBuffer);
-            chunksReaders.add(chunkReader);
+            chunksReaders.add(new PeekableBufferedReader(chunkFile, MERGE_BUFFER_SIZE_BYTES));
         }
 
         Path outputFilePath = Paths.get(filePath.getParent().toString(), filePath.getFileName().toString() + "_sorted");
         try(BufferedWriter outputBuffer = Files.newBufferedWriter(outputFilePath))
         {
-            String nextLine = getNextLine(chunkBuffers, chunksReaders);
+            String nextLine = getNextLine(chunksReaders);
             while(nextLine != null)
             {
                 outputBuffer.write(nextLine + "\n");
-                nextLine = getNextLine(chunkBuffers, chunksReaders);
+                nextLine = getNextLine(chunksReaders);
             }
         }
 
@@ -75,58 +64,6 @@ public class ExternalSort
         }
 
         return outputFilePath;
-    }
-
-    private static String getNextLine(List<String[]> chunkBuffers, List<BufferedReader> chunkReaders) throws IOException
-    {
-        int bufferIndex = 0;
-        String minLine = null;
-
-        for (String[] chunkBuffer : chunkBuffers)
-        {
-            int nextLineIndex = getNextLineIndexFromBuffer(chunkBuffers, chunkReaders, bufferIndex);
-            String nextLine = chunkBuffer[nextLineIndex];
-            if(minLine == null || (nextLine != null && nextLine.compareTo(minLine) < 0))
-            {
-                minLine = nextLine;
-                chunkBuffer[nextLineIndex] = null;
-            }
-
-            bufferIndex++;
-        }
-
-        return minLine;
-    }
-
-    private static void refillBuffer(List<String[]> chunkBuffers, List<BufferedReader> chunkReaders, int bufferIndex) throws IOException
-    {
-        BufferedReader bufferedReader = chunkReaders.get(bufferIndex);
-        String[] buffer = chunkBuffers.get(bufferIndex);
-
-        for (int i = 0; i < buffer.length; i++)
-        {
-            buffer[i] = bufferedReader.readLine();
-        }
-    }
-
-    private static int getNextLineIndexFromBuffer(List<String[]> chunkBuffers, List<BufferedReader> chunkReaders, int bufferIndex) throws IOException
-    {
-        int lineIndex = -1;
-        for (String line : chunkBuffers.get(bufferIndex))
-        {
-            lineIndex++;
-            if(line != null)
-            {
-                break;
-            }
-        }
-
-        if(lineIndex == -1)
-        {
-            refillBuffer(chunkBuffers, chunkReaders, bufferIndex);
-            return getNextLineIndexFromBuffer(chunkBuffers, chunkReaders, bufferIndex);
-        }
-        return lineIndex;
     }
 
     private static List<String> getChunkLines(int chunkSizeBytes, BufferedReader reader) throws IOException
@@ -142,5 +79,28 @@ public class ExternalSort
             line = reader.readLine();
         }
         return chunkLines;
+    }
+
+    private static String getNextLine(List<PeekableBufferedReader> chunkReaders) throws IOException
+    {
+        String minLine = null;
+        int readerWithNextLineIdx = -1;
+        for (int i = 0; i < chunkReaders.size(); i++)
+        {
+            String line = chunkReaders.get(i).peekLine();
+
+            if(minLine == null || (line != null && line.compareTo(minLine) < 0))
+            {
+                minLine = line;
+                readerWithNextLineIdx = i;
+            }
+        }
+
+        if(readerWithNextLineIdx >= 0)
+        {
+            return chunkReaders.get(readerWithNextLineIdx).pollLine();
+        }
+
+        return null;
     }
 }

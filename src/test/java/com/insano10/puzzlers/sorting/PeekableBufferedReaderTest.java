@@ -7,10 +7,12 @@ import java.nio.file.Paths;
 
 public class PeekableBufferedReaderTest
 {
+    public static final int BUFFER_SIZE_BYTES = 1024;
+
     @Test
     public void shouldBeAbleToRepeatedlyPeekTheSameLine() throws Exception
     {
-        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"));
+        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"), BUFFER_SIZE_BYTES);
 
         Assertions.assertThat(reader.peekLine()).isEqualTo("line1");
         Assertions.assertThat(reader.peekLine()).isEqualTo("line1");
@@ -20,7 +22,7 @@ public class PeekableBufferedReaderTest
     @Test
     public void shouldBeAbleToReadTheNextLineByPolling() throws Exception
     {
-        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"));
+        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"), BUFFER_SIZE_BYTES);
 
         Assertions.assertThat(reader.pollLine()).isEqualTo("line1");
         Assertions.assertThat(reader.pollLine()).isEqualTo("line2");
@@ -30,7 +32,7 @@ public class PeekableBufferedReaderTest
     @Test
     public void shouldBeAbleToPollTheLastPeekedLine() throws Exception
     {
-        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"));
+        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"), BUFFER_SIZE_BYTES);
 
         Assertions.assertThat(reader.peekLine()).isEqualTo("line1");
         Assertions.assertThat(reader.peekLine()).isEqualTo("line1");
@@ -40,7 +42,7 @@ public class PeekableBufferedReaderTest
     @Test
     public void shouldGetNullWhenPeekingTheLastLineInTheFile() throws Exception
     {
-        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"));
+        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"), BUFFER_SIZE_BYTES);
 
         Assertions.assertThat(reader.pollLine()).isEqualTo("line1");
         Assertions.assertThat(reader.pollLine()).isEqualTo("line2");
@@ -53,7 +55,7 @@ public class PeekableBufferedReaderTest
     @Test
     public void shouldGetNullWhenPollingTheLastLineInTheFile() throws Exception
     {
-        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"));
+        PeekableBufferedReader reader = new PeekableBufferedReader(Paths.get("src/test/resources/ExternalSort/peekableBufferedReader.txt"), BUFFER_SIZE_BYTES);
 
         Assertions.assertThat(reader.pollLine()).isEqualTo("line1");
         Assertions.assertThat(reader.pollLine()).isEqualTo("line2");
