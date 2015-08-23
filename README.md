@@ -38,10 +38,11 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Implement a min-heap
   2. Implement a max-heap
 * Graphs
-  1. Implement depth first search
+  1. Depth first search
     * recursively
     * iteratively
-  1. Implement breadth first search
+  1. Breadth first search
+  1. Dijkstra's algorithm
 
 ## Puzzles
 
@@ -50,3 +51,4 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Am I still dreaming?
 * Given a set of meetings find the amount of time someone spends in a meeting that conflicts with others
 * Find the running median of a stream of Integers
+* Given a 10x10 grid, a guy on one space, his house on another and some obstacles on the grid, find the shortest path home
