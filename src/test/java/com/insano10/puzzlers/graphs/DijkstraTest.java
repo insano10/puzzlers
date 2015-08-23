@@ -14,9 +14,9 @@ public class DijkstraTest
         /*
                 n1 ------(4)------- n2 -----(1)---- n3
                 |                   |               |
-               (1)                 (1)             (2)
+               (1)                 (1)             (3)
                 |                   |               |
-                n4 ------(1)-------n5 -----(2)----- n6
+                n4 ------(1)-------n5 -----(3)----- n6
          */
 
     Node n1 = new Node("n1");
@@ -43,9 +43,9 @@ public class DijkstraTest
         edges.add(new Edge(1, n1, n4, 1));
         edges.add(new Edge(2, n2, n3, 1));
         edges.add(new Edge(3, n2, n5, 1));
-        edges.add(new Edge(4, n3, n6, 2));
+        edges.add(new Edge(4, n3, n6, 3));
         edges.add(new Edge(5, n4, n5, 1));
-        edges.add(new Edge(6, n5, n6, 2));
+        edges.add(new Edge(6, n5, n6, 3));
 
         graph = new Graph(nodes, edges);
     }
@@ -69,5 +69,25 @@ public class DijkstraTest
         assertThat(pathToEndNode.get(1)).isEqualTo(n4);
         assertThat(pathToEndNode.get(2)).isEqualTo(n5);
         assertThat(pathToEndNode.get(3)).isEqualTo(n6);
+    }
+
+    @Test
+    public void shouldTraverseWeightedNodesUsingDijkstrasAlgorithm2() throws Exception
+    {
+        List<Node> visitedNodes = new ArrayList<>();
+        List<Node> pathToEndNode = new ArrayList<>();
+
+        DijkstraSearch.dijkstra(graph, n2, n1, visitedNodes::add, pathToEndNode::addAll);
+
+        assertThat(visitedNodes.get(0)).isEqualTo(n2);
+        assertThat(visitedNodes.get(1)).isEqualTo(n3);
+        assertThat(visitedNodes.get(2)).isEqualTo(n5);
+        assertThat(visitedNodes.get(3)).isEqualTo(n4);
+        assertThat(visitedNodes.get(4)).isEqualTo(n1);
+
+        assertThat(pathToEndNode.get(0)).isEqualTo(n2);
+        assertThat(pathToEndNode.get(1)).isEqualTo(n5);
+        assertThat(pathToEndNode.get(2)).isEqualTo(n4);
+        assertThat(pathToEndNode.get(3)).isEqualTo(n1);
     }
 }
