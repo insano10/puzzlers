@@ -1,8 +1,6 @@
 package com.insano10.puzzlers.graphs;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 import java.util.function.Consumer;
 
 public class BreadthFirstSearch
@@ -10,7 +8,7 @@ public class BreadthFirstSearch
     public static void bfs(Node startNode, Node endNode, Consumer<Node> onVisited, Consumer<List<Node>> onFound)
     {
         List<Node> nodesToVisit = new ArrayList<>();
-        ConcurrentMap<Node, Node> paths = new ConcurrentHashMap<>();
+        Map<Node, Node> paths = new HashMap<>();
 
         nodesToVisit.add(startNode);
 
