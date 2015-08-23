@@ -43,6 +43,8 @@ Note: The implementations here are by no means the best or most elegant solution
     * iteratively
   1. Breadth first search
   1. Dijkstra's algorithm
+* HashTable
+  1. Implement HashTable
 
 ## Puzzles
 
