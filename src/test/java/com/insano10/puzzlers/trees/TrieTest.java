@@ -47,4 +47,11 @@ public class TrieTest
 
         assertThat(trie.isValidString("so")).isFalse();
     }
+
+    @Test
+    public void shouldRetrieveStringsInSortedOrder() throws Exception
+    {
+
+
+    }
 }
