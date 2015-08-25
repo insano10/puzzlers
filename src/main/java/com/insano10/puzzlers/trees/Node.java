@@ -1,12 +1,10 @@
 package com.insano10.puzzlers.trees;
 
-import java.util.Optional;
-
 public class Node<T>
 {
     T data;
-    Optional<Node<T>> left = Optional.empty();
-    Optional<Node<T>> right = Optional.empty();
+    Node<T> left = null;
+    Node<T> right = null;
 
     public Node(T data)
     {
@@ -15,11 +13,11 @@ public class Node<T>
 
     public void setLeft(Node<T> node)
     {
-        this.left = Optional.of(node);
+        this.left = node;
     }
 
     public void setRight(Node<T> node)
     {
-        this.right = Optional.of(node);
+        this.right = node;
     }
 }

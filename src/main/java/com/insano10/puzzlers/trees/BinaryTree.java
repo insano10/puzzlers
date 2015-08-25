@@ -23,23 +23,29 @@ public class BinaryTree<T>
             Node<T> next = working.pop();
             onVisit.accept(next.data);
 
-            next.right.ifPresent(working::push);
-            next.left.ifPresent(working::push);
+            if(next.right != null)
+            {
+                working.push(next.right);
+            }
+            if(next.left != null)
+            {
+                working.push(next.left);
+            }
         }
     }
 
     public void traverseInorder(Consumer<T> onVisit)
     {
         Stack<Node<T>> working = new Stack<>();
-        Optional<Node<T>> nextNode = Optional.of(root);
+        Node<T> nextNode = root;
 
         while(true)
         {
-            if(nextNode.isPresent())
+            if(nextNode != null)
             {
                 //keep going left
-                working.push(nextNode.get());
-                nextNode = nextNode.get().left;
+                working.push(nextNode);
+                nextNode = nextNode.left;
             }
             else
             {
@@ -60,6 +66,56 @@ public class BinaryTree<T>
 
     public void traversePostorder(Consumer<T> onVisit)
     {
+        Stack<Node<T>> working = new Stack<>();
 
+        Node<T> lastNode = null;
+        working.push(root);
+
+        while(!working.isEmpty())
+        {
+            Node<T> nextNode = working.peek();
+
+            if(nextNode != null)
+            {
+
+                if(lastNode == null || nextNode.equals(lastNode.left) || nextNode.equals(lastNode.right))
+                {
+                    //going down the tree
+                    if(nextNode.left != null)
+                    {
+                        working.push(nextNode.left);
+                    }
+                    else if(nextNode.right != null)
+                    {
+                        working.push(nextNode.right);
+                    }
+                    else
+                    {
+                        onVisit.accept(nextNode.data);
+                        working.pop();
+                    }
+                }
+                else if(nextNode.left.equals(lastNode))
+                {
+                    //going back up the tree on the left side
+                    if(nextNode.right != null)
+                    {
+                        working.push(nextNode.right);
+                    }
+                    else
+                    {
+                        onVisit.accept(nextNode.data);
+                        working.pop();
+                    }
+                }
+                else if(nextNode.right.equals(lastNode))
+                {
+                    onVisit.accept(nextNode.data);
+                    working.pop();
+                }
+
+                lastNode = nextNode;
+            }
+        }
     }
 }
