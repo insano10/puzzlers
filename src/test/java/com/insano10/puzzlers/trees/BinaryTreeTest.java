@@ -2,12 +2,17 @@ package com.insano10.puzzlers.trees;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@RunWith(Parameterized.class)
 public class BinaryTreeTest
 {
     /*
@@ -25,7 +30,21 @@ public class BinaryTreeTest
     private final Node<String> node6 = new Node<>("6");
     private final Node<String> node7 = new Node<>("7");
     private final Node<String> node8 = new Node<>("8");
-    private final BinaryTree<String> tree = new BinaryTree<>(root);
+    private final BinaryTree<String> tree;
+
+    @Parameterized.Parameters(name = "Implementation: {0}")
+    public static Collection<Object[]> data()
+    {
+        return Arrays.<Object[]>asList(
+                new Object[]{"Iterative", (BinaryTree) new IterativeBinaryTree<>()},
+                new Object[]{"Recursive", (BinaryTree) new RecursiveBinaryTree<>()}
+        );
+    }
+
+    public BinaryTreeTest(String name, BinaryTree<String> tree)
+    {
+        this.tree = tree;
+    }
 
     @Before
     public void setUp() throws Exception
@@ -44,7 +63,7 @@ public class BinaryTreeTest
     {
         List<String> visitedNodes = new ArrayList<>();
 
-        tree.traversePreorder(visitedNodes::add);
+        tree.traversePreorder(root, visitedNodes::add);
 
         assertThat(visitedNodes.get(0)).isEqualTo(root.data);
         assertThat(visitedNodes.get(1)).isEqualTo(node2.data);
@@ -61,7 +80,7 @@ public class BinaryTreeTest
     {
         List<String> visitedNodes = new ArrayList<>();
 
-        tree.traverseInorder(visitedNodes::add);
+        tree.traverseInorder(root, visitedNodes::add);
 
         assertThat(visitedNodes.get(0)).isEqualTo(node8.data);
         assertThat(visitedNodes.get(1)).isEqualTo(node4.data);
@@ -79,7 +98,7 @@ public class BinaryTreeTest
     {
         List<String> visitedNodes = new ArrayList<>();
 
-        tree.traversePostorder(visitedNodes::add);
+        tree.traversePostorder(root, visitedNodes::add);
 
         assertThat(visitedNodes.get(0)).isEqualTo(node8.data);
         assertThat(visitedNodes.get(1)).isEqualTo(node4.data);
