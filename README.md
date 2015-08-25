@@ -45,6 +45,10 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Dijkstra's algorithm
 * HashTable
   1. Implement HashTable
+* Trees
+  1. Binary Tree
+    * PreOrder, InOrder, PostOrder traversal using recursion
+    * PreOrder, InOrder, PostOrder traversal using iteration
 
 ## Puzzles
 
