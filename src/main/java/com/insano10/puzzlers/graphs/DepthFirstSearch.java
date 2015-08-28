@@ -28,8 +28,9 @@ public class DepthFirstSearch
             }
             else
             {
-                for (Node neighbour : node.getNeighbours())
+                for(Edge edge : node.getEdges())
                 {
+                    Node neighbour = edge.getOppositeNode(node);
                     ArrayList<Node> newPathSoFar = new ArrayList<>(pathSoFar);
                     newPathSoFar.add(neighbour);
                     doRecursiveDfs(neighbour, endNode, newPathSoFar, onVisited, onFound);
@@ -60,15 +61,19 @@ public class DepthFirstSearch
                     break;
                 }
 
-                if(node.hasUnvisitedNeighbours())
+                boolean hasNeighboursToVisit = false;
+                for(Edge edge : node.getEdges())
                 {
-                    //note: the reversal is not necessary and is only there to maintain visit order with the recursive version
-                    for (Node neighbour : Lists.reverse(node.getNeighbours()))
+                    Node neighbour = edge.getOppositeNode(node);
+
+                    if(!neighbour.isVisited())
                     {
                         nodesToVisit.push(neighbour);
+                        hasNeighboursToVisit = true;
                     }
                 }
-                else
+
+                if(!hasNeighboursToVisit)
                 {
                     pathSoFar.remove(node);
                 }

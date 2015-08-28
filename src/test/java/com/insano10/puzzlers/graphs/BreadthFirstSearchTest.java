@@ -1,14 +1,9 @@
 package com.insano10.puzzlers.graphs;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.function.BiFunction;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,13 +28,21 @@ public class BreadthFirstSearchTest
         Node n6 = new Node("n6");
         Node n7 = new Node("n7");
 
-        n1.addNeighbours(n2,n3);
-        n2.addNeighbours(n1, n4);
-        n3.addNeighbours(n1, n5);
-        n4.addNeighbours(n2, n5);
-        n5.addNeighbours(n3, n4, n6, n7);
-        n6.addNeighbours(n5);
-        n7.addNeighbours(n5);
+        Edge e1 = new Edge(1, n1, n2, 1);
+        Edge e2 = new Edge(2, n1, n3, 1);
+        Edge e3 = new Edge(3, n2, n4, 1);
+        Edge e4 = new Edge(4, n3, n5, 1);
+        Edge e5 = new Edge(5, n4, n5, 1);
+        Edge e6 = new Edge(6, n5, n6, 1);
+        Edge e7 = new Edge(7, n5, n7, 1);
+
+        n1.addEdges(e1, e2);
+        n2.addEdges(e1, e3);
+        n3.addEdges(e2, e4);
+        n4.addEdges(e3, e5);
+        n5.addEdges(e4, e5, e6, e7);
+        n6.addEdges(e6);
+        n7.addEdges(e7);
 
         List<Node> visitedNodes = new ArrayList<>();
         List<Node> pathToEndNode = new ArrayList<>();

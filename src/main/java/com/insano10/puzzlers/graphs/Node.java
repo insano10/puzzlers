@@ -8,9 +8,8 @@ import java.util.List;
 
 public class Node
 {
-    private final List<Node> neighbours = new ArrayList<>();
-    private final List<Edge> edges = new ArrayList<>();
     private final String name;
+    private final List<Edge> edges = new ArrayList<>();
     private boolean visited;
 
     public Node(String name)
@@ -19,36 +18,14 @@ public class Node
         this.visited = false;
     }
 
-    public void addNeighbours(Node... nodes)
-    {
-        neighbours.addAll(Arrays.asList(nodes));
-    }
-
     public void addEdges(Edge... theEdges)
     {
         edges.addAll(Arrays.asList(theEdges));
     }
 
-    public List<Node> getNeighbours()
-    {
-        return ImmutableList.copyOf(neighbours);
-    }
-
     public List<Edge> getEdges()
     {
         return ImmutableList.copyOf(edges);
-    }
-
-    public boolean hasUnvisitedNeighbours()
-    {
-        for (Node neighbour : neighbours)
-        {
-            if(!neighbour.isVisited())
-            {
-                return true;
-            }
-        }
-        return false;
     }
 
     public String getName()
@@ -93,7 +70,7 @@ public class Node
     public String toString()
     {
         return "Node{" +
-                "neighbours=" + neighbours.size() +
+                "edges=" + edges.size() +
                 ", name='" + name + '\'' +
                 ", visited=" + visited +
                 '}';

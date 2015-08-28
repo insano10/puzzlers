@@ -26,8 +26,9 @@ public class BreadthFirstSearch
                     break;
                 }
 
-                for (Node neighbour : node.getNeighbours())
+                for(Edge edge : node.getEdges())
                 {
+                    Node neighbour = edge.getOppositeNode(node);
                     if(!neighbour.isVisited())
                     {
                         paths.putIfAbsent(neighbour, node);
