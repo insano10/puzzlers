@@ -43,6 +43,7 @@ Note: The implementations here are by no means the best or most elegant solution
     * iteratively
   1. Breadth first search
   1. Dijkstra's algorithm
+  1. Algorithm to decide whether you can 2-colour a graph
 * HashTable
   1. Implement HashTable
 * Trees

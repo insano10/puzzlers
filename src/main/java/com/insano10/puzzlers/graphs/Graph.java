@@ -37,6 +37,11 @@ public class Graph
         return nodes;
     }
 
+    public List<Edge> getEdges()
+    {
+        return edges;
+    }
+
     public List<Edge> getEdgesFrom(Node node)
     {
         return nodeEdges.get(node);

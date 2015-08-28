@@ -9,6 +9,7 @@ import java.util.List;
 public class Node
 {
     private final List<Node> neighbours = new ArrayList<>();
+    private final List<Edge> edges = new ArrayList<>();
     private final String name;
     private boolean visited;
 
@@ -23,9 +24,19 @@ public class Node
         neighbours.addAll(Arrays.asList(nodes));
     }
 
+    public void addEdges(Edge... theEdges)
+    {
+        edges.addAll(Arrays.asList(theEdges));
+    }
+
     public List<Node> getNeighbours()
     {
         return ImmutableList.copyOf(neighbours);
+    }
+
+    public List<Edge> getEdges()
+    {
+        return ImmutableList.copyOf(edges);
     }
 
     public boolean hasUnvisitedNeighbours()
