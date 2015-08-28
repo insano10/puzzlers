@@ -101,7 +101,50 @@ public class TrieTest
 
         List<String> words = trie.splitIntoValidSubStrings("peanutbutter");
 
+        assertThat(words).hasSize(2);
         assertThat(words.get(0)).isEqualTo("peanut");
         assertThat(words.get(1)).isEqualTo("butter");
+    }
+
+    @Test
+    public void shouldReturnEmptyListIfNoWordsCanBeFoundInTheString() throws Exception
+    {
+        trie.insert("pea");
+        trie.insert("nut");
+        trie.insert("but");
+        trie.insert("butter");
+        trie.insert("utter");
+        trie.insert("peanut");
+
+        List<String> words = trie.splitIntoValidSubStrings("helloWorld");
+
+        assertThat(words).isEmpty();
+    }
+
+    @Test
+    public void shouldReturnWordsFoundEvenIfTheWholeStringCannotBeUsed() throws Exception
+    {
+        trie.insert("pea");
+        trie.insert("nut");
+        trie.insert("but");
+        trie.insert("butter");
+        trie.insert("utter");
+        trie.insert("peanut");
+
+        List<String> words = trie.splitIntoValidSubStrings("iamanutcase");
+
+        assertThat(words).hasSize(1);
+        assertThat(words.get(0)).isEqualTo("nut");
+    }
+
+    @Test
+    public void shouldReturnEmptyListIfEmptyStringIsSupplied() throws Exception
+    {
+        trie.insert("pea");
+        trie.insert("nut");
+
+        List<String> words = trie.splitIntoValidSubStrings("");
+
+        assertThat(words).isEmpty();
     }
 }

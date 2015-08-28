@@ -73,11 +73,11 @@ public class Trie
         MultiNode<Character> next = root;
         int nextCharIdx = 0;
 
-        while(nextCharIdx < chars.length)
+        while (nextCharIdx < chars.length)
         {
             char c = chars[nextCharIdx];
 
-            if(next.hasChildWithValue(c))
+            if (next.hasChildWithValue(c))
             {
                 //keep moving down the tree
                 next = next.getChild(c);
@@ -86,18 +86,26 @@ public class Trie
             }
             else
             {
-                //we can go no further, bank the word and start again from the top
-                if(next.isTerminal())
+                if (next.equals(root))
                 {
-                    words.add(currentWord.toString());
-                    currentWord.setLength(0);
-                    next = root;
+                    //we were already on the root but failed to find a starting point. skip over this char
+                    nextCharIdx++;
+                }
+                else
+                {
+                    //we can go no further, bank the word and start again from the top
+                    if (next.isTerminal())
+                    {
+                        words.add(currentWord.toString());
+                        currentWord.setLength(0);
+                        next = root;
+                    }
                 }
             }
         }
 
         //add the final word in the buffer
-        if(next.isTerminal())
+        if (next.isTerminal())
         {
             words.add(currentWord.toString());
         }
@@ -132,7 +140,7 @@ public class Trie
             {
                 //going back up (must have processed all children to get back to the parent node)
                 working.pop();
-                if(next.data != null)
+                if (next.data != null)
                 {
                     currentWord.deleteCharAt(currentWord.length() - 1);
                 }
