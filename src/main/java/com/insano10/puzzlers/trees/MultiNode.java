@@ -1,15 +1,17 @@
 package com.insano10.puzzlers.trees;
 
-import java.util.HashMap;
-import java.util.Map;
+import com.google.common.collect.Lists;
 
-public class MultiNode<T>
+import java.util.*;
+
+public class MultiNode<T extends Comparable<T>>
 {
     final T data;
-    final Map<T, MultiNode<T>> children = new HashMap<>();
+    final Map<T, MultiNode<T>> childMap = new HashMap<>();
+    final List<MultiNode<T>> children = new ArrayList<>();
     boolean terminal;
 
-    public static <T> MultiNode<T> of(T data)
+    public static <T extends Comparable<T>> MultiNode<T> of(T data)
     {
         return new MultiNode<>(data);
     }
@@ -31,16 +33,37 @@ public class MultiNode<T>
 
     public void addChild(MultiNode<T> child)
     {
-        children.put(child.data, child);
+        children.add(child);
+        childMap.put(child.data, child);
     }
 
-    public boolean hasChild(T data)
+    public boolean hasChildWithValue(T data)
     {
-        return children.containsKey(data);
+        return childMap.containsKey(data);
     }
 
     public MultiNode<T> getChild(T data)
     {
-        return children.get(data);
+        return childMap.get(data);
+    }
+
+    public List<MultiNode<T>> getSortedChildren()
+    {
+        //todo, do this on insertion
+        ArrayList<MultiNode<T>> childrenCopy = new ArrayList<>(children);
+        Collections.sort(childrenCopy, ((n1, n2) -> {
+
+            if(n1 == null)
+            {
+                return -1;
+            }
+            if(n2 == null)
+            {
+                return 1;
+            }
+            return n1.data.compareTo(n2.data);
+
+        }));
+        return childrenCopy;
     }
 }

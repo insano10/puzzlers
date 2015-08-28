@@ -52,6 +52,7 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Trie
     * insert Strings and validate their existence like a dictionary
     * find smaller words inside a given String 
+    * retrieve words in sorted order using pre order traversal of the tree
 
 ## Puzzles
 

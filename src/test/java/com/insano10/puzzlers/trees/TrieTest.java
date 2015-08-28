@@ -2,6 +2,8 @@ package com.insano10.puzzlers.trees;
 
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class TrieTest
@@ -48,10 +50,42 @@ public class TrieTest
         assertThat(trie.isValidString("so")).isFalse();
     }
 
+    /*
+                           <>
+                        a      b
+                       a b   a
+                      a     a
+                     a     a
+                 a c d z
+                a     c s
+               a
+     */
     @Test
     public void shouldRetrieveStringsInSortedOrder() throws Exception
     {
+        trie.insert("aaaaaaa");
+        trie.insert("aaa");
+        trie.insert("b");
+        trie.insert("aaaazc");
+        trie.insert("ab");
+        trie.insert("aaaac");
+        trie.insert("baaa");
+        trie.insert("a");
+        trie.insert("aaaad");
+        trie.insert("aaaazs");
 
+        List<String> sortedKeys = trie.getSortedKeys();
+
+        assertThat(sortedKeys.get(0)).isEqualTo("a");
+        assertThat(sortedKeys.get(1)).isEqualTo("aaa");
+        assertThat(sortedKeys.get(2)).isEqualTo("aaaaaaa");
+        assertThat(sortedKeys.get(3)).isEqualTo("aaaac");
+        assertThat(sortedKeys.get(4)).isEqualTo("aaaad");
+        assertThat(sortedKeys.get(5)).isEqualTo("aaaazc");
+        assertThat(sortedKeys.get(6)).isEqualTo("aaaazs");
+        assertThat(sortedKeys.get(7)).isEqualTo("ab");
+        assertThat(sortedKeys.get(8)).isEqualTo("b");
+        assertThat(sortedKeys.get(9)).isEqualTo("baaa");
 
     }
 }
