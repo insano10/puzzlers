@@ -88,4 +88,20 @@ public class TrieTest
         assertThat(sortedKeys.get(9)).isEqualTo("baaa");
 
     }
+
+    @Test
+    public void shouldSplitStringIntoValidWords() throws Exception
+    {
+        trie.insert("pea");
+        trie.insert("nut");
+        trie.insert("but");
+        trie.insert("butter");
+        trie.insert("utter");
+        trie.insert("peanut");
+
+        List<String> words = trie.splitIntoValidSubStrings("peanutbutter");
+
+        assertThat(words.get(0)).isEqualTo("peanut");
+        assertThat(words.get(1)).isEqualTo("butter");
+    }
 }

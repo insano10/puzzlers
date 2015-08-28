@@ -66,7 +66,43 @@ public class Trie
 
     public List<String> splitIntoValidSubStrings(String string)
     {
-        return null;
+        List<String> words = new ArrayList<>();
+        StringBuilder currentWord = new StringBuilder();
+        char[] chars = string.toCharArray();
+
+        MultiNode<Character> next = root;
+        int nextCharIdx = 0;
+
+        while(nextCharIdx < chars.length)
+        {
+            char c = chars[nextCharIdx];
+
+            if(next.hasChildWithValue(c))
+            {
+                //keep moving down the tree
+                next = next.getChild(c);
+                currentWord.append(next.data);
+                nextCharIdx++;
+            }
+            else
+            {
+                //we can go no further, bank the word and start again from the top
+                if(next.isTerminal())
+                {
+                    words.add(currentWord.toString());
+                    currentWord.setLength(0);
+                    next = root;
+                }
+            }
+        }
+
+        //add the final word in the buffer
+        if(next.isTerminal())
+        {
+            words.add(currentWord.toString());
+        }
+
+        return words;
     }
 
     public List<String> getSortedKeys()
