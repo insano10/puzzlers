@@ -1,7 +1,5 @@
 package com.insano10.puzzlers.trees;
 
-import com.google.common.collect.Lists;
-
 import java.util.*;
 
 public class MultiNode<T extends Comparable<T>>
@@ -35,6 +33,23 @@ public class MultiNode<T extends Comparable<T>>
     {
         children.add(child);
         childMap.put(child.data, child);
+
+        //this is really inefficient but as its an up front cost when creating the Trie I don't care too much atm
+        Collections.sort(children, ((n1, n2) -> {
+
+            if (n1 == null)
+            {
+                return -1;
+            }
+            if (n2 == null)
+            {
+                return 1;
+            }
+            return n1.data.compareTo(n2.data);
+
+        }));
+
+        Collections.reverse(children);
     }
 
     public boolean hasChildWithValue(T data)
@@ -47,23 +62,8 @@ public class MultiNode<T extends Comparable<T>>
         return childMap.get(data);
     }
 
-    public List<MultiNode<T>> getSortedChildren()
+    public List<MultiNode<T>> getChildrenInDescendingOrder()
     {
-        //todo, do this on insertion
-        ArrayList<MultiNode<T>> childrenCopy = new ArrayList<>(children);
-        Collections.sort(childrenCopy, ((n1, n2) -> {
-
-            if(n1 == null)
-            {
-                return -1;
-            }
-            if(n2 == null)
-            {
-                return 1;
-            }
-            return n1.data.compareTo(n2.data);
-
-        }));
-        return childrenCopy;
+        return children;
     }
 }

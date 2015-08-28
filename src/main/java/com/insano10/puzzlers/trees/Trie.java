@@ -1,7 +1,6 @@
 package com.insano10.puzzlers.trees;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -124,10 +123,7 @@ public class Trie
                 else
                 {
                     //add children to the stack
-                    List<MultiNode<Character>> children = next.getSortedChildren();
-                    Collections.reverse(children);
-
-                    for (MultiNode<Character> child : children)
+                    for (MultiNode<Character> child : next.getChildrenInDescendingOrder())
                     {
                         working.push(child);
                     }
