@@ -69,10 +69,6 @@ public class Node
     @Override
     public String toString()
     {
-        return "Node{" +
-                "edges=" + edges.size() +
-                ", name='" + name + '\'' +
-                ", visited=" + visited +
-                '}';
+        return getName();
     }
 }
