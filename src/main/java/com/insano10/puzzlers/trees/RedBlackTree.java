@@ -1,20 +1,22 @@
 package com.insano10.puzzlers.trees;
 
+import com.google.common.annotations.VisibleForTesting;
+
 import java.util.function.Consumer;
 
-import static com.insano10.puzzlers.trees.RedBlackTree.Colour.RED;
 import static com.insano10.puzzlers.trees.RedBlackTree.Colour.BLACK;
+import static com.insano10.puzzlers.trees.RedBlackTree.Colour.RED;
 
-public class RedBlackTree<T extends Comparable<T>> implements BinaryTree<T>
+public class RedBlackTree<T extends Comparable<T>>
 {
     public enum Colour
     {
-        RED, BLACK;
+        RED, BLACK
     }
 
     private RedBlackNode<T> root = null;
 
-    //purely for starting a traversal. In hindsight the public traverse methods should not take a node
+    @VisibleForTesting
     public RedBlackNode<T> getRoot()
     {
         return root;
@@ -22,70 +24,242 @@ public class RedBlackTree<T extends Comparable<T>> implements BinaryTree<T>
 
     public void insert(T data)
     {
-        binaryTreeInsert(data);
+        RedBlackNode<T> node = binaryTreeInsert(data);
+
+        rebalance(node);
     }
 
-    @Override
-    public void traversePreorder(BinaryTreeNode<T> node, Consumer<T> onVisit)
+    private void rebalance(RedBlackNode<T> node)
     {
-        if(node != null)
+        // rebalance the tree if the newly inserted node is not the root
+        // and it's parent is red
+        if (!root.equals(node) && node.getParent().getColour() == RED)
         {
-            onVisit.accept(node.getData());
-            traversePreorder(node.getLeft(), onVisit);
-            traversePreorder(node.getRight(), onVisit);
+            RedBlackNode<T> uncle = getUncleOf(node);
+
+            if (uncle.getColour() == RED)
+            {
+                node.getParent().setColour(BLACK);
+                uncle.setColour(BLACK);
+                rebalance(node.getParent().getParent());
+            }
+            else
+            {
+                if (leftLeftCase(node))
+                {
+                    rightRotate(node.getParent().getParent());
+                    flipColour(node.getParent());
+                    flipColour(node.getParent().getParent());
+                }
+                else if(leftRightCase(node))
+                {
+                    leftRotate(node.getParent());
+
+                    //same as leftLeftCase
+                    rightRotate(node.getParent().getParent());
+                    flipColour(node.getParent());
+                    flipColour(node.getParent().getParent());
+                }
+                else if(rightRightCase(node))
+                {
+                    leftRotate(node.getParent().getParent());
+                    flipColour(node.getParent());
+                    flipColour(node.getParent().getParent());
+                }
+                else if(rightLeftCase(node))
+                {
+                    rightRotate(node.getParent());
+
+                    //same as rightRightCase
+                    leftRotate(node.getParent().getParent());
+                    flipColour(node.getParent());
+                    flipColour(node.getParent().getParent());
+                }
+                else
+                {
+                    throw new RuntimeException("WTF?");
+                }
+            }
         }
     }
 
-    @Override
-    public void traverseInorder(BinaryTreeNode<T> node, Consumer<T> onVisit)
+    private void flipColour(RedBlackNode<T> node)
     {
-        if(node != null)
+        if(node.getColour() == RED)
         {
-            traverseInorder(node.getLeft(), onVisit);
-            onVisit.accept(node.getData());
-            traverseInorder(node.getRight(), onVisit);
+            node.setColour(BLACK);
+        }
+        else
+        {
+            node.setColour(RED);
         }
     }
 
-    @Override
-    public void traversePostorder(BinaryTreeNode<T> node, Consumer<T> onVisit)
+    /*
+                    [G]
+                    /
+                  [P]
+                  /
+                [N]
+     */
+    private boolean leftLeftCase(RedBlackNode<T> node)
     {
-        if(node != null)
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> grandParent = parent.getParent();
+
+        return grandParent.getLeft().equals(parent) &&
+                parent.getLeft().equals(node);
+    }
+
+    /*
+                   [G]
+                   /
+                 [P]
+                  \
+                   [N]
+    */
+    private boolean leftRightCase(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> grandParent = parent.getParent();
+
+        return grandParent.getLeft().equals(parent) &&
+                parent.getRight().equals(node);
+    }
+
+    /*
+                    [G]
+                     \
+                     [P]
+                      \
+                      [N]
+     */
+    private boolean rightRightCase(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> grandParent = parent.getParent();
+
+        return grandParent.getRight().equals(parent) &&
+                parent.getRight().equals(node);
+    }
+
+    /*
+                    [G]
+                     \
+                     [P]
+                     /
+                   [N]
+     */
+    private boolean rightLeftCase(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> grandParent = parent.getParent();
+
+        return grandParent.getRight().equals(parent) &&
+                parent.getLeft().equals(node);
+    }
+
+    private void rightRotate(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> top = node.getLeft();
+
+        if(parent == null)
         {
-            traversePostorder(node.getLeft(), onVisit);
-            traversePostorder(node.getRight(), onVisit);
+            //node is the root
+            root = top;
+        }
+        else
+        {
+            if(parent.getLeft().equals(node))
+            {
+                parent.setLeft(top);
+            }
+            else
+            {
+                parent.setRight(top);
+            }
+        }
+        top.setRight(node);
+    }
+
+    private void leftRotate(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> top = node.getRight();
+
+        if(parent == null)
+        {
+            //node is the root
+            root = top;
+        }
+        else
+        {
+            if(parent.getLeft().equals(node))
+            {
+                parent.setLeft(top);
+            }
+            else
+            {
+                parent.setRight(top);
+            }
+        }
+        top.setLeft(node);
+    }
+
+    private RedBlackNode<T> getUncleOf(RedBlackNode<T> node)
+    {
+        RedBlackNode<T> parent = node.getParent();
+        RedBlackNode<T> grandparent = parent.getParent();
+
+        return grandparent.getLeft().equals(parent) ? grandparent.getRight() : grandparent.getLeft();
+    }
+
+    public void visitInOrder(Consumer<T> onVisit)
+    {
+        traverseInOrder(root, onVisit);
+    }
+
+    private void traverseInOrder(RedBlackNode<T> node, Consumer<T> onVisit)
+    {
+        if (!node.isLeaf())
+        {
+            traverseInOrder(node.getLeft(), onVisit);
             onVisit.accept(node.getData());
+            traverseInOrder(node.getRight(), onVisit);
         }
     }
 
-
-    private void binaryTreeInsert(T data)
+    private RedBlackNode<T> binaryTreeInsert(T data)
     {
-        if(root == null)
+        if (root == null)
         {
-            root = new RedBlackNode<>(data, BLACK);
+            root = new InternalRedBlackNode<>(data, BLACK, null);
+            return root;
         }
         else
         {
             RedBlackNode<T> next = root;
 
-            while(true)
+            while (true)
             {
-                if(data.compareTo(next.getData()) <= 0)
+                if (data.compareTo(next.getData()) <= 0)
                 {
-                    if(next.getLeft() == null)
+                    if (next.getLeft().isLeaf())
                     {
-                        next.setLeft(new RedBlackNode<T>(data, RED));
-                        break;
+                        RedBlackNode<T> newNode = new InternalRedBlackNode<>(data, RED, next);
+                        next.setLeft(newNode);
+                        return newNode;
                     }
                     next = next.getLeft();
                 }
                 else
                 {
-                    if(next.getRight() == null)
+                    if (next.getRight().isLeaf())
                     {
-                        next.setRight(new RedBlackNode<T>(data, RED));
-                        break;
+                        RedBlackNode<T> newNode = new InternalRedBlackNode<>(data, RED, next);
+                        next.setRight(newNode);
+                        return newNode;
                     }
                     next = next.getRight();
                 }
