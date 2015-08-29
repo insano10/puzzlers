@@ -7,14 +7,14 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
 {
 
     @Override
-    public void traversePreorder(Node<T> root, Consumer<T> onVisit)
+    public void traversePreorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
-        Stack<Node<T>> working = new Stack<>();
+        Stack<BinaryTreeNode<T>> working = new Stack<>();
         working.push(root);
 
         while(!working.isEmpty())
         {
-            Node<T> next = working.pop();
+            BinaryTreeNode<T> next = working.pop();
             onVisit.accept(next.getData());
 
             if(next.getRight() != null)
@@ -29,10 +29,10 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
     }
 
     @Override
-    public void traverseInorder(Node<T> root, Consumer<T> onVisit)
+    public void traverseInorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
-        Stack<Node<T>> working = new Stack<>();
-        Node<T> nextNode = root;
+        Stack<BinaryTreeNode<T>> working = new Stack<>();
+        BinaryTreeNode<T> nextNode = root;
 
         while(true)
         {
@@ -47,7 +47,7 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
                 //we've reached a leaf
                 if(!working.isEmpty())
                 {
-                    Node<T> nodeToVisit = working.pop();
+                    BinaryTreeNode<T> nodeToVisit = working.pop();
                     onVisit.accept(nodeToVisit.getData());
                     nextNode = nodeToVisit.getRight();
                 }
@@ -60,16 +60,16 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
     }
 
     @Override
-    public void traversePostorder(Node<T> root, Consumer<T> onVisit)
+    public void traversePostorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
-        Stack<Node<T>> working = new Stack<>();
+        Stack<BinaryTreeNode<T>> working = new Stack<>();
 
-        Node<T> lastNode = null;
+        BinaryTreeNode<T> lastNode = null;
         working.push(root);
 
         while(!working.isEmpty())
         {
-            Node<T> nextNode = working.peek();
+            BinaryTreeNode<T> nextNode = working.peek();
 
             if(nextNode != null)
             {

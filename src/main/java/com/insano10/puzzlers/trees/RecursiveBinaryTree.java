@@ -4,7 +4,7 @@ import java.util.function.Consumer;
 
 public class RecursiveBinaryTree<T> implements BinaryTree<T>
 {
-    public void traversePreorder(Node<T> root, Consumer<T> onVisit)
+    public void traversePreorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
         if(root != null)
         {
@@ -14,7 +14,7 @@ public class RecursiveBinaryTree<T> implements BinaryTree<T>
         }
     }
 
-    public void traverseInorder(Node<T> root, Consumer<T> onVisit)
+    public void traverseInorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
         if(root != null)
         {
@@ -24,7 +24,7 @@ public class RecursiveBinaryTree<T> implements BinaryTree<T>
         }
     }
 
-    public void traversePostorder(Node<T> root, Consumer<T> onVisit)
+    public void traversePostorder(BinaryTreeNode<T> root, Consumer<T> onVisit)
     {
         if(root != null)
         {

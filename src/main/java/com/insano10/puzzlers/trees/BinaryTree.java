@@ -4,9 +4,9 @@ import java.util.function.Consumer;
 
 public interface BinaryTree<T>
 {
-    void traversePreorder(Node<T> root, Consumer<T> onVisit);
+    void traversePreorder(BinaryTreeNode<T> node, Consumer<T> onVisit);
 
-    void traverseInorder(Node<T> root, Consumer<T> onVisit);
+    void traverseInorder(BinaryTreeNode<T> node, Consumer<T> onVisit);
 
-    void traversePostorder(Node<T> root, Consumer<T> onVisit);
+    void traversePostorder(BinaryTreeNode<T> node, Consumer<T> onVisit);
 }
