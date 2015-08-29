@@ -164,6 +164,8 @@ public class RedBlackTree<T extends Comparable<T>>
         RedBlackNode<T> parent = node.getParent();
         RedBlackNode<T> top = node.getLeft();
 
+        node.setLeft(new LeafRedBlackNode<T>());
+
         if(parent == null)
         {
             //node is the root
@@ -187,6 +189,8 @@ public class RedBlackTree<T extends Comparable<T>>
     {
         RedBlackNode<T> parent = node.getParent();
         RedBlackNode<T> top = node.getRight();
+
+        node.setRight(new LeafRedBlackNode<T>());
 
         if(parent == null)
         {

@@ -44,7 +44,6 @@ public class RedBlackTreeTest
                   4
                     5
      */
-    @Ignore
     @Test
     public void shouldResultInBalancedTreeAfterInsertion() throws Exception
     {
@@ -59,7 +58,6 @@ public class RedBlackTreeTest
         List<Integer> visitOrder = new ArrayList<>();
         tree.visitInOrder(visitOrder::add);
 
-        //todo: the '1' node still has a reference to '2' as a child so it forms a cycle
         assertThat(visitOrder.get(0)).isEqualTo(1);
         assertThat(visitOrder.get(1)).isEqualTo(2);
         assertThat(visitOrder.get(2)).isEqualTo(3);
