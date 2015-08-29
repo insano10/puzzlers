@@ -8,9 +8,9 @@ public class RecursiveBinaryTree<T> implements BinaryTree<T>
     {
         if(root != null)
         {
-            onVisit.accept(root.data);
-            traversePreorder(root.left, onVisit);
-            traversePreorder(root.right, onVisit);
+            onVisit.accept(root.getData());
+            traversePreorder(root.getLeft(), onVisit);
+            traversePreorder(root.getRight(), onVisit);
         }
     }
 
@@ -18,9 +18,9 @@ public class RecursiveBinaryTree<T> implements BinaryTree<T>
     {
         if(root != null)
         {
-            traverseInorder(root.left, onVisit);
-            onVisit.accept(root.data);
-            traverseInorder(root.right, onVisit);
+            traverseInorder(root.getLeft(), onVisit);
+            onVisit.accept(root.getData());
+            traverseInorder(root.getRight(), onVisit);
         }
     }
 
@@ -28,9 +28,9 @@ public class RecursiveBinaryTree<T> implements BinaryTree<T>
     {
         if(root != null)
         {
-            traversePostorder(root.left, onVisit);
-            traversePostorder(root.right, onVisit);
-            onVisit.accept(root.data);
+            traversePostorder(root.getLeft(), onVisit);
+            traversePostorder(root.getRight(), onVisit);
+            onVisit.accept(root.getData());
         }
     }
 }

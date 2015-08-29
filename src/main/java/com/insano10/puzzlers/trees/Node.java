@@ -2,9 +2,9 @@ package com.insano10.puzzlers.trees;
 
 public class Node<T>
 {
-    T data;
-    Node<T> left = null;
-    Node<T> right = null;
+    private T data;
+    private Node<T> left = null;
+    private Node<T> right = null;
 
     public Node(T data)
     {
@@ -19,5 +19,20 @@ public class Node<T>
     public void setRight(Node<T> node)
     {
         this.right = node;
+    }
+
+    public T getData()
+    {
+        return data;
+    }
+
+    public Node<T> getLeft()
+    {
+        return left;
+    }
+
+    public Node<T> getRight()
+    {
+        return right;
     }
 }

@@ -15,15 +15,15 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
         while(!working.isEmpty())
         {
             Node<T> next = working.pop();
-            onVisit.accept(next.data);
+            onVisit.accept(next.getData());
 
-            if(next.right != null)
+            if(next.getRight() != null)
             {
-                working.push(next.right);
+                working.push(next.getRight());
             }
-            if(next.left != null)
+            if(next.getLeft() != null)
             {
-                working.push(next.left);
+                working.push(next.getLeft());
             }
         }
     }
@@ -40,7 +40,7 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
             {
                 //keep going left
                 working.push(nextNode);
-                nextNode = nextNode.left;
+                nextNode = nextNode.getLeft();
             }
             else
             {
@@ -48,8 +48,8 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
                 if(!working.isEmpty())
                 {
                     Node<T> nodeToVisit = working.pop();
-                    onVisit.accept(nodeToVisit.data);
-                    nextNode = nodeToVisit.right;
+                    onVisit.accept(nodeToVisit.getData());
+                    nextNode = nodeToVisit.getRight();
                 }
                 else
                 {
@@ -74,39 +74,39 @@ public class IterativeBinaryTree<T> implements BinaryTree<T>
             if(nextNode != null)
             {
 
-                if(lastNode == null || nextNode.equals(lastNode.left) || nextNode.equals(lastNode.right))
+                if(lastNode == null || nextNode.equals(lastNode.getLeft()) || nextNode.equals(lastNode.getRight()))
                 {
                     //going down the tree
-                    if(nextNode.left != null)
+                    if(nextNode.getLeft() != null)
                     {
-                        working.push(nextNode.left);
+                        working.push(nextNode.getLeft());
                     }
-                    else if(nextNode.right != null)
+                    else if(nextNode.getRight() != null)
                     {
-                        working.push(nextNode.right);
+                        working.push(nextNode.getRight());
                     }
                     else
                     {
-                        onVisit.accept(nextNode.data);
+                        onVisit.accept(nextNode.getData());
                         working.pop();
                     }
                 }
-                else if(nextNode.left.equals(lastNode))
+                else if(nextNode.getLeft().equals(lastNode))
                 {
                     //going back up the tree on the left side
-                    if(nextNode.right != null)
+                    if(nextNode.getRight() != null)
                     {
-                        working.push(nextNode.right);
+                        working.push(nextNode.getRight());
                     }
                     else
                     {
-                        onVisit.accept(nextNode.data);
+                        onVisit.accept(nextNode.getData());
                         working.pop();
                     }
                 }
-                else if(nextNode.right.equals(lastNode))
+                else if(nextNode.getRight().equals(lastNode))
                 {
-                    onVisit.accept(nextNode.data);
+                    onVisit.accept(nextNode.getData());
                     working.pop();
                 }
 

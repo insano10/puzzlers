@@ -65,14 +65,14 @@ public class BinaryTreeTest
 
         tree.traversePreorder(root, visitedNodes::add);
 
-        assertThat(visitedNodes.get(0)).isEqualTo(root.data);
-        assertThat(visitedNodes.get(1)).isEqualTo(node2.data);
-        assertThat(visitedNodes.get(2)).isEqualTo(node4.data);
-        assertThat(visitedNodes.get(3)).isEqualTo(node8.data);
-        assertThat(visitedNodes.get(4)).isEqualTo(node5.data);
-        assertThat(visitedNodes.get(5)).isEqualTo(node3.data);
-        assertThat(visitedNodes.get(6)).isEqualTo(node6.data);
-        assertThat(visitedNodes.get(7)).isEqualTo(node7.data);
+        assertThat(visitedNodes.get(0)).isEqualTo(root.getData());
+        assertThat(visitedNodes.get(1)).isEqualTo(node2.getData());
+        assertThat(visitedNodes.get(2)).isEqualTo(node4.getData());
+        assertThat(visitedNodes.get(3)).isEqualTo(node8.getData());
+        assertThat(visitedNodes.get(4)).isEqualTo(node5.getData());
+        assertThat(visitedNodes.get(5)).isEqualTo(node3.getData());
+        assertThat(visitedNodes.get(6)).isEqualTo(node6.getData());
+        assertThat(visitedNodes.get(7)).isEqualTo(node7.getData());
     }
 
     @Test
@@ -82,14 +82,14 @@ public class BinaryTreeTest
 
         tree.traverseInorder(root, visitedNodes::add);
 
-        assertThat(visitedNodes.get(0)).isEqualTo(node8.data);
-        assertThat(visitedNodes.get(1)).isEqualTo(node4.data);
-        assertThat(visitedNodes.get(2)).isEqualTo(node2.data);
-        assertThat(visitedNodes.get(3)).isEqualTo(node5.data);
-        assertThat(visitedNodes.get(4)).isEqualTo(root.data);
-        assertThat(visitedNodes.get(5)).isEqualTo(node6.data);
-        assertThat(visitedNodes.get(6)).isEqualTo(node3.data);
-        assertThat(visitedNodes.get(7)).isEqualTo(node7.data);
+        assertThat(visitedNodes.get(0)).isEqualTo(node8.getData());
+        assertThat(visitedNodes.get(1)).isEqualTo(node4.getData());
+        assertThat(visitedNodes.get(2)).isEqualTo(node2.getData());
+        assertThat(visitedNodes.get(3)).isEqualTo(node5.getData());
+        assertThat(visitedNodes.get(4)).isEqualTo(root.getData());
+        assertThat(visitedNodes.get(5)).isEqualTo(node6.getData());
+        assertThat(visitedNodes.get(6)).isEqualTo(node3.getData());
+        assertThat(visitedNodes.get(7)).isEqualTo(node7.getData());
 
     }
 
@@ -100,14 +100,14 @@ public class BinaryTreeTest
 
         tree.traversePostorder(root, visitedNodes::add);
 
-        assertThat(visitedNodes.get(0)).isEqualTo(node8.data);
-        assertThat(visitedNodes.get(1)).isEqualTo(node4.data);
-        assertThat(visitedNodes.get(2)).isEqualTo(node5.data);
-        assertThat(visitedNodes.get(3)).isEqualTo(node2.data);
-        assertThat(visitedNodes.get(4)).isEqualTo(node6.data);
-        assertThat(visitedNodes.get(5)).isEqualTo(node7.data);
-        assertThat(visitedNodes.get(6)).isEqualTo(node3.data);
-        assertThat(visitedNodes.get(7)).isEqualTo(root.data);
+        assertThat(visitedNodes.get(0)).isEqualTo(node8.getData());
+        assertThat(visitedNodes.get(1)).isEqualTo(node4.getData());
+        assertThat(visitedNodes.get(2)).isEqualTo(node5.getData());
+        assertThat(visitedNodes.get(3)).isEqualTo(node2.getData());
+        assertThat(visitedNodes.get(4)).isEqualTo(node6.getData());
+        assertThat(visitedNodes.get(5)).isEqualTo(node7.getData());
+        assertThat(visitedNodes.get(6)).isEqualTo(node3.getData());
+        assertThat(visitedNodes.get(7)).isEqualTo(root.getData());
 
     }
 }
