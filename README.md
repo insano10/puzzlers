@@ -44,6 +44,7 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Breadth first search
   1. Dijkstra's algorithm
   1. Algorithm to decide whether you can 2-colour a graph
+  1. Implement a brute force solution to a 5 node travelling salesman problem
 * HashTable
   1. Implement HashTable
 * Trees
