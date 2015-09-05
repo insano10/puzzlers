@@ -56,6 +56,8 @@ Note: The implementations here are by no means the best or most elegant solution
     * find smaller words inside a given String 
     * retrieve words in sorted order using pre order traversal of the tree
   1. Red Black Trees
+* Big Data
+  1. Count the number of times a word occurs in a file using map reduce
 
 ## Puzzles
 
