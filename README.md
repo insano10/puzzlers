@@ -58,6 +58,7 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Red Black Trees
 * Big Data
   1. Count the number of times a word occurs in a file using map reduce
+  1. Calculate the powerset of an arbitrarily large set using map reduce
 
 ## Puzzles
 
