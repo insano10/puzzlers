@@ -1,24 +1,31 @@
 package com.insano10.puzzlers.graphs;
 
-public class AdjacencyMatrixGraph
+public class WeightedAdjacencyMatrixGraph
 {
-    private final boolean[][] edges;
+    private final int[][] edges;
     private int numNodes;
 
-    public AdjacencyMatrixGraph(int numNodes)
+    public WeightedAdjacencyMatrixGraph(int numNodes)
     {
         this.numNodes = numNodes;
-        this.edges = new boolean[numNodes][numNodes];
+        this.edges = new int[numNodes][numNodes];
     }
 
-    public void addEdgeBetween(int fromNode, int toNode)
+    public void addEdgeBetween(int fromNode, int toNode, int weight)
     {
         validateNodeIndices(fromNode, toNode);
 
-        edges[fromNode][toNode] = true;
+        edges[fromNode][toNode] = weight;
     }
 
     public boolean isEdgeBetween(int fromNode, int toNode)
+    {
+        validateNodeIndices(fromNode, toNode);
+
+        return edges[fromNode][toNode] > 0;
+    }
+
+    public int getEdgeWeight(int fromNode, int toNode)
     {
         validateNodeIndices(fromNode, toNode);
 
