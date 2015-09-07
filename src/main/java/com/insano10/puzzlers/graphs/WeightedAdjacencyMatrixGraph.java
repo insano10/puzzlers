@@ -1,5 +1,11 @@
 package com.insano10.puzzlers.graphs;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+import java.util.function.Consumer;
+
 public class WeightedAdjacencyMatrixGraph
 {
     private final int[][] edges;
@@ -30,6 +36,55 @@ public class WeightedAdjacencyMatrixGraph
         validateNodeIndices(fromNode, toNode);
 
         return edges[fromNode][toNode];
+    }
+
+    public void dfs(int startingNode, Consumer<Integer> onVisitCallback)
+    {
+        doDfs(startingNode, onVisitCallback, new HashSet<>());
+    }
+
+    private void doDfs(int startingNode, Consumer<Integer> onVisitCallback, Set<Integer> visited)
+    {
+        visited.add(startingNode);
+        onVisitCallback.accept(startingNode);
+
+        int[] edgesFromNode = edges[startingNode];
+
+        for(int i=0 ; i<numNodes ; i++)
+        {
+            if(edgesFromNode[i] > 0 && !visited.contains(i))
+            {
+                doDfs(i, onVisitCallback, visited);
+            }
+        }
+    }
+
+    public void bfs(int startingNode, Consumer<Integer> onVisitCallback)
+    {
+        Set<Integer> visited = new HashSet<>();
+        List<Integer> toVisit = new ArrayList<>();
+        toVisit.add(startingNode);
+
+        while(!toVisit.isEmpty())
+        {
+            int node = toVisit.remove(0);
+
+            if(!visited.contains(node))
+            {
+                onVisitCallback.accept(node);
+                visited.add(node);
+
+                int[] edgesFromNode = edges[node];
+
+                for(int i=0 ; i<numNodes ; i++)
+                {
+                    if(edgesFromNode[i] > 0 && !visited.contains(i))
+                    {
+                        toVisit.add(i);
+                    }
+                }
+            }
+        }
     }
 
     private void validateNodeIndices(int fromNode, int toNode)
