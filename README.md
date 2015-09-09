@@ -24,6 +24,8 @@ Note: The implementations here are by no means the best or most elegant solution
   1. QuickSort (in place, without additional data structures)
   1. HeapSort
   1. ExternalSort
+  1. MergeSort
+  1. InsertionSort
 * Linked Lists
   1. Add/Remove/Get
   1. Remove duplicate elements
@@ -38,6 +40,8 @@ Note: The implementations here are by no means the best or most elegant solution
   1. Implement a min-heap
   2. Implement a max-heap
 * Graphs
+  1. Represent a graph using Node/Edge objects
+  1. Represent a graph using an adjacency matrix
   1. Depth first search
     * recursively
     * iteratively
@@ -68,3 +72,4 @@ Note: The implementations here are by no means the best or most elegant solution
 * Given a set of meetings find the amount of time someone spends in a meeting that conflicts with others
 * Find the running median of a stream of Integers
 * Given a 10x10 grid, a guy on one space, his house on another and some obstacles on the grid, find the shortest path home
+* Given an unordered stack of boarding passes with start and end destinations, find the overall start and destination of the whole journey
