@@ -63,6 +63,8 @@ Note: The implementations here are by no means the best or most elegant solution
 * Big Data
   1. Count the number of times a word occurs in a file using map reduce
   1. Calculate the powerset of an arbitrarily large set using map reduce
+* Encoding
+  1. Base64 encode a string
 
 ## Puzzles
 
