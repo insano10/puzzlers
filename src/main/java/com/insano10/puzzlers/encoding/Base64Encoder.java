@@ -1,6 +1,6 @@
 package com.insano10.puzzlers.encoding;
 
-public class Base64
+public class Base64Encoder
 {
     private static final String OUTPUT_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
