@@ -1,5 +1,6 @@
 package com.insano10.puzzlers.puzzles.codility;
 
+import com.insano10.puzzlers.puzzles.codility.timecomplexity.PermMissingElement;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

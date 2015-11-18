@@ -1,4 +1,4 @@
-package com.insano10.puzzlers.puzzles.codility;
+package com.insano10.puzzlers.puzzles.codility.timecomplexity;
 
 public class PermMissingElement
 {
