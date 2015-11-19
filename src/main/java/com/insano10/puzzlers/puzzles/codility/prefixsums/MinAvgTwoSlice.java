@@ -1,4 +1,4 @@
-package com.insano10.puzzlers.puzzles.codility.timecomplexity;
+package com.insano10.puzzlers.puzzles.codility.prefixsums;
 
 public class MinAvgTwoSlice
 {
