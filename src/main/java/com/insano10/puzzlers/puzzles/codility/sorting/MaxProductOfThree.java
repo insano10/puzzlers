@@ -1,0 +1,16 @@
+package com.insano10.puzzlers.puzzles.codility.sorting;
+
+import java.util.Arrays;
+
+public class MaxProductOfThree
+{
+    public int solution(int[] A)
+    {
+        Arrays.sort(A);
+
+        //the answer will either be the 3 highest positive numbers or the 2 lowest negative numbers multiplied by the highest positive
+        return Math.max(
+                A[A.length - 1] * A[A.length - 2] * A[A.length - 3],
+                A[0] * A[1] * A[A.length - 1]);
+    }
+}
